@@ -1,14 +1,15 @@
-const githubBase = 'https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/';
 const navLinks = document.querySelectorAll('.nav-links a');
 const searchInput = document.querySelector('#search-input');
 const searchButton = document.querySelector('#search-button');
 const sortSelect = document.querySelector('#sort-select');
 const orderButton = document.querySelector('#order-button');
+const carouselSection = document.querySelector('.carousel');
 const carouselList = document.querySelector('#carousel-list');
 const articleList = document.querySelector('#article-list');
 const resultsInfo = document.querySelector('#results-info');
 const heroTitle = document.querySelector('#hero-title');
 const heroSubtitle = document.querySelector('#hero-subtitle');
+const githubBase = 'https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/';
 
 const state = {
   articles: [],
@@ -24,6 +25,17 @@ const disciplineLabelKeys = {
   '4': 'discipline4'
 };
 
+const disciplineIcons = {
+  '1': '⚛️',
+  '2': '∑',
+  '3': '🧪',
+  '4': '🧬'
+};
+
+function getDisciplineIcon(code) {
+  return disciplineIcons[String(code)] || '✨';
+}
+
 function translate(key, params = {}) {
   return window.Common ? window.Common.translate(key, params) : key;
 }
@@ -35,6 +47,13 @@ function getLocaleValue(item, field) {
 
 function getDisciplineLabel(code) {
   return translate(disciplineLabelKeys[String(code)] || '');
+}
+
+function resolveArticleHref(page) {
+  if (!page) return page;
+  if (page.startsWith('http') || page.startsWith('/')) return page;
+  const isDisciplinePage = window.location.pathname.includes('/html/');
+  return isDisciplinePage ? `../${page}` : page;
 }
 
 function applyPageTheme() {
@@ -81,8 +100,11 @@ function renderCarousel() {
 
   carouselList.innerHTML = latest.map(article => `
     <article class="carousel-card">
-      <span class="tag tag-${article.discipline}">${getDisciplineLabel(article.discipline)}</span>
-      <h2><a href="${article.page}" class="card-link">${getLocaleValue(article, 'title')}</a></h2>
+      <div class="card-row">
+        <span class="card-icon">${getDisciplineIcon(article.discipline)}</span>
+        <span class="tag tag-${article.discipline}">${getDisciplineLabel(article.discipline)}</span>
+      </div>
+      <h2><a href="${resolveArticleHref(article.page)}" class="card-link">${getLocaleValue(article, 'title')}</a></h2>
       <p>${getLocaleValue(article, 'description')}</p>
     </article>
   `).join('');
@@ -101,12 +123,12 @@ function renderArticles() {
   articleList.innerHTML = list.map(article => `
     <article class="article-card" data-discipline="${article.discipline}">
       <div class="meta">
+        <span class="card-icon">${getDisciplineIcon(article.discipline)}</span>
         <span class="discipline tag tag-${article.discipline}">${getDisciplineLabel(article.discipline)}</span>
         <span>${new Date(article.date).toLocaleDateString(window.Common.locale === 'en' ? 'en-US' : 'it-IT')}</span>
       </div>
-      <h3><a href="${article.page}" class="card-link">${getLocaleValue(article, 'title')}</a></h3>
+      <h3><a href="${resolveArticleHref(article.page)}" class="card-link">${getLocaleValue(article, 'title')}</a></h3>
       <p>${getLocaleValue(article, 'description')}</p>
-      <p>${getLocaleValue(article, 'content')}</p>
     </article>
   `).join('');
 }
@@ -134,11 +156,17 @@ function highlightNavLink() {
   });
 }
 
+function updateCarouselVisibility() {
+  if (!carouselSection) return;
+  carouselSection.style.display = state.searchTerm.trim() ? 'none' : 'grid';
+}
+
 function updateView() {
   highlightNavLink();
   applyPageTheme();
   updateHeroText();
   updateOrderControls();
+  updateCarouselVisibility();
   renderCarousel();
   renderArticles();
 }
@@ -157,6 +185,13 @@ function attachHandlers() {
   searchButton.addEventListener('click', () => {
     state.searchTerm = searchInput.value.trim();
     updateView();
+  });
+
+  searchInput.addEventListener('input', () => {
+    const container = searchInput.closest('.search-box');
+    if (container) {
+      container.classList.toggle('has-value', searchInput.value.trim().length > 0);
+    }
   });
 
   searchInput.addEventListener('keydown', event => {

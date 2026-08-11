@@ -19,6 +19,17 @@ const disciplineLabelKeys = {
   '4': 'discipline4'
 };
 
+const disciplineIcons = {
+  '1': '⚛️',
+  '2': '∑',
+  '3': '🧪',
+  '4': '🧬'
+};
+
+function getDisciplineIcon(code) {
+  return disciplineIcons[String(code)] || '✨';
+}
+
 function translate(key, params = {}) {
   return window.Common ? window.Common.translate(key, params) : key;
 }
@@ -59,7 +70,7 @@ function renderArticle(article, content) {
   if (pageTitle) pageTitle.textContent = title;
   titleEl.textContent = title;
   descriptionEl.textContent = description;
-  disciplineEl.textContent = getDisciplineLabel(article.discipline);
+  disciplineEl.innerHTML = `<span class="card-icon">${getDisciplineIcon(article.discipline)}</span>${getDisciplineLabel(article.discipline)}`;
   disciplineEl.className = `discipline tag tag-${article.discipline}`;
   dateEl.textContent = `${translate('publishedOn')}: ${new Date(article.date).toLocaleDateString(locale === 'en' ? 'en-US' : 'it-IT')}`;
   keywordsEl.textContent = (article.keywords || []).join(', ');

@@ -1,4 +1,5 @@
-const langBase = document.body.dataset.langPath || 'lang/';
+const githubBase = 'https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/';
+const langBase = `${githubBase}lang/`;
 const translations = {};
 let currentLocale = localStorage.getItem('siteLang') || 'it';
 let currentTheme = localStorage.getItem('siteTheme') || 'dark';
@@ -59,11 +60,13 @@ function applyLanguage(locale) {
     pageTitle.textContent = translate(key, {});
   }
 
-  const langToggle = document.querySelector('#lang-toggle');
-  if (langToggle) langToggle.checked = currentLocale === 'en';
+  const langSelect = document.querySelector('#lang-select');
+  if (langSelect) langSelect.value = currentLocale;
 
-  const themeToggle = document.querySelector('#theme-toggle');
-  if (themeToggle) themeToggle.checked = currentTheme === 'dark';
+  const themeButton = document.querySelector('#theme-toggle');
+  if (themeButton) {
+    themeButton.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+  }
 
   document.dispatchEvent(new CustomEvent('languagechange', { detail: { locale: currentLocale } }));
 }
@@ -72,8 +75,8 @@ function applyTheme(theme) {
   currentTheme = theme;
   localStorage.setItem('siteTheme', theme);
   document.documentElement.classList.toggle('dark', theme === 'dark');
-  const themeToggle = document.querySelector('#theme-toggle');
-  if (themeToggle) themeToggle.checked = theme === 'dark';
+  const themeButton = document.querySelector('#theme-toggle');
+  if (themeButton) themeButton.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
 }
 
 async function init() {
@@ -82,19 +85,20 @@ async function init() {
   applyTheme(currentTheme);
   applyLanguage(currentLocale);
 
-  const langToggle = document.querySelector('#lang-toggle');
-  if (langToggle) {
-    langToggle.addEventListener('change', async () => {
-      const nextLocale = langToggle.checked ? 'en' : 'it';
+  const langSelect = document.querySelector('#lang-select');
+  if (langSelect) {
+    langSelect.addEventListener('change', async () => {
+      const nextLocale = langSelect.value || 'it';
       await loadLocale(nextLocale);
       applyLanguage(nextLocale);
     });
   }
 
-  const themeToggle = document.querySelector('#theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('change', () => {
-      applyTheme(themeToggle.checked ? 'dark' : 'light');
+  const themeButton = document.querySelector('#theme-toggle');
+  if (themeButton) {
+    themeButton.addEventListener('click', () => {
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
     });
   }
 }

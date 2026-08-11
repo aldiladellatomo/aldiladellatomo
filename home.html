@@ -7,7 +7,7 @@
     <meta name="description" content="Blog scientifico con articoli di discipline scientifiche e approfondimenti moderni." />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body data-lang-path="lang/">
+  <body data-lang-path="https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/lang/">
     <header>
       <div class="navbar">
         <a class="nav-logo" href="home.html" data-i18n-key="home"></a>
@@ -19,21 +19,14 @@
         </nav>
         <div class="search-box">
           <input id="search-input" type="search" placeholder="" data-i18n-placeholder="searchPlaceholder" aria-label="" data-i18n-aria="searchLabel" />
-          <button id="search-button" type="button"><span class="button-icon">🔎</span><span data-i18n-key="searchButton"></span></button>
+          <button id="search-button" class="search-icon" type="button" aria-label="Search">🔎</button>
         </div>
-        <div class="toggle-group">
-          <label class="switch">
-            <span class="switch-icon">🌙</span>
-            <input id="theme-toggle" type="checkbox" />
-            <span class="slider"></span>
-            <span class="switch-text" data-i18n-key="darkMode"></span>
-          </label>
-          <label class="switch">
-            <span class="switch-icon">🌐</span>
-            <input id="lang-toggle" type="checkbox" />
-            <span class="slider"></span>
-            <span class="switch-text" data-i18n-key="language"></span>
-          </label>
+        <div class="header-actions">
+          <button id="theme-toggle" class="icon-toggle" type="button" aria-label="Toggle theme">🌙</button>
+          <select id="lang-select" class="lang-select" aria-label="Select language">
+            <option value="it">IT</option>
+            <option value="en">EN</option>
+          </select>
         </div>
       </div>
     </header>
