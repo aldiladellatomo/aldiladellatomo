@@ -5,7 +5,6 @@ const disciplineEl = document.querySelector('#article-discipline');
 const dateEl = document.querySelector('#article-date');
 const keywordsEl = document.querySelector('#article-keywords-list');
 const contentEl = document.querySelector('#article-content');
-const backLink = document.querySelector('#back-home');
 const pageTitle = document.querySelector('#page-title');
 
 let currentArticle = null;
@@ -17,17 +16,6 @@ const disciplineLabelKeys = {
   '3': 'discipline3',
   '4': 'discipline4'
 };
-
-const disciplineIcons = {
-  '1': '⚛️',
-  '2': '∑',
-  '3': '🧪',
-  '4': '🧬'
-};
-
-function getDisciplineIcon(code) {
-  return disciplineIcons[String(code)] || '✨';
-}
 
 function translate(key, params = {}) {
   return window.Common ? window.Common.translate(key, params) : key;
@@ -51,9 +39,7 @@ function applyPageTheme(code) {
 
 async function fetchJson(url) {
   const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`HTTP error ${response.status}`);
-  }
+  if (!response.ok) return null;
   return response.json();
 }
 
@@ -65,16 +51,15 @@ function renderArticle(article, content) {
   const description = getLocaleValue(article, 'description');
   const bodyContent = content[`content-${locale}`] || content['content-it'];
 
-  document.title = `${title} - ${translate('home')}`;
+  document.title = `${title} - ${translate('siteName')}`;
   if (pageTitle) pageTitle.textContent = title;
   titleEl.textContent = title;
   descriptionEl.textContent = description;
-  disciplineEl.innerHTML = `<span class="card-icon">${getDisciplineIcon(article.discipline)}</span>${getDisciplineLabel(article.discipline)}`;
+  disciplineEl.textContent = getDisciplineLabel(article.discipline);
   disciplineEl.className = `discipline tag tag-${article.discipline}`;
   dateEl.textContent = `${translate('publishedOn')}: ${new Date(article.date).toLocaleDateString(locale === 'en' ? 'en-US' : 'it-IT')}`;
   keywordsEl.textContent = (article.keywords || []).join(', ');
   contentEl.textContent = bodyContent;
-  backLink.textContent = translate('backHome');
   applyPageTheme(article.discipline);
 }
 
@@ -90,21 +75,29 @@ function updateTranslations() {
 
 async function loadArticle() {
   if (!articleId) {
-    contentEl.textContent = translate('invalidArticleId');
+    contentEl.textContent = '';
     return;
   }
-  try {
-    const meta = await fetchJson(`${githubBase}articles/meta.json`);
-    const article = meta.find(item => String(item.id) === articleId);
-    if (!article) {
-      contentEl.textContent = translate('articleNotFound');
-      return;
-    }
-    const content = await fetchJson(`${githubBase}articles/${article.id}.json`);
-    renderArticle(article, content);
-  } catch (error) {
-    contentEl.textContent = translate('articleLoadError', { message: error.message });
+
+  const meta = await fetchJson(`${githubBase}articles/meta.json`);
+  if (!meta) {
+    contentEl.textContent = '';
+    return;
   }
+
+  const article = meta.find(item => String(item.id) === articleId);
+  if (!article) {
+    contentEl.textContent = '';
+    return;
+  }
+
+  const content = await fetchJson(`${githubBase}articles/${article.id}.json`);
+  if (!content) {
+    contentEl.textContent = '';
+    return;
+  }
+
+  renderArticle(article, content);
 }
 
 window.addEventListener('DOMContentLoaded', async () => {

@@ -23,17 +23,6 @@ const disciplineLabelKeys = {
   '4': 'discipline4'
 };
 
-const disciplineIcons = {
-  '1': '⚛️',
-  '2': '∑',
-  '3': '🧪',
-  '4': '🧬'
-};
-
-function getDisciplineIcon(code) {
-  return disciplineIcons[String(code)] || '✨';
-}
-
 function translate(key, params = {}) {
   return window.Common ? window.Common.translate(key, params) : key;
 }
@@ -65,45 +54,39 @@ function normalize(text) {
   return String(text || '').toLowerCase();
 }
 
+function sortArticles(items) {
+  return [...items].sort((a, b) => {
+    const leftTitle = getLocaleValue(a, 'title').toLowerCase();
+    const rightTitle = getLocaleValue(b, 'title').toLowerCase();
+    const leftDate = new Date(a.date).getTime();
+    const rightDate = new Date(b.date).getTime();
+
+    if (state.sortOrder === 'alpha-asc') return leftTitle.localeCompare(rightTitle);
+    if (state.sortOrder === 'alpha-desc') return rightTitle.localeCompare(leftTitle);
+    if (state.sortOrder === 'date-new') return rightDate - leftDate;
+    if (state.sortOrder === 'date-old') return leftDate - rightDate;
+
+    return leftTitle.localeCompare(rightTitle);
+  });
+}
+
 function filterArticles() {
-  return state.articles
-    .filter(article => {
-      if (state.activeDiscipline !== 'all' && String(article.discipline) !== String(state.activeDiscipline)) {
-        return false;
-      }
-      if (!state.searchTerm) return true;
-      const query = normalize(state.searchTerm);
-      return [
-        getLocaleValue(article, 'title'),
-        getLocaleValue(article, 'description'),
-        getLocaleValue(article, 'content'),
-        ...(article.keywords || [])
-      ].some(value => normalize(value).includes(query));
-    })
-    .sort((a, b) => {
-      const leftTitle = getLocaleValue(a, 'title').toLowerCase();
-      const rightTitle = getLocaleValue(b, 'title').toLowerCase();
-      const leftDate = new Date(a.date).getTime();
-      const rightDate = new Date(b.date).getTime();
+  const filtered = state.articles.filter(article => {
+    if (state.activeDiscipline !== 'all' && String(article.discipline) !== String(state.activeDiscipline)) {
+      return false;
+    }
+    if (!state.searchTerm) return true;
 
-      if (state.sortOrder === 'alpha-asc') {
-        return leftTitle.localeCompare(rightTitle);
-      }
+    const query = normalize(state.searchTerm);
+    return [
+      getLocaleValue(article, 'title'),
+      getLocaleValue(article, 'description'),
+      getLocaleValue(article, 'content'),
+      ...(article.keywords || [])
+    ].some(value => normalize(value).includes(query));
+  });
 
-      if (state.sortOrder === 'alpha-desc') {
-        return rightTitle.localeCompare(leftTitle);
-      }
-
-      if (state.sortOrder === 'date-new') {
-        return rightDate - leftDate;
-      }
-
-      if (state.sortOrder === 'date-old') {
-        return leftDate - rightDate;
-      }
-
-      return leftTitle.localeCompare(rightTitle);
-    });
+  return sortArticles(filtered);
 }
 
 function renderCarousel() {
@@ -117,7 +100,6 @@ function renderCarousel() {
   carouselList.innerHTML = latest.map(article => `
     <article class="carousel-card">
       <div class="card-row">
-        <span class="card-icon">${getDisciplineIcon(article.discipline)}</span>
         <span class="tag tag-${article.discipline}">${getDisciplineLabel(article.discipline)}</span>
       </div>
       <h2><a href="${resolveArticleHref(article.page)}" class="card-link">${getLocaleValue(article, 'title')}</a></h2>
@@ -139,7 +121,6 @@ function renderArticles() {
   articleList.innerHTML = list.map(article => `
     <article class="article-card" data-discipline="${article.discipline}">
       <div class="meta">
-        <span class="card-icon">${getDisciplineIcon(article.discipline)}</span>
         <span class="discipline tag tag-${article.discipline}">${getDisciplineLabel(article.discipline)}</span>
         <span>${new Date(article.date).toLocaleDateString(window.Common.locale === 'en' ? 'en-US' : 'it-IT')}</span>
       </div>
@@ -232,28 +213,28 @@ function attachHandlers() {
 
 async function fetchJson(url) {
   const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`HTTP error ${response.status}`);
-  }
+  if (!response.ok) return null;
   return response.json();
 }
 
 async function loadArticles() {
-  try {
-    const metadata = await fetchJson(`${githubBase}articles/meta.json`);
-    const articleData = await Promise.all(metadata.map(async item => {
-      const articleJson = await fetchJson(`${githubBase}articles/${item.id}.json`);
-      return {
-        ...item,
-        ...articleJson
-      };
-    }));
-    state.articles = articleData;
-    updateView();
-  } catch (error) {
-    carouselList.innerHTML = `<div class="no-results">${translate('errorLoadingArticles', { message: error.message })}</div>`;
+  const metadata = await fetchJson(`${githubBase}articles/meta.json`);
+  if (!metadata) {
+    carouselList.innerHTML = '';
     articleList.innerHTML = '';
+    return;
   }
+
+  const articleData = await Promise.all(metadata.map(async item => {
+    const articleJson = await fetchJson(`${githubBase}articles/${item.id}.json`);
+    return {
+      ...item,
+      ...(articleJson || {})
+    };
+  }));
+
+  state.articles = articleData;
+  updateView();
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
