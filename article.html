@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aldilà dell'atomo</title>
-    <meta name="description" content="Blog scientifico con articoli di fisica, matematica, chimica e biologia." />
+    <title id="page-title">Aldilà dell'atomo</title>
+    <meta name="description" content="Articolo scientifico." />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -37,39 +37,22 @@
     </header>
 
     <main>
-      <section class="hero">
-        <div>
-          <h1 id="hero-title">La scienza in primo piano</h1>
-          <p id="hero-subtitle">Esplora articoli recenti, ordina alfabeticamente e filtra per disciplina. Scopri contenuti facili da leggere su fisica, matematica, chimica e biologia.</p>
-        </div>
-      </section>
-
-      <section class="carousel" aria-label="Articoli recenti">
-        <div class="carousel-inner" id="carousel-list"></div>
-      </section>
-
-      <section class="order-section">
-        <div class="controls">
-          <div class="info" id="carousel-info" data-i18n-key="latest">Carosello con gli ultimi 3 articoli pubblicati.</div>
-          <div class="actions">
-            <select id="sort-select" aria-label="Ordina gli articoli">
-              <option value="asc" data-i18n-key="orderAZ">Ordina A → Z</option>
-              <option value="desc" data-i18n-key="orderZA">Ordina Z → A</option>
-            </select>
-            <button id="order-button" type="button" data-i18n-key="orderAZ">Ordina A → Z</button>
+      <section class="article-detail">
+        <div class="article-meta-wrap">
+          <div class="meta">
+            <span id="article-discipline" class="discipline tag"></span>
+            <span id="article-date"></span>
           </div>
+          <h1 id="article-title">Titolo articolo</h1>
+          <p id="article-description">Descrizione articolo.</p>
+          <p><strong data-i18n-key="keywords">Parole chiave</strong>: <span id="article-keywords-list"></span></p>
+          <a id="back-home" class="back-link" href="home.html" data-i18n-key="backHome">Torna alla home</a>
         </div>
-      </section>
-
-      <section class="list-grid">
-        <div class="controls">
-          <div class="info" id="results-info" data-i18n-key="loading">Caricamento articoli...</div>
-        </div>
-        <div id="article-list"></div>
+        <div class="article-content" id="article-content"></div>
       </section>
     </main>
 
     <script src="script/common.js"></script>
-    <script src="script/app.js"></script>
+    <script src="script/article.js"></script>
   </body>
 </html>
