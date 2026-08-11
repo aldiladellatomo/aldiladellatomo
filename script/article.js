@@ -1,4 +1,3 @@
-const githubBase = 'https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/';
 const articleId = new URLSearchParams(window.location.search).get('id');
 const titleEl = document.querySelector('#article-title');
 const descriptionEl = document.querySelector('#article-description');

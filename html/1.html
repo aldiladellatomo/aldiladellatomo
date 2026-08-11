@@ -10,8 +10,8 @@
   <body data-default-discipline="1" data-lang-path="https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/lang/">
     <header>
       <div class="navbar">
-        <a class="nav-logo" href="../home.html" data-i18n-key="home"></a>
         <nav class="nav-links" data-i18n-aria="navAria">
+          <a href="../home.html" data-discipline="all" data-i18n-key="home"></a>
           <a href="1.html" data-discipline="1" data-i18n-key="discipline1"></a>
           <a href="2.html" data-discipline="2" data-i18n-key="discipline2"></a>
           <a href="3.html" data-discipline="3" data-i18n-key="discipline3"></a>
@@ -46,13 +46,12 @@
       <section class="order-section">
         <div class="controls">
           <div class="info" id="carousel-info" data-i18n-key="latest"></div>
-          <div class="actions">
-            <select id="sort-select" data-i18n-aria="sortAria">
-              <option value="asc" data-i18n-key="orderAZ"></option>
-              <option value="desc" data-i18n-key="orderZA"></option>
-            </select>
-            <button id="order-button" type="button" data-i18n-key="orderAZ"></button>
-          </div>
+          <select id="sort-select" data-i18n-aria="sortAria">
+            <option value="alpha-asc" data-i18n-key="orderAZ"></option>
+            <option value="alpha-desc" data-i18n-key="orderZA"></option>
+            <option value="date-new" data-i18n-key="orderNewest"></option>
+            <option value="date-old" data-i18n-key="orderOldest"></option>
+          </select>
         </div>
       </section>
 
@@ -64,7 +63,15 @@
       </section>
     </main>
 
+    <footer class="page-footer">
+      <div class="footer-bar">
+        <a class="footer-link" href="https://github.com/aldiladellatomo" target="_blank" rel="noopener" data-i18n-key="footerGitHub"></a>
+        <a class="footer-link" href="mailto:info@aldiladellatomo.com" data-i18n-key="footerEmail"></a>
+      </div>
+    </footer>
+
     <script src="../script/common.js"></script>
     <script src="../script/app.js"></script>
   </body>
 </html>
+

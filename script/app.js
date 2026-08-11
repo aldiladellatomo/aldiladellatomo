@@ -2,20 +2,18 @@ const navLinks = document.querySelectorAll('.nav-links a');
 const searchInput = document.querySelector('#search-input');
 const searchButton = document.querySelector('#search-button');
 const sortSelect = document.querySelector('#sort-select');
-const orderButton = document.querySelector('#order-button');
 const carouselSection = document.querySelector('.carousel');
 const carouselList = document.querySelector('#carousel-list');
 const articleList = document.querySelector('#article-list');
 const resultsInfo = document.querySelector('#results-info');
 const heroTitle = document.querySelector('#hero-title');
 const heroSubtitle = document.querySelector('#hero-subtitle');
-const githubBase = 'https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/';
 
 const state = {
   articles: [],
   activeDiscipline: document.body.dataset.defaultDiscipline || 'all',
   searchTerm: '',
-  sortOrder: 'asc'
+  sortOrder: 'alpha-asc'
 };
 
 const disciplineLabelKeys = {
@@ -83,10 +81,28 @@ function filterArticles() {
       ].some(value => normalize(value).includes(query));
     })
     .sort((a, b) => {
-      const left = getLocaleValue(a, 'title').toLowerCase();
-      const right = getLocaleValue(b, 'title').toLowerCase();
-      if (left === right) return 0;
-      return state.sortOrder === 'asc' ? (left < right ? -1 : 1) : (left > right ? -1 : 1);
+      const leftTitle = getLocaleValue(a, 'title').toLowerCase();
+      const rightTitle = getLocaleValue(b, 'title').toLowerCase();
+      const leftDate = new Date(a.date).getTime();
+      const rightDate = new Date(b.date).getTime();
+
+      if (state.sortOrder === 'alpha-asc') {
+        return leftTitle.localeCompare(rightTitle);
+      }
+
+      if (state.sortOrder === 'alpha-desc') {
+        return rightTitle.localeCompare(leftTitle);
+      }
+
+      if (state.sortOrder === 'date-new') {
+        return rightDate - leftDate;
+      }
+
+      if (state.sortOrder === 'date-old') {
+        return leftDate - rightDate;
+      }
+
+      return leftTitle.localeCompare(rightTitle);
     });
 }
 
@@ -146,7 +162,6 @@ function updateHeroText() {
 
 function updateOrderControls() {
   if (sortSelect) sortSelect.value = state.sortOrder;
-  if (orderButton) orderButton.textContent = translate(state.sortOrder === 'asc' ? 'orderAZ' : 'orderZA');
 }
 
 function highlightNavLink() {
@@ -203,12 +218,6 @@ function attachHandlers() {
 
   sortSelect.addEventListener('change', () => {
     state.sortOrder = sortSelect.value;
-    updateOrderControls();
-    updateView();
-  });
-
-  orderButton.addEventListener('click', () => {
-    state.sortOrder = state.sortOrder === 'asc' ? 'desc' : 'asc';
     updateOrderControls();
     updateView();
   });
