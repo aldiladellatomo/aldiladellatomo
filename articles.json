@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "name-it":"articolo 1",
+        "name-en":"article 1",
+        "class":"a1",
+        "date":"2026-06-01",
+        "content-it":"contenuto articolo 1",
+        "content-en":"article 1 content"
+    },
+    {
+        "id":2,
+        "name-it":"articolo 2",
+        "name-en":"article 2",
+        "class":"a2",
+        "date":"2026-06-01",
+        "content-it":"contenuto articolo 2",
+        "content-en":"article 2 content"
+    },
+    {
+        "id":3,
+        "name-it":"articolo 3",
+        "name-en":"article 3",
+        "class":"a2",
+        "date":"2026-06-01",
+        "content-it":"contenuto articolo 3",
+        "content-en":"article 3 content"
+    }
+
+]
