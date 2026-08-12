@@ -50,7 +50,6 @@ function renderArticle(article, content) {
   const title = getLocaleValue(article, 'title');
   const description = getLocaleValue(article, 'description');
   const bodyContent = content[`content-${locale}`] || content['content-it'];
-
   document.title = `${title} - ${translate('siteName')}`;
   if (pageTitle) pageTitle.textContent = title;
   titleEl.textContent = title;
@@ -59,7 +58,7 @@ function renderArticle(article, content) {
   disciplineEl.className = `discipline tag tag-${article.discipline}`;
   dateEl.textContent = `${translate('publishedOn')}: ${new Date(article.date).toLocaleDateString(locale === 'en' ? 'en-US' : 'it-IT')}`;
   keywordsEl.textContent = (article.keywords || []).join(', ');
-  contentEl.textContent = bodyContent;
+  contentEl.innerHTML = renderArticleContent(bodyContent);
   applyPageTheme(article.discipline);
 }
 

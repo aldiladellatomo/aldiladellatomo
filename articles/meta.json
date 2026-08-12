@@ -3,9 +3,7 @@
     "id": 1,
     "page": "html/article.html?id=1",
     "title-it": "titolo 1",
-    "title-en": "titolo 1",
     "description-it": "Descrizione 1",
-    "description-en": "Descrizione 1",
     "discipline": 1,
     "keywords": ["1", "2", "3", "4", "5"],
     "date": "2026-08-10"
@@ -14,9 +12,7 @@
     "id": 2,
     "page": "html/article.html?id=2",
     "title-it": "titolo 2",
-    "title-en": "titolo 2",
     "description-it": "Descrizione 2",
-    "description-en": "Descrizione 2",
     "discipline": 2,
     "keywords": ["4", "5", "6", "7", "8"],
     "date": "2026-08-08"
@@ -25,9 +21,7 @@
     "id": 3,
     "page": "html/article.html?id=3",
     "title-it": "titolo 3",
-    "title-en": "titolo 3",
     "description-it": "Descrizione 3",
-    "description-en": "Descrizione 3",
     "discipline": 3,
     "keywords": ["4", "5", "6", "7", "8"],
     "date": "2026-08-06"
@@ -36,9 +30,7 @@
     "id": 4,
     "page": "html/article.html?id=4",
     "title-it": "titolo 4",
-    "title-en": "titolo 4",
     "description-it": "Descrizione 4",
-    "description-en": "Descrizione 4",
     "discipline": 4,
     "keywords": ["4", "5", "6", "7", "8"],
     "date": "2026-08-04"

@@ -8,6 +8,7 @@ const articleList = document.querySelector('#article-list');
 const resultsInfo = document.querySelector('#results-info');
 const heroTitle = document.querySelector('#hero-title');
 const heroSubtitle = document.querySelector('#hero-subtitle');
+const githubBase = 'https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/';
 
 const state = {
   articles: [],

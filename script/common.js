@@ -1,53 +1,66 @@
-const appConfig = {};
-const translations = { it: {} };
-let currentTheme = localStorage.getItem('siteTheme') || 'dark';
+const appConfig = {
+  siteName: 'Aldilà dell\'atomo',
+  defaultTheme: 'dark',
+  footerLinks: {
+    github: 'https://github.com/aldiladellatomo',
+    email: 'mailto:aldiladellatomo@gmail.com'
+  }
+};
+
+const translations = {
+  siteName: 'Aldilà dell\'atomo',
+  home: 'Aldilà dell\'atomo',
+  discipline1: 'Fisica',
+  discipline2: 'Matematica',
+  discipline3: 'Chimica',
+  discipline4: 'Biologia',
+  searchPlaceholder: 'Cerca articoli...',
+  searchButton: 'Cerca',
+  darkMode: 'Tema scuro',
+  language: 'Italiano',
+  navAria: 'Navigazione principale',
+  searchLabel: 'Cerca articoli',
+  carouselAria: 'Articoli recenti',
+  sortAria: 'Ordina articoli',
+  latest: 'I 3 articoli più freschi.',
+  orderAZ: 'Ordina A → Z',
+  orderZA: 'Ordina Z → A',
+  orderNewest: 'Più recenti prima',
+  orderOldest: 'Più vecchi prima',
+  loading: 'Caricamento articoli...',
+  footerGitHub: 'GitHub',
+  footerEmail: 'Contattaci',
+  articlesFoundOne: '{count} articolo trovato',
+  articlesFoundMany: '{count} articoli trovati',
+  noResults: 'Nessun articolo corrisponde ai filtri selezionati. Prova un altro termine.',
+  backHome: 'Torna alla home',
+  keywords: 'Parole chiave',
+  publishedOn: 'Pubblicato il',
+  articleTitlePlaceholder: 'Titolo articolo',
+  articleDescriptionPlaceholder: 'Descrizione articolo.',
+  subjectTitle1: 'Fisica - Atom Beyond',
+  subjectTitle2: 'Matematica - Atom Beyond',
+  subjectTitle3: 'Chimica - Atom Beyond',
+  subjectTitle4: 'Biologia - Atom Beyond',
+  heroTitleAll: 'Aldilà dell\'atomo',
+  heroSubtitleAll: 'd1.',
+  heroTitleDiscipline: '{discipline} in primo piano',
+  heroSubtitleDiscipline: '{discipline}'
+};
+
+let currentTheme = localStorage.getItem('siteTheme') || appConfig.defaultTheme;
 let currentLocale = 'it';
 
-function getLocaleFilePath() {
-  const inHtmlFolder = window.location.pathname.includes('/html/');
-  return inHtmlFolder ? '../lang/it.json' : './lang/it.json';
-}
-
-async function loadConfig() {
-  try {
-    const configPath = window.location.pathname.includes('/html/')
-      ? '../configuration.json'
-      : './configuration.json';
-
-    const response = await fetch(configPath, { cache: 'no-store' });
-    if (!response || !response.ok) return appConfig;
-
-    const config = await response.json();
-    Object.assign(appConfig, config || {});
-
-    if (appConfig.defaultTheme) {
-      currentTheme = localStorage.getItem('siteTheme') || appConfig.defaultTheme;
-    }
-  } catch {
-    // silently keep the defaults in case config is unavailable
+function loadConfig() {
+  if (appConfig.defaultTheme) {
+    currentTheme = localStorage.getItem('siteTheme') || appConfig.defaultTheme;
   }
 
   return appConfig;
 }
 
-async function loadLocale() {
-  try {
-    const response = await fetch(getLocaleFilePath(), { cache: 'no-store' });
-    if (!response || !response.ok) {
-      translations.it = {};
-      return translations.it;
-    }
-
-    translations.it = await response.json();
-  } catch {
-    translations.it = {};
-  }
-
-  return translations.it;
-}
-
 function translate(key, params = {}) {
-  const rawText = translations.it[key] || key;
+  const rawText = translations[key] || key;
   let text = String(rawText);
 
   Object.keys(params).forEach(param => {
@@ -109,18 +122,10 @@ function applyLanguage() {
 }
 
 async function init() {
-  await loadConfig();
-  await loadLocale();
+  loadConfig();
   applyFooterLinks();
   applyTheme(currentTheme);
   applyLanguage();
-
-  const langSelect = document.querySelector('#lang-select');
-  if (langSelect) {
-    langSelect.innerHTML = '<option value="it">IT</option>';
-    langSelect.value = 'it';
-    langSelect.disabled = true;
-  }
 
   const themeButton = document.querySelector('#theme-toggle');
   if (themeButton) {
