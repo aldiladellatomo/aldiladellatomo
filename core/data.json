@@ -1,0 +1,23 @@
+[
+    5,
+    {
+        "name":"a0",
+        "color":"grey"
+    },
+    {
+        "name":"a1",
+        "color":"red"
+    },
+    {
+        "name":"a2",
+        "color":"blue"
+    },
+    {
+        "name":"a3",
+        "color":"jellow"
+    },
+    {
+        "name":"a4",
+        "color":"green"
+    }
+]
