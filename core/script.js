@@ -1,8 +1,12 @@
-const data = await fetch("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo.github.io/main/data.json").then(response => response.json());
-var lang= await fetch("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo.github.io/main/lang/"+navigator.language.substring(0,2)+".json")
-var actualschede=a0;
+const data = fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo.github.io/main/data.json");
+var lang= fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo.github.io/main/lang/"+navigator.language.substring(0,2)+".json")
+var actualschede="a0";
 var a;
-function bootstap(){
+async function fetchJson(url) {
+  const response = await fetch(url);
+  return response.json();
+}
+function bootstrap(){
 for(var i=1;i<data[0]+1;i++){
     a=a+"<li id="+data[i+1].name+" ";
     if(actualschede==data[i+1].name){
