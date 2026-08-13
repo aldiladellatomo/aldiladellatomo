@@ -1,6 +1,6 @@
 
 
-async function bootstrap(){
+async function hbootstrap(){
     var {lang, data, articles}=await getAll();
     var a="";
     for(var i=0;i<data[0];i++){
@@ -13,7 +13,7 @@ async function bootstrap(){
     document.getElementById("nav").innerHTML=a;
     document.getElementById("h1").innerText=lang[0][actualschede];
     var b="";
-    for(var i=0;i<articles.length;i++){
+    for(var i=1;i<articles[0]+1;i++){
         if(articles[i].class==actualschede || actualschede=="a0"){
             b=b+"<a href=core/article.html?id="+articles[i].id+" class='"+articles[i].class+"'><h1>"+articles[i]["name-"+actuallang]+"</h1><h2>"+articles[i].date+"</h2></a";
             }
@@ -24,4 +24,4 @@ function show(active){
     actualschede=active;
     bootstrap();
 }
-bootstrap();
+hbootstrap();

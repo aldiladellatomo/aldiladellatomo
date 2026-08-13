@@ -1,5 +1,5 @@
 var id = new URLSearchParams(window.location.search).get('id');
-async function bootstrap() {
+async function abootstrap() {
     var {lang, data, articles}=await getAll();
     document.getElementById("h1").innerHTML=articles[id]["name-"+actuallang];
     document.getElementById("content").innerHTML=articles[id]["content-"+actuallang];
@@ -19,4 +19,4 @@ async function bootstrap() {
         document.getElementById("content").innerHTML=b;
     }
 }
-bootstrap();
+abootstrap();
