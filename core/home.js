@@ -3,12 +3,12 @@
 async function hbootstrap(){
     var {lang, data, articles}=await getAll();
     var a="";
-    for(var i=0;i<data[0].length;i++){
-        a=a+"<button id="+data[0][i].name+" ";
-        if(actualschede==data[0][i].name){
+    for(var i=0;i<=data[0];i++){
+        a=a+"<button id=a"+i+" ";
+        if(actualschede=="a"+i){
             a=a+"class=active "
         }
-        a=a+"onclick='show(\""+data[0][i+1].name+"\")'>"+lang[0][data[0][i+1].name]+"</a></li>";
+        a=a+"onclick='show(\"a"+i+"\")'>"+lang[0]["a"+i]+"</a></li>";
     }
     document.getElementById("nav").innerHTML=a;
     document.getElementById("h1").innerText=lang[0][actualschede];

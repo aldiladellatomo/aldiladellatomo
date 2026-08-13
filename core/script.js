@@ -24,7 +24,7 @@ async function bootstrap(){
   document.getElementById("lang").value=actuallang;
   var b="";
   for(var i=0;i<data[2].length;i++){
-    b=b+"<button class='contact' value="+data[2][i]+">"+lang[0][data[2][i]]+"</button>"
+    b=b+"<button class='contact' href="+data[2][i][1]+" value='"+data[2][i][0]"></button>"
   }
   document.getElementById("footer").innerText=b;
 }

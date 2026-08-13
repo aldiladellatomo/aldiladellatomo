@@ -1,38 +1,15 @@
 [
-    [
-    {
-        "name":"a0",
-        "color":"grey"
-    },
-    {
-        "name":"a1",
-        "color":"red"
-    },
-    {
-        "name":"a2",
-        "color":"blue"
-    },
-    {
-        "name":"a3",
-        "color":"jellow"
-    },
-    {
-        "name":"a4",
-        "color":"green"
-    }
-    ],
+    4,
     [
         "it",
         "en"
     ],
     [ 
-        {
-        "name":"Github",
-        "link":"https://github.com/aldiladellatomo"
-        },
-        {
-        "name":"Email",
-        "link":"mailto:aldiladellatomo@gmail.com"
-        }
+        ["Github",
+        "https://github.com/aldiladellatomo"
+        ],
+        ["Email",
+        "mailto:aldiladellatomo@gmail.com"
+        ]
     ]
 ]
