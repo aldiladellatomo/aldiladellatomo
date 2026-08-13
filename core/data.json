@@ -19,7 +19,7 @@
     {
         "name":"a4",
         "color":"green"
-    },
+    }
     ],
     [
         "it",
@@ -34,5 +34,5 @@
         "name":"Email",
         "link":"mailto:aldiladellatomo@gmail.com"
         }
-    ],
+    ]
 ]
