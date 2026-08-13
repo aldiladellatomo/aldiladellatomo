@@ -20,5 +20,11 @@ async function bootstrap(){
   for(var i=0;i<data[data[0]+1].length;i++){
     a=a+"<option class='select' value="+data[data[0]+1][i]+">"+data[data[0]+1][i]+"</option>"
   }
-  document.getElementById("language").innerHTML=a;
+  document.getElementById("lang").innerHTML=a;
+  document.getElementById("lang").value=actuallang;
 }
+bootstrap();
+document.getElementById("lang").addEventListener("change", function() {
+    actuallang = this.value;
+    bootstrap();
+  });
