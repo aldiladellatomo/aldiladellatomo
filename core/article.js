@@ -10,7 +10,7 @@ async function bootstrap() {
     for(var i=0;i<content.length;i++){
         if(content[i].type=="link"){
             if(content[i].class=="internal"){
-                b=b+"<a href=core/article.html?id="+content[i].id+" class='internal'>"+content[i]["name-"+actuallang]+"</a>";
+                b=b+"<a href=article.html?id="+content[i].id+" class='internal'>"+content[i]["name-"+actuallang]+"</a>";
             }
         }
         if(content[i].type=="text"){

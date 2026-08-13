@@ -14,3 +14,11 @@ async function getArticle(id){
     var content= await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/articles/"+id+"/article.json");
     return content;
 }
+async function bootstrap(){
+  var {lang,data,articles} =await getAll();
+  var a="";
+  for(var i=0;i<data[data[0]+1].length;i++){
+    a=a+"<option class='select' value="+data[data[0]+1][i]+">"+data[data[0]+1][i]+"</option>"
+  }
+  document.getElementById("language").innerHTML=a;
+}
