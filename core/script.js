@@ -17,16 +17,16 @@ async function getArticle(id){
 async function bootstrap(){
   var {lang,data,articles} =await getAll();
   var a="";
-  for(var i=0;i<data[data[0]+1].length;i++){
-    a=a+"<option class='select' value="+data[data[0]+1][i]+">"+data[data[0]+1][i]+"</option>"
+  for(var i=0;i<data[1].length;i++){
+    a=a+"<option class='select' value="+data[1][i]+">"+data[1][i]+"</option>"
   }
   document.getElementById("lang").innerHTML=a;
   document.getElementById("lang").value=actuallang;
   var b="";
-  for(var i=0;i<data[data[0]+2].length;i++){
-    b=b+"<button class='contact' value="+data[data[0]+2][i]+">"+lang[0][data[data[0]+2][i]]+"</button>"
+  for(var i=0;i<data[2].length;i++){
+    b=b+"<button class='contact' value="+data[2][i]+">"+lang[0][data[2][i]]+"</button>"
   }
-  document.getElementById("footer").innerHTML=b;
+  document.getElementById("footer").innerText=b;
 }
 bootstrap();
 document.getElementById("lang").addEventListener("change", function() {

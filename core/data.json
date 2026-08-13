@@ -1,5 +1,5 @@
 [
-    5,
+    [
     {
         "name":"a0",
         "color":"grey"
@@ -20,12 +20,19 @@
         "name":"a4",
         "color":"green"
     },
+    ],
     [
         "it",
         "en"
     ],
-    {
-        "github":"https://github.com/aldiladellatomo",
-        "email":"mailto:aldiladellatomo@gmail.com"
-    }
+    [ 
+        {
+        "name":"Github",
+        "link":"https://github.com/aldiladellatomo"
+        },
+        {
+        "name":"Email",
+        "link":"mailto:aldiladellatomo@gmail.com"
+        }
+    ],
 ]
