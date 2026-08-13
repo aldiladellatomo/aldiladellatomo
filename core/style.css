@@ -1,0 +1,291 @@
+/* =========================================
+   1. Variabili Material 3 - TEMA CHIARO (Light)
+   ========================================= */
+:root {
+  --md-bg: #F8F9FA;
+  --md-bg-gradient: radial-gradient(circle at top, #F0F4F9 0%, #E2E8F0 100%);
+  --md-on-bg: #1B1C1E;
+  
+  --md-surface: #FFFFFF;
+  --md-on-surface: #1B1C1E;
+  --md-surface-container: #E9EEF6;
+  
+  --md-primary: #0B57D0;
+  --md-on-primary: #FFFFFF;
+  --md-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  /* Colori Materie (Soffusi / Pastello Material 3) */
+  --cat-a0-bg: #ECEFF1; --cat-a0-fg: #37474F; --cat-a0-accent: #78909C; /* Home - Grigio */
+  --cat-a1-bg: #FFEBEE; --cat-a1-fg: #8C1D18; --cat-a1-accent: #E53935; /* Fisica - Rosso */
+  --cat-a2-bg: #E3F2FD; --cat-a2-fg: #0D47A1; --cat-a2-accent: #1E88E5; /* Matematica - Blu */
+  --cat-a3-bg: #FFF8E1; --cat-a3-fg: #795548; --cat-a3-accent: #FBC02D; /* Chimica - Giallo */
+  --cat-a4-bg: #E8F5E9; --cat-a4-fg: #1B5E20; --cat-a4-accent: #43A047; /* Biologia - Verde */
+}
+
+/* =========================================
+   2. Variabili Material 3 - TEMA SCURO (Dark)
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-bg: #111318;
+    --md-bg-gradient: radial-gradient(circle at top, #1A1C22 0%, #0F1014 100%);
+    --md-on-bg: #E2E2E6;
+    
+    --md-surface: #1E2025;
+    --md-on-surface: #E2E2E6;
+    --md-surface-container: #282A30;
+    
+    --md-primary: #A8C7FA;
+    --md-on-primary: #042E6F;
+    --md-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+
+    /* Colori Materie Scuri Soffusi */
+    --cat-a0-bg: #2C3238; --cat-a0-fg: #ECEFF1; --cat-a0-accent: #90A4AE;
+    --cat-a1-bg: #3E1F24; --cat-a1-fg: #FFCDD2; --cat-a1-accent: #EF5350;
+    --cat-a2-bg: #1A2C3D; --cat-a2-fg: #BBDEFB; --cat-a2-accent: #42A5F5;
+    --cat-a3-bg: #3A301A; --cat-a3-fg: #FFF59D; --cat-a3-accent: #FFEE58;
+    --cat-a4-bg: #1E3326; --cat-a4-fg: #C8E6C9; --cat-a4-accent: #66BB6A;
+  }
+}
+
+/* Supporto cambio tema via attributo JS (es. data-theme="dark") */
+[data-theme="dark"] {
+  --md-bg: #111318;
+  --md-bg-gradient: radial-gradient(circle at top, #1A1C22 0%, #0F1014 100%);
+  --md-on-bg: #E2E2E6;
+  --md-surface: #1E2025;
+  --md-on-surface: #E2E2E6;
+  --md-surface-container: #282A30;
+  --md-primary: #A8C7FA;
+  --md-on-primary: #042E6F;
+  --md-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+
+  --cat-a0-bg: #2C3238; --cat-a0-fg: #ECEFF1; --cat-a0-accent: #90A4AE;
+  --cat-a1-bg: #3E1F24; --cat-a1-fg: #FFCDD2; --cat-a1-accent: #EF5350;
+  --cat-a2-bg: #1A2C3D; --cat-a2-fg: #BBDEFB; --cat-a2-accent: #42A5F5;
+  --cat-a3-bg: #3A301A; --cat-a3-fg: #FFF59D; --cat-a3-accent: #FFEE58;
+  --cat-a4-bg: #1E3326; --cat-a4-fg: #C8E6C9; --cat-a4-accent: #66BB6A;
+}
+
+/* =========================================
+   3. Reset & Layout Principale
+   ========================================= */
+body {
+  margin: 0;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  background: var(--md-bg-gradient);
+  background-attachment: fixed;
+  color: var(--md-on-bg);
+  padding-top: 96px;  /* Spazio per header fluttuante */
+  padding-bottom: 96px;/* Spazio per footer fluttuante */
+  min-height: 100vh;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   4. Header Fluttuante
+   ========================================= */
+header {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  background-color: var(--md-surface-container);
+  border-radius: 50px;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  z-index: 1000;
+  box-shadow: var(--md-shadow);
+  backdrop-filter: blur(12px);
+  gap: 12px;
+}
+
+/* Navigazione Slider Orizzontale */
+nav#nav {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  flex-grow: 1;
+  gap: 8px;
+  scrollbar-width: none;
+  align-items: center;
+}
+nav#nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tutti i bottoni della Nav */
+nav#nav button, nav#nav a {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 100px;
+  padding: 8px 16px;
+  background: transparent;
+  color: var(--md-on-surface);
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Importanza speciale per 'a0' (Home) e la scheda Attiva */
+nav#nav button#a0 {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+nav#nav button.active {
+  background-color: var(--md-primary);
+  color: var(--md-on-primary);
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transform: scale(1.03);
+}
+
+/* Selettore Lingua */
+select#lang {
+  border-radius: 50px;
+  padding: 8px 14px;
+  border: none;
+  background-color: var(--md-surface);
+  color: var(--md-on-surface);
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   5. Titolo & Box del Contenuto
+   ========================================= */
+h1#h1 {
+  text-align: center;
+  margin: 0 0 20px 0;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+/* Il Box Principale che racchiude il sito */
+#div, #content {
+  background-color: var(--md-surface);
+  border-radius: 28px;
+  box-shadow: var(--md-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+/* =========================================
+   6. Articoli (Schede Impilate)
+   ========================================= */
+#div button {
+  border-radius: 20px;
+  padding: 20px 24px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s, filter 0.2s;
+}
+
+#div button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  filter: brightness(0.97);
+}
+
+#div button h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#div button h2 {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Colori Soffusi + Bordo di accento visibile per categoria */
+.a0 { background-color: var(--cat-a0-bg); color: var(--cat-a0-fg); border-left: 6px solid var(--cat-a0-accent); }
+.a1 { background-color: var(--cat-a1-bg); color: var(--cat-a1-fg); border-left: 6px solid var(--cat-a1-accent); }
+.a2 { background-color: var(--cat-a2-bg); color: var(--cat-a2-fg); border-left: 6px solid var(--cat-a2-accent); }
+.a3 { background-color: var(--cat-a3-bg); color: var(--cat-a3-fg); border-left: 6px solid var(--cat-a3-accent); }
+.a4 { background-color: var(--cat-a4-bg); color: var(--cat-a4-fg); border-left: 6px solid var(--cat-a4-accent); }
+
+/* Pagina Singolo Articolo */
+#content a.internal {
+  color: var(--md-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#content p {
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* =========================================
+   7. Footer Fluttuante
+   ========================================= */
+footer#footer {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 800px;
+  background-color: var(--md-surface-container);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  z-index: 1000;
+  box-shadow: var(--md-shadow);
+  backdrop-filter: blur(12px);
+}
+
+footer#footer button.contact {
+  border: none;
+  background: transparent;
+  color: var(--md-on-surface);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+footer#footer button.contact:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  footer#footer button.contact:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}

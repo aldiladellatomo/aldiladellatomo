@@ -1,5 +1,7 @@
+var theme=(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+var actuallang = new URLSearchParams(window.location.search).get('lang') || navigator.language.substring(0,2) || "en";
 async function fetchJson(url) {
-  json=await fetch(url);
+  var json=await fetch(url);
   return json.json();
 }
 async function getAll(){
@@ -9,10 +11,12 @@ async function getAll(){
     return {lang,data,articles};
 }
 var actualschede="a0";
-var actuallang=navigator.language.substring(0,2)
 async function getArticle(id){
     var content= await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/articles/"+id+"/article.json");
     return content;
+}
+function link(link){
+  window.location.href=link;
 }
 async function bootstrap(){
   var {lang,data,articles} =await getAll();
@@ -24,9 +28,9 @@ async function bootstrap(){
   document.getElementById("lang").value=actuallang;
   var b="";
   for(var i=0;i<(data[2].length)/2;i++){
-    b=b+"<button class='contact' href="+data[2][i*2+1]+" value='"+data[2][i*2]+"></button>"
+    b=b+"<button class='contact' onclick=link('"+data[2][i*2+1]+"')>"+data[2][i*2]+"</button>"
   }
-  document.getElementById("footer").innerText=b;
+  document.getElementById("footer").innerHTML=b;
 }
 bootstrap();
 document.getElementById("lang").addEventListener("change", function() {
