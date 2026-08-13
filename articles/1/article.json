@@ -1,0 +1,20 @@
+[
+    {
+        "type":"text",
+        "content-it":"text articolo 1",
+        "content-en":"text article 1"
+    },
+    {
+        "type":"link",
+        "name-it":"link articolo 2",
+        "name-en":"link article 2",
+        "class":"internal",
+        "id":"2"
+    },
+    {
+        "type":"text",
+        "content-it":"text articolo 1.2",
+        "content-en":"text article 1.2"
+    }
+
+]
