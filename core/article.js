@@ -4,7 +4,7 @@ async function abootstrap() {
     document.getElementById("h1").innerHTML=articles[id]["name-"+actuallang];
     document.getElementById("content").innerHTML=articles[id]["content-"+actuallang];
     var a="<a href=../home.html id="+data[1].name+" >"+lang[0][data[1].name]+"</button";
-    document.getElementById("buttons").innerHTML=a
+    document.getElementById("nav").innerHTML=a
     var content=await getArticle(id);
     var b="";
     for(var i=0;i<content.length;i++){

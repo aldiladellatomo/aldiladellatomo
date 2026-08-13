@@ -15,13 +15,13 @@ async function hbootstrap(){
     var b="";
     for(var i=1;i<articles[0]+1;i++){
         if(articles[i].class==actualschede || actualschede=="a0"){
-            b=b+"<a href=core/article.html?id="+articles[i].id+" class='"+articles[i].class+"'><h1>"+articles[i]["name-"+actuallang]+"</h1><h2>"+articles[i].date+"</h2></a";
+            b=b+"<a href=core/article.html?id="+articles[i].id+" class='"+articles[i].class+"'><h1>"+articles[i]["name-"+actuallang]+"</h1><h2>"+articles[i].date+"</h2></a>";
             }
     }
     document.getElementById("div").innerHTML=b;
     }
 function show(active){
     actualschede=active;
-    bootstrap();
+    hbootstrap();
 }
 hbootstrap();

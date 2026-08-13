@@ -22,6 +22,11 @@ async function bootstrap(){
   }
   document.getElementById("lang").innerHTML=a;
   document.getElementById("lang").value=actuallang;
+  var b="";
+  for(var i=0;i<data[data[0]+2].length;i++){
+    b=b+"<button class='contact' value="+data[data[0]+2][i]+">"+lang[0][data[data[0]+2][i]]+"</button>"
+  }
+  document.getElementById("footer").innerHTML=b;
 }
 bootstrap();
 document.getElementById("lang").addEventListener("change", function() {
