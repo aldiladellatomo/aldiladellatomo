@@ -7,7 +7,7 @@ async function fetchJson(url) {
 async function getAll(){
     var lang= await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/lang/"+actuallang+".json")
     var data = await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/core/data.json");
-    var articles = await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/articles.json");
+    var articles = await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/articles/articles.json");
     return {lang,data,articles};
 }
 var actualschede="a0";
