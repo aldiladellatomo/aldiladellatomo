@@ -5,6 +5,14 @@ function show(active){
 }
 async function hbootstrap(){
     var {lang, data, articles}=await getAll();
+    var number=articles[0];
+    articles.splice(0,1);
+    var sortedydate=articles.sort(function(a, b) {
+        var dateA = new Date(a.date);
+        var dateB = new Date(b.date);
+        return dateA.getTime() - dateB.getTime();
+    });
+    articles.unshift(number);
     var a="";
     for(var i=0;i<=data[0];i++){
         a=a+"<button id=a"+i+" ";
@@ -22,5 +30,6 @@ async function hbootstrap(){
             }
     }
     document.getElementById("div").innerHTML=b;
+    document.getElementById("h2").innerText=lang[0]["b1"];
     }
 hbootstrap();

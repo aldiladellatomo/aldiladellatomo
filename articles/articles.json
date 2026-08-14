@@ -12,20 +12,20 @@
         "name-it":"articolo 2",
         "name-en":"article 2",
         "class":"a2",
-        "date":"2026-06-01"
+        "date":"2026-06-02"
     },
     {
         "id":3,
         "name-it":"articolo 3",
         "name-en":"article 3",
         "class":"a2",
-        "date":"2026-06-01"
+        "date":"2026-06-05"
     },
     {
         "id":4,
         "name-it":"articolo 4",
         "name-en":"article 4",
         "class":"a4",
-        "date":"2026-06-01"
+        "date":"2026-06-03"
     }
 ]
