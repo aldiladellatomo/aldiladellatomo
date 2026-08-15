@@ -27,8 +27,8 @@ async function hbootstrap(){
     for(var i=0;i<data[4].length;i++){
     f=f+"<option class='select' value="+data[4][i]+">"+lang[data[4][i]]+"</option>"
     }
-    document.getElementById("lang").innerHTML=f;
-    document.getElementById("lang").value="mode1";
+    document.getElementById("sort").innerHTML=f;
+    document.getElementById("sort").value="mode1";
     var b="";
     for(var i=articles[0];i>0;i--){
         if(articles[i].class==actualschede || actualschede=="a0"){
