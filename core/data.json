@@ -10,5 +10,11 @@
         "Email",
         "mailto:aldiladellatomo@gmail.com"
     ],
-    3
+    3,
+    [
+        "mode1",
+        "mode2",
+        "mode3",
+        "mode4"
+    ]
 ]

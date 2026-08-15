@@ -3,8 +3,8 @@ var state=true;
 async function abootstrap() {
     var {lang, data, articles}=await getAll();
     document.getElementById("h1").innerText=articles[id]["name-"+actuallang];
-    var c="<button onclick=link('../home.html?lang="+actuallang+"') id=a0 >"+lang[0]["a0"]+"</button>";
-    c=c+"<button onclick=link('../home.html?lang="+actuallang+"&class="+articles[id].class+"') id="+articles[id].class+" class='active'>"+lang[0][articles[id].class]+"</button";
+    var c="<button onclick=link('../home.html?lang="+actuallang+"') id=a0 >"+lang["a0"]+"</button>";
+    c=c+"<button onclick=link('../home.html?lang="+actuallang+"&class="+articles[id].class+"') id="+articles[id].class+" class='active'>"+lang[articles[id].class]+"</button";
     document.getElementById("nav").innerHTML=c
     var content=await getArticle(id);
     var b="";

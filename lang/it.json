@@ -1,10 +1,12 @@
-[
     {
         "a0":"Aldilà dell'atomo",
         "a1":"Fisica",
         "a2":"Matematica",
         "a3":"Chimica",
         "a4":"Biologia",
-        "b1":"Tutti gli articoli"
+        "b1":"Tutti gli articoli",
+        "mode1":"dal più recete",
+        "mode2":"dal meo recete",
+        "mode3":"alfaeticamete",
+        "mode4":"aalfaeticamete"
     }
-]
