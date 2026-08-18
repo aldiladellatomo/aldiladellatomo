@@ -47,20 +47,24 @@ async function hbootstrap(){
     }
     var i=0;
     do{
-        var d="<button onclick=link('core/article.html?id="+display[i].id+"&lang="+actuallang+"') class='"+display[i].class+"'><h1>"+display[i]["name-"+actuallang]+"</h1><h2>"+display[i].date+"</h2></a>";
         i++;
-        for(var j=0;j<display.length && display.length!=1;j++){
-            d=d+"<button";
-            if((j+1)==i){
-                d=d+" class='active' ";
-            }
-            d=d+">"+(j+1)+"</button>";        
-        }
         if(i==display.length){
             i=0;
         }
         await new Promise(resolve => setTimeout(resolve, 2000));
-        document.getElementById("recent").innerHTML=d;
+        switchcarusel(i,display);
     }while(true);
+    function switchcarusel(number,display){
+        var d="<button onclick=link('core/article.html?id="+display[i].id+"&lang="+actuallang+"') class='"+display[i].class+"'><h1>"+display[i]["name-"+actuallang]+"</h1><h2>"+display[i].date+"</h2></a>";
+        for(var j=0;j<display.length && display.length!=1;j++){
+            d=d+"<button onclick=swircarusel("+j+") id="+j+" ";
+            if((j+1)==number){
+                d=d+" class='active' ";
+            }
+            d=d+">"+(j+1)+"</button>";        
+        }
+        
+        document.getElementById("recent").innerHTML=d;
+    }
     }
 hbootstrap();
