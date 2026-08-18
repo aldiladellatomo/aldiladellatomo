@@ -5,13 +5,13 @@ async function fetchJson(url) {
   return json.json();
 }
 async function getAll(){
-    var lang= await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/lang/"+actuallang+".json")
-    var data = await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/core/data.json");
-    var articles = await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/articles/articles.json");
+    var lang= await fetchJson("https://aldiladellatomo.eu/lang/"+actuallang+".json")
+    var data = await fetchJson("https://aldiladellatomo.eu/core/data.json");
+    var articles = await fetchJson("https://aldiladellatomo.eu/articles/articles.json");
     return {lang,data,articles};
 }
 async function getArticle(id){
-    var content= await fetchJson("https://raw.githubusercontent.com/aldiladellatomo/aldiladellatomo/main/articles/"+id+"/article.json");
+    var content= await fetchJson("https://aldiladellatomo.eu/articles/"+id+"/article.json");
     return content;
 }
 function link(link){
