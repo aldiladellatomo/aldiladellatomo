@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://aldiladellatomo.eu/</loc>
-<priority>1.0</priority>
-</url>
-<url>
-<loc>https://aldiladellatomo.eu/home.html</loc>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://aldiladellatomo.eu/article.html</loc>
-<priority>0.8</priority>
-</url>
+  <url>
+    <loc>https://aldiladellatomo.eu/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <!-- Inserisci i link a ciascun articolo con i relativi parametri -->
+  <url>
+    <loc>https://aldiladellatomo.eu/core/article.html?id=1&amp;lang=it</loc>
+    <lastmod>2026-08-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aldiladellatomo.eu/core/article.html?id=1&amp;lang=en</loc>
+    <lastmod>2026-08-15</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>

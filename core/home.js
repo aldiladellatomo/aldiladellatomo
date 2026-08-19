@@ -81,9 +81,10 @@ async function startCarousel(data) {
 }
 
 async function hbootstrap() {
+    
     var { lang, data, articles } = await getAll();
     globalArticles = articles.slice(1);
-
+    document.title = lang[actualschede] + " | " + lang["a0"];
     buildNav(data, lang);
     document.getElementById("h1").innerText = lang[actualschede];
     document.getElementById("searchbar").innerHTML = "<input id='searchdiv' type='text' placeholder='" + lang["b2"] + "' onkeyup=search()>";

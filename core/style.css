@@ -322,3 +322,48 @@ a.internal {
 #ca2:hover { color: var(--a2-primary); }
 #ca3:hover { color: var(--a3-primary); }
 #ca4:hover { color: var(--a4-primary); }
+/* Link Esterni */
+a.external {
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Immagini Articolo */
+.article-image {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.article-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.article-image figcaption {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
+/* Formule e GeoGebra */
+.math-formula {
+  overflow-x: auto;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.geogebra-container {
+  width: 100%;
+  margin: 20px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+#content strong {
+  color: var(--primary-color);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
