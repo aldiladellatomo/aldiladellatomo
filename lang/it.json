@@ -1,13 +1,20 @@
-    {
-        "a0":"Aldilà dell'atomo",
-        "a1":"Fisica",
-        "a2":"Matematica",
-        "a3":"Chimica",
-        "a4":"Biologia",
-        "b1":"Tutti gli articoli",
-        "b2":"Cerca",
-        "mode1":"dal più recete",
-        "mode2":"dal meo recete",
-        "mode3":"alfaeticamete",
-        "mode4":"aalfaeticamete"
-    }
+{
+    "a0": "Aldilà dell'atomo",
+    "a1": "Fisica",
+    "a2": "Matematica",
+    "a3": "Chimica",
+    "a4": "Biologia",
+    "b1": "Tutti gli articoli",
+    "b2": "Cerca",
+    "c1": "Risultati di ricerca per:",
+    "c2": "Nessun articolo trovato per:",
+    "d1": "Articoli più recenti",
+    "d2": "Tutti gli articoli",
+    "d3": "Ordina per",
+    "e1": "Torna alla Home",
+    "e2": "Leggi articolo",
+    "mode1": "dal più recente",
+    "mode2": "dal meno recente",
+    "mode3": "alfabeticamente",
+    "mode4": "ordine alfabetico inverso"
+}

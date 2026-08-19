@@ -1,9 +1,15 @@
 var actualschede=new URLSearchParams(window.location.search).get('class') || "a0";
+document.body.className = "b"+actualschede;
 var state=false;
 function show(active){
     link("home.html?lang="+actuallang+"&class="+active);
 }
 async function hbootstrap(){
+    // Titolo carosello articoli recenti
+document.getElementById("recent-title").innerText = lang["d1"];
+
+// Titolo sezione "Tutti gli articoli"
+document.getElementById("h2").innerText = lang["d2"];
     var {lang, data, articles}=await getAll();
     var number=articles[0];
     articles.splice(0,1);
@@ -60,19 +66,47 @@ async function hbootstrap(){
         await new Promise(resolve => setTimeout(resolve, 1000*data[6]));
     }while(true);
     }
-async  function  search(){
-    var {lang, data, articles}=await getAll();
-    document.getElementById("search").innertext=document.getElementById("searchdiv").value;
-    var a="";
-    for(var i;i<articles.length;i++){
-        if(articles[i].class==actualschede || actualschede=="a0"){
-        for(var j;j<articles[i].search.length;j++){
-            var string=articles[i].search[j].toLowerCase();
-            if(string.includes(document.getElementById("searchdiv").value.toLowerCase())){
-                a=a+"<button onclick=link('core/article.html?id="+articles[i].id+"&lang="+actuallang+"') class='"+articles[i].class+"'><h1>"+articles[i]["name-"+actuallang]+"</h1><h2>"+articles[i].date+"</h2></a>";
-            }
 
-}}}
-document.getElementById("results").innerHTML=a;
+async function search() {
+    var {lang, data, articles} = await getAll();
+    var queryInput = document.getElementById("searchdiv");
+    var query = queryInput.value.trim().toLowerCase();
+    
+    var searchTitle = document.getElementById("search");
+    var resultsDiv = document.getElementById("results");
+
+    if (query.length > 0) {
+        searchTitle.style.display = "block";
+        resultsDiv.style.display = "flex";
+        // Usa il codice c1 per comporre il titolo di ricerca
+        searchTitle.innerText = lang["c1"] + " «" + queryInput.value + "»";
+    } else {
+        searchTitle.style.display = "none";
+        resultsDiv.style.display = "none";
+        resultsDiv.innerHTML = "";
+        return;
+    }
+
+    var a = "";
+    for (var i = 1; i < articles.length; i++) {
+        if (articles[i].class == actualschede || actualschede == "a0") {
+            if (articles[i].search) {
+                for (var j = 0; j < articles[i].search.length; j++) {
+                    var string = articles[i].search[j].toLowerCase();
+                    if (string.includes(query)) {
+                        a += "<button onclick=\"link('core/article.html?id=" + articles[i].id + "&lang=" + actuallang + "')\" class='" + articles[i].class + "'><h1>" + articles[i]["name-" + actuallang] + "</h1><h2>" + articles[i].date + "</h2></button>";
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    // Se non ci sono risultati mostra la chiave c2
+    if (a === "") {
+        resultsDiv.innerHTML = "<p>" + lang["c2"] + " «" + queryInput.value + "»</p>";
+    } else {
+        resultsDiv.innerHTML = a;
+    }
 }
 hbootstrap();
