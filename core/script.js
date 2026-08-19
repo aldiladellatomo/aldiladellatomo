@@ -11,20 +11,20 @@ async function fetchJson(url) {
 
 async function getAll() {
     if (!cachedLangData) {
-        cachedLangData = await fetchJson("https://aldiladellatomo.eu/lang/" + actuallang + ".json");
+        cachedLangData = await fetchJson("/lang/" + actuallang + ".json");
     }
     if (!cachedData) {
-        cachedData = await fetchJson("https://aldiladellatomo.eu/core/data.json");
+        cachedData = await fetchJson("/core/data.json");
     }
     if (!cachedArticles) {
-        cachedArticles = await fetchJson("https://aldiladellatomo.eu/articles/articles.json");
+        cachedArticles = await fetchJson("/articles/articles.json");
     }
     return { lang: cachedLangData, data: cachedData, articles: cachedArticles };
 }
 
 async function getArticle(id) {
     if (!cachedArticleContents[id]) {
-        cachedArticleContents[id] = await fetchJson("https://aldiladellatomo.eu/articles/" + id + "/article.json");
+        cachedArticleContents[id] = await fetchJson("/articles/" + id + "/article.json");
     }
     return cachedArticleContents[id];
 }
