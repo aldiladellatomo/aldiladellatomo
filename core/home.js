@@ -28,7 +28,7 @@ async function hbootstrap(){
     f=f+"<option class='select' value="+data[4][i]+">"+lang[data[4][i]]+"</option>"
     }
     document.getElementById("sort").innerHTML=f;
-    document.getElementById("sort").value="mode1";
+    document.getElementById("sort").value=data[5];
     var b="";
     for(var i=articles[0];i>0;i--){
         if(articles[i].class==actualschede || actualschede=="a0"){
@@ -51,20 +51,10 @@ async function hbootstrap(){
         if(i==display.length){
             i=0;
         }
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        switchcarusel(i,display);
-    }while(true);
-    function switchcarusel(number,display){
         var d="<button onclick=link('core/article.html?id="+display[i].id+"&lang="+actuallang+"') class='"+display[i].class+"'><h1>"+display[i]["name-"+actuallang]+"</h1><h2>"+display[i].date+"</h2></a>";
-        for(var j=0;j<display.length && display.length!=1;j++){
-            d=d+"<button onclick=swircarusel("+j+") id="+j+" ";
-            if((j+1)==number){
-                d=d+" class='active' ";
-            }
-            d=d+">"+(j+1)+"</button>";        
-        }
         
         document.getElementById("recent").innerHTML=d;
-    }
+        await new Promise(resolve => setTimeout(resolve, 1000*data[6]));
+    }while(true);
     }
 hbootstrap();
