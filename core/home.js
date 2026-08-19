@@ -23,7 +23,7 @@ async function hbootstrap(){
     }
     document.getElementById("nav").innerHTML=a;
     document.getElementById("h1").innerText=lang[actualschede];
-    var z="<input id='searchdiv' type='text' placeholder='"+lang["b2"]+"' oninput=search()>";
+    var z="<input id='searchdiv' type='text' placeholder='"+lang["b2"]+"' onkeyup=search()>";
     document.getElementById("searchbar").innerHTML=z;
     var c="";
     var f=""

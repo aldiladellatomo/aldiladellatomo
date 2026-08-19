@@ -11,7 +11,7 @@ async function abootstrap() {
     for(var i=0;i<content.length;i++){
         if(content[i].type=="link"){
             if(content[i].class=="internal"){
-                b=b+"<a href=article.html?id="+content[i].id+"?lang="+actuallang+" class='internal'>"+content[i]["name-"+actuallang]+"</a>";
+                b=b+"<a href=article.html?id="+content[i].id+"&lang="+actuallang+" class='internal'>"+content[i]["name-"+actuallang]+"</a>";
             }
         }
         if(content[i].type=="text"){
