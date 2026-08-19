@@ -1,4 +1,3 @@
-var theme=(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 var actuallang = new URLSearchParams(window.location.search).get('lang') || navigator.language.substring(0,2) || "en";
 async function fetchJson(url) {
   var json=await fetch(url);

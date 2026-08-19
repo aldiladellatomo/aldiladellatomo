@@ -4,5 +4,11 @@
         "a2":"Math",
         "a3":"Chemisty",
         "a4":"Biology",
-        "b1":"All articles"
+        "b1":"All articles",
+        "b2":"Search",
+        "mode1":"from the most recent",
+        "mode2":"from the less recent",
+        "mode3":"alphabetically",
+        "mode4":"reverse alphabetically"
+
     }
