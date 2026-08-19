@@ -23,8 +23,8 @@ async function hbootstrap(){
     }
     document.getElementById("nav").innerHTML=a;
     document.getElementById("h1").innerText=lang[actualschede];
-    var z="<input id='search' type='text' placeholder='"+lang["b2"]+"' oninput=search()>";
-    document.getElementById("search").innerHTML=z;
+    var z="<input id='searchdiv' type='text' placeholder='"+lang["b2"]+"' oninput=search()>";
+    document.getElementById("searchbar").innerHTML=z;
     var c="";
     var f=""
     for(var i=0;i<data[4].length;i++){
@@ -62,12 +62,13 @@ async function hbootstrap(){
     }
 async  function  search(){
     var {lang, data, articles}=await getAll();
+    document.getElementById("search").innertext=document.getElementById("searchdiv").value;
     var a="";
     for(var i;i<articles.length;i++){
         if(articles[i].class==actualschede || actualschede=="a0"){
         for(var j;j<articles[i].search.length;j++){
             var string=articles[i].search[j].toLowerCase();
-            if(string.includes(document.getElementById("search").value.toLowerCase())){
+            if(string.includes(document.getElementById("searchdiv").value.toLowerCase())){
                 a=a+"<button onclick=link('core/article.html?id="+articles[i].id+"&lang="+actuallang+"') class='"+articles[i].class+"'><h1>"+articles[i]["name-"+actuallang]+"</h1><h2>"+articles[i].date+"</h2></a>";
             }
 
