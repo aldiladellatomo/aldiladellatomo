@@ -1,74 +1,102 @@
-var actualschede=new URLSearchParams(window.location.search).get('class') || "a0";
-document.body.className = "b"+actualschede;
-var state=false;
-function show(active){
-    link("home.html?lang="+actuallang+"&class="+active);
-}
-async function hbootstrap(){
-    // Titolo carosello articoli recenti
-document.getElementById("recent-title").innerText = lang["d1"];
+var actualschede = new URLSearchParams(window.location.search).get('class') || "a0";
+document.body.className = "b" + actualschede;
+var state = false;
+var globalArticles = [];
 
-// Titolo sezione "Tutti gli articoli"
-document.getElementById("h2").innerText = lang["d2"];
-    var {lang, data, articles}=await getAll();
-    var number=articles[0];
-    articles.splice(0,1);
-    var sortedydate=articles.sort(function(a, b) {
-        var dateA = new Date(a.date);
-        var dateB = new Date(b.date);
-        return dateA.getTime() - dateB.getTime();
+function show(active) {
+    link("home.html?lang=" + actuallang + "&class=" + active);
+}
+
+function sortArticles(articlesList, mode) {
+    return articlesList.sort(function(a, b) {
+        if (mode === "mode1") return new Date(b.date) - new Date(a.date);
+        if (mode === "mode2") return new Date(a.date) - new Date(b.date);
+        if (mode === "mode3") return a["name-" + actuallang].localeCompare(b["name-" + actuallang]);
+        if (mode === "mode4") return b["name-" + actuallang].localeCompare(a["name-" + actuallang]);
+        return 0;
     });
-    articles.unshift(number);
-    var a="";
-    for(var i=0;i<=data[0];i++){
-        a=a+"<button id=a"+i+" ";
-        if(actualschede=="a"+i){
-            a=a+"class=active "
+}
+
+function renderArticles() {
+    var sortSelect = document.getElementById("sort");
+    var sortMode = sortSelect ? sortSelect.value : "mode1";
+    var sortedList = sortArticles([...globalArticles], sortMode);
+    var b = "";
+    for (var i = 0; i < sortedList.length; i++) {
+        if (sortedList[i].class == actualschede || actualschede == "a0") {
+            b += "<button onclick=\"link('core/article.html?id=" + sortedList[i].id + "&lang=" + actuallang + "')\" class='" + sortedList[i].class + "'>" +
+                 "<h1>" + sortedList[i]["name-" + actuallang] + "</h1>" +
+                 "<h2>" + sortedList[i].date + "</h2>" +
+                 "</button>";
         }
-        a=a+"onclick='show(\"a"+i+"\")'>"+lang["a"+i]+"</a></li>";
     }
-    document.getElementById("nav").innerHTML=a;
-    document.getElementById("h1").innerText=lang[actualschede];
-    var z="<input id='searchdiv' type='text' placeholder='"+lang["b2"]+"' onkeyup=search()>";
-    document.getElementById("searchbar").innerHTML=z;
-    var c="";
-    var f=""
-    for(var i=0;i<data[4].length;i++){
-    f=f+"<option class='select' value="+data[4][i]+">"+lang[data[4][i]]+"</option>"
+    document.getElementById("div").innerHTML = b;
+}
+
+function buildNav(data, lang) {
+    var a = "";
+    for (var i = 0; i <= data[0]; i++) {
+        a += "<button id=a" + i + " ";
+        if (actualschede == "a" + i) a += "class=active ";
+        a += "onclick='show(\"a" + i + "\")'>" + lang["a" + i] + "</button>";
     }
-    document.getElementById("sort").innerHTML=f;
-    document.getElementById("sort").value=data[5];
-    var b="";
-    for(var i=articles[0];i>0;i--){
-        if(articles[i].class==actualschede || actualschede=="a0"){
-            b=b+"<button onclick=link('core/article.html?id="+articles[i].id+"&lang="+actuallang+"') class='"+articles[i].class+"'><h1>"+articles[i]["name-"+actuallang]+"</h1><h2>"+articles[i].date+"</h2></a>";
-            }
+    document.getElementById("nav").innerHTML = a;
+}
+
+function buildSortMenu(data, lang) {
+    var f = "";
+    for (var i = 0; i < data[4].length; i++) {
+        f += "<option class='select' value=" + data[4][i] + ">" + lang[data[4][i]] + "</option>";
     }
-    document.getElementById("div").innerHTML=b;
-    document.getElementById("h2").innerText=lang["b1"];
-    var order=0;
-    var display=[];
-    for(var i=articles[0];i>0 && order<data[3];i--){
-        if(articles[i].class==actualschede || actualschede=="a0"){
-            display.push(articles[i]);
+    var sortSelect = document.getElementById("sort");
+    sortSelect.innerHTML = f;
+    sortSelect.value = data[5];
+    sortSelect.onchange = renderArticles;
+}
+
+async function startCarousel(data) {
+    var recentArticles = sortArticles([...globalArticles], "mode1");
+    var display = [];
+    var order = 0;
+
+    for (var i = 0; i < recentArticles.length && order < data[3]; i++) {
+        if (recentArticles[i].class == actualschede || actualschede == "a0") {
+            display.push(recentArticles[i]);
             order++;
-            }
-    }
-    var i=0;
-    do{
-        i++;
-        if(i==display.length){
-            i=0;
         }
-        var d="<button onclick=link('core/article.html?id="+display[i].id+"&lang="+actuallang+"') class='"+display[i].class+"'><h1>"+display[i]["name-"+actuallang]+"</h1><h2>"+display[i].date+"</h2></a>";
-        
-        document.getElementById("recent").innerHTML=d;
-        await new Promise(resolve => setTimeout(resolve, 1000*data[6]));
-    }while(true);
     }
+
+    if (display.length > 0) {
+        var idx = 0;
+        do {
+            var d = "<button onclick=\"link('core/article.html?id=" + display[idx].id + "&lang=" + actuallang + "')\" class='" + display[idx].class + "'>" +
+                    "<h1>" + display[idx]["name-" + actuallang] + "</h1>" +
+                    "<h2>" + display[idx].date + "</h2>" +
+                    "</button>";
+            document.getElementById("recent").innerHTML = d;
+            idx = (idx + 1) % display.length;
+            await new Promise(resolve => setTimeout(resolve, 1000 * data[6]));
+        } while (true);
+    }
+}
+
+async function hbootstrap() {
+    var { lang, data, articles } = await getAll();
+    globalArticles = articles.slice(1);
+
+    buildNav(data, lang);
+    document.getElementById("h1").innerText = lang[actualschede];
+    document.getElementById("searchbar").innerHTML = "<input id='searchdiv' type='text' placeholder='" + lang["b2"] + "' onkeyup=search()>";
+    
+    buildSortMenu(data, lang);
+    document.getElementById("h2").innerText = lang["d2"];
+
+    renderArticles();
+    startCarousel(data);
+}
 
 async function search() {
-    var {lang, data, articles} = await getAll();
+    var { lang, articles } = await getAll();
     var queryInput = document.getElementById("searchdiv");
     var query = queryInput.value.trim().toLowerCase();
     
@@ -78,7 +106,6 @@ async function search() {
     if (query.length > 0) {
         searchTitle.style.display = "block";
         resultsDiv.style.display = "flex";
-        // Usa il codice c1 per comporre il titolo di ricerca
         searchTitle.innerText = lang["c1"] + " «" + queryInput.value + "»";
     } else {
         searchTitle.style.display = "none";
@@ -88,13 +115,16 @@ async function search() {
     }
 
     var a = "";
-    for (var i = 1; i < articles.length; i++) {
-        if (articles[i].class == actualschede || actualschede == "a0") {
-            if (articles[i].search) {
-                for (var j = 0; j < articles[i].search.length; j++) {
-                    var string = articles[i].search[j].toLowerCase();
-                    if (string.includes(query)) {
-                        a += "<button onclick=\"link('core/article.html?id=" + articles[i].id + "&lang=" + actuallang + "')\" class='" + articles[i].class + "'><h1>" + articles[i]["name-" + actuallang] + "</h1><h2>" + articles[i].date + "</h2></button>";
+    var searchList = articles.slice(1);
+    for (var i = 0; i < searchList.length; i++) {
+        if (searchList[i].class == actualschede || actualschede == "a0") {
+            if (searchList[i].search) {
+                for (var j = 0; j < searchList[i].search.length; j++) {
+                    if (searchList[i].search[j].toLowerCase().includes(query)) {
+                        a += "<button onclick=\"link('core/article.html?id=" + searchList[i].id + "&lang=" + actuallang + "')\" class='" + searchList[i].class + "'>" +
+                             "<h1>" + searchList[i]["name-" + actuallang] + "</h1>" +
+                             "<h2>" + searchList[i].date + "</h2>" +
+                             "</button>";
                         break;
                     }
                 }
@@ -102,11 +132,11 @@ async function search() {
         }
     }
 
-    // Se non ci sono risultati mostra la chiave c2
     if (a === "") {
         resultsDiv.innerHTML = "<p>" + lang["c2"] + " «" + queryInput.value + "»</p>";
     } else {
         resultsDiv.innerHTML = a;
     }
 }
+
 hbootstrap();
