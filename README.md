@@ -1,4 +1,4 @@
-# Guida alla Pubblicazione Articoli — Aldilà dell'atomo
+# Guida alla Pubblicazione Articoli — Al di là dell'atomo
 
 Questa guida descrive i passaggi operativi per aggiungere un nuovo articolo alla piattaforma.
 
