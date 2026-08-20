@@ -4,6 +4,15 @@ var cachedData = null;
 var cachedArticles = null;
 var cachedArticleContents = {};
 
+function setMetaDescription(text) {
+    var meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = 'description';
+        document.head.appendChild(meta);
+    }
+    meta.content = text;
+}
 async function fetchJson(url) {
     var json = await fetch(url);
     return json.json();

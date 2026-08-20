@@ -6,6 +6,8 @@
         "name-en":"article 1",
         "class":"a1",
         "date":"2026-06-01",
+        "desc-it": "descrizione articolo 1",
+        "desc-en": "description article 1",
         "search":[
             "articolo 1",
             "article 1",

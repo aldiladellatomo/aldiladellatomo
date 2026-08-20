@@ -24,10 +24,11 @@ function renderArticles() {
     var b = "";
     for (var i = 0; i < sortedList.length; i++) {
         if (sortedList[i].class == actualschede || actualschede == "a0") {
-            b += "<button onclick=\"link('core/article.html?id=" + sortedList[i].id + "&lang=" + actuallang + "')\" class='" + sortedList[i].class + "'>" +
-                 "<h1>" + sortedList[i]["name-" + actuallang] + "</h1>" +
-                 "<h2>" + sortedList[i].date + "</h2>" +
-                 "</button>";
+            b +="<button onclick=\"link('core/article.html?id=" + sortedList[i].id + "&lang=" + actuallang + "')\" class='" + sortedList[i].class + "'>" +
+                "<h1>" + sortedList[i]["name-" + actuallang] + "</h1>" +
+                "<h2>" + sortedList[i].date + "</h2>" +
+                "<p class='card-desc'>" + (sortedList[i]["desc-" + actuallang] || "") + "</p>" +
+                "</button>";
         }
     }
     document.getElementById("div").innerHTML = b;
@@ -72,6 +73,7 @@ async function startCarousel(data) {
             var d = "<button onclick=\"link('core/article.html?id=" + display[idx].id + "&lang=" + actuallang + "')\" class='" + display[idx].class + "'>" +
                     "<h1>" + display[idx]["name-" + actuallang] + "</h1>" +
                     "<h2>" + display[idx].date + "</h2>" +
+                    "<p class='card-desc'>" + (display[idx]["desc-" + actuallang] || "") + "</p>" +
                     "</button>";
             document.getElementById("recent").innerHTML = d;
             idx = (idx + 1) % display.length;
@@ -83,6 +85,10 @@ async function startCarousel(data) {
 async function hbootstrap() {
     
     var { lang, data, articles } = await getAll();
+    var descKey = (actualschede === "a0") ? "site-desc-" + actuallang : actualschede + "-desc-" + actuallang;
+    if (data[7] && data[7][descKey]) {
+    setMetaDescription(data[7][descKey]);
+    }
     globalArticles = articles.slice(1);
     document.title = lang[actualschede] + " | " + lang["a0"];
     buildNav(data, lang);
@@ -104,39 +110,57 @@ async function search() {
     var searchTitle = document.getElementById("search");
     var resultsDiv = document.getElementById("results");
 
-    if (query.length > 0) {
-        searchTitle.style.display = "block";
-        resultsDiv.style.display = "flex";
-        searchTitle.innerText = lang["c1"] + " «" + queryInput.value + "»";
-    } else {
+    if (query.length === 0) {
         searchTitle.style.display = "none";
         resultsDiv.style.display = "none";
         resultsDiv.innerHTML = "";
         return;
     }
 
-    var a = "";
-    var searchList = articles.slice(1);
+    searchTitle.style.display = "block";
+    resultsDiv.style.display = "flex";
+    searchTitle.innerText = lang["c1"] + " «" + queryInput.value + "»";
+
+    var matchesHtml = "";
+    var searchList = articles.slice(1); 
+
     for (var i = 0; i < searchList.length; i++) {
-        if (searchList[i].class == actualschede || actualschede == "a0") {
-            if (searchList[i].search) {
-                for (var j = 0; j < searchList[i].search.length; j++) {
-                    if (searchList[i].search[j].toLowerCase().includes(query)) {
-                        a += "<button onclick=\"link('core/article.html?id=" + searchList[i].id + "&lang=" + actuallang + "')\" class='" + searchList[i].class + "'>" +
-                             "<h1>" + searchList[i]["name-" + actuallang] + "</h1>" +
-                             "<h2>" + searchList[i].date + "</h2>" +
-                             "</button>";
+        var article = searchList[i];
+
+        if (article.class === actualschede || actualschede === "a0") {
+            var isMatch = false;
+
+            if (article["name-" + actuallang] && article["name-" + actuallang].toLowerCase().includes(query)) {
+                isMatch = true;
+            }
+
+            if (!isMatch && article["desc-" + actuallang] && article["desc-" + actuallang].toLowerCase().includes(query)) {
+                isMatch = true;
+            }
+
+            if (!isMatch && article.search && Array.isArray(article.search)) {
+                for (var j = 0; j < article.search.length; j++) {
+                    if (article.search[j].toLowerCase().includes(query)) {
+                        isMatch = true;
                         break;
                     }
                 }
             }
+
+            if (isMatch) {
+                matchesHtml += "<button onclick=\"link('core/article.html?id=" + article.id + "&lang=" + actuallang + "')\" class='" + article.class + "'>" +
+                              "<h1>" + article["name-" + actuallang] + "</h1>" +
+                              "<h2>" + article.date + "</h2>" +
+                              "<p class='card-desc'>" + (article["desc-" + actuallang] || "") + "</p>" +
+                              "</button>";
+            }
         }
     }
 
-    if (a === "") {
+    if (matchesHtml === "") {
         resultsDiv.innerHTML = "<p>" + lang["c2"] + " «" + queryInput.value + "»</p>";
     } else {
-        resultsDiv.innerHTML = a;
+        resultsDiv.innerHTML = matchesHtml;
     }
 }
 

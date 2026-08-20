@@ -367,3 +367,23 @@ a.external {
   font-weight: 700;
   transition: color 0.3s ease;
 }
+/* Descrizione all'interno dei bottoni/card in Home */
+.card-desc {
+  font-size: 0.85rem;
+  margin: 8px 0 0 0;
+  opacity: 0.85;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Sottotitolo descrittivo nella pagina dell'articolo */
+#desc.article-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  font-style: italic;
+  opacity: 0.8;
+  margin: -8px auto 20px auto;
+  max-width: 700px;
+  width: 90%;
+}

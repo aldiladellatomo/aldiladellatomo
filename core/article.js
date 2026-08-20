@@ -60,9 +60,17 @@ function renderArticleContent(content, articleId) {
 async function abootstrap() {
     var { lang, articles } = await getAll();
     var currentArticle = articles[id];
-    document.title = currentArticle["name-" + actuallang] + " | " + lang["a0"];
+    var articleDesc = currentArticle["desc-" + actuallang] || "";
+    
     document.body.className = "b" + currentArticle.class;
+    
     document.getElementById("h1").innerText = currentArticle["name-" + actuallang];
+    document.title = currentArticle["name-" + actuallang] + " | " + lang["a0"];
+    if (articleDesc) {
+        setMetaDescription(articleDesc); 
+    }
+    
+    document.getElementById("desc").innerText = articleDesc;
     
     renderArticleNav(lang, currentArticle.class);
     
