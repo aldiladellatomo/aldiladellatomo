@@ -484,20 +484,20 @@ a.external {
     font-size: 20px !important;
     line-height: 1.7 !important;
     padding-bottom: 130px !important;
-    padding-top: 80px !important;
+    padding-top: 85px !important;
   }
 
-  /* 2. HEADER "FANTASMA" IN ALTO (Ricerca/Titolo a SINISTRA, Lingua forzata a DESTRA) */
+  /* 2. HEADER "FANTASMA" IN ALTO */
   header {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 12px 15px !important;
+    padding: 14px 15px !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between !important; /* Spazia gli elementi ai lati opposti */
+    justify-content: space-between !important;
     gap: 10px !important;
     position: fixed !important;
     top: 0 !important;
@@ -532,10 +532,10 @@ a.external {
     box-sizing: border-box !important;
   }
 
-  /* Selettore Lingua forzato a DESTRA al 100% (ordine 2) */
+  /* Selettore Lingua a DESTRA */
   select#lang {
     order: 2 !important;
-    margin-left: auto !important; /* Spinge la lingua sul lato destro */
+    margin-left: auto !important;
     flex: 0 0 auto !important;
     background-color: var(--bar-bg) !important;
     backdrop-filter: blur(16px) !important;
@@ -550,19 +550,20 @@ a.external {
     box-sizing: border-box !important;
   }
 
-  /* 3. TITOLO DELL'ARTICOLO: IDENTICO AL TASTO LINGUA E ALLINEATO A SINISTRA */
+  /* 3. TITOLO DELL'ARTICOLO: ABBASSATO E CON SPAZIO SICURO A DESTRA */
   #article-title {
     position: fixed !important;
-    top: 12px !important;
+    top: 14px !important;
     left: 15px !important;
+    right: 90px !important; /* Spazio bloccato per evitare il contatto col tasto lingua */
+    width: auto !important;
     height: 48px !important;
     border-radius: 24px !important;
     box-sizing: border-box !important;
     line-height: 44px !important;
-    padding: 0 20px !important;
+    padding: 0 16px !important;
     margin: 0 !important;
     font-size: 1.1rem !important;
-    max-width: calc(100% - 95px) !important;
     
     background-color: var(--bar-bg) !important;
     backdrop-filter: blur(16px) !important;
@@ -582,7 +583,7 @@ a.external {
     font-size: 1.2rem !important;
   }
 
-  /* 4. CARD E SEZIONI NELLA HOME (Font più grandi e spaziature aumentate) */
+  /* 4. CARD E SEZIONI NELLA HOME */
   #recent, #div, #results {
     padding: 24px 16px !important;
     margin: 20px auto !important;
@@ -612,7 +613,7 @@ a.external {
     margin-top: 8px !important;
   }
 
-  /* 5. BARRA DELLE MATERIE IN BASSO (Pulsanti grossi e spessi) */
+  /* 5. BARRA DELLE MATERIE IN BASSO */
   nav#nav {
     position: fixed !important;
     bottom: 0 !important;
