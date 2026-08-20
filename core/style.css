@@ -456,19 +456,22 @@ a.external {
 /* Titolo dell'articolo centrato e adattabile al tema */
 #article-title {
   position: sticky;
-  top: 60px; /* Regola in base all'altezza della tua barra di navigazione */
+  top: 75px; /* Leggermente distaccato dalla barra di navigazione */
   z-index: 90;
   text-align: center;
   color: var(--primary-color);
-  background-color: var(--surface);
-  border: 2px solid var(--primary-color);
-  border-radius: 12px;
-  padding: 14px 20px;
-  margin: 10px auto 25px auto;
-  max-width: 90%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--bar-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  width: 94%;
+  max-width: 850px;
+  margin: 15px auto 25px auto;
+  padding: 10px 20px;
+  border-radius: 32px;
+  border: 1.5px solid var(--primary-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 0 10px var(--primary-container);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
-
 /* Data centrata in fondo all'articolo */
 .article-date {
   text-align: center;

@@ -9,82 +9,95 @@ function renderArticleNav(lang, articleClass) {
 
 function renderArticleContent(content, articleId) {
     var b = "";
+    var paragraphOpen = false;
 
     for (var i = 0; i < content.length; i++) {
         var item = content[i];
+        var isInline = false;
+        var htmlChunk = "";
 
         switch (item.type) {
             case "text":
-                b += "<p>" + item["content-" + actuallang] + "</p>";
+                htmlChunk = item["content-" + actuallang];
+                isInline = true;
                 break;
             
             case "bold":
-                b += "<p><strong>" + item["content-" + actuallang] + "</strong></p>";
+                htmlChunk = "<strong>" + item["content-" + actuallang] + "</strong>";
+                isInline = true;
                 break;
 
             case "link":
                 if (item.class === "internal") {
-                    b += "<a id='c" + item.class + "' href='article.html?id=" + item.id + "&lang=" + actuallang + "' class='internal'>" + item["name-" + actuallang] + "</a>";
+                    htmlChunk = "<a id='c" + item.class + "' href='article.html?id=" + item.id + "&lang=" + actuallang + "' class='internal'>" + item["name-" + actuallang] + "</a>";
                 } else {
-                    b += "<a href='" + item.url + "' target='_blank' rel='noopener noreferrer' class='external'>" + item["name-" + actuallang] + "</a>";
+                    htmlChunk = "<a href='" + item.url + "' target='_blank' rel='noopener noreferrer' class='external'>" + item["name-" + actuallang] + "</a>";
+                }
+                isInline = true;
+                break;
+
+            case "latex":
+                var formulaText = item.formula || item["formula-" + actuallang] || item["content-" + actuallang] || "";
+                if (item.inline) {
+                    htmlChunk = "<span class='latex-inline'>$" + formulaText + "$</span>";
+                    isInline = true; 
+                } else {
+                    htmlChunk = "<div class='latex-block'>$$" + formulaText + "$$</div>";
                 }
                 break;
 
             case "image":
                 var caption = item["caption-" + actuallang] ? "<figcaption>" + item["caption-" + actuallang] + "</figcaption>" : "";
-                b += "<figure class='article-image'>" +
-                     "<img src='/images/" + articleId + "/" + item.src + "' alt='" + (item["alt-" + actuallang] || "") + "'>" +
-                     caption +
-                     "</figure>";
+                htmlChunk = "<figure class='article-image'><img src='/images/" + articleId + "/" + item.src + "' alt='" + (item["alt-" + actuallang] || "") + "'>" + caption + "</figure>";
                 break;
 
-            case "latex":
-                var formulaText = item.formula || item["formula-" + actuallang] || item["content-" + actuallang] || "";
-                
-                if (item.inline) {
-                    b += "<span class='latex-inline'>$" + formulaText + "$</span>";
-                } else {
-                    b += "<div class='latex-block'>$$" + formulaText + "$$</div>";
-                }
-                break;
             case "geogebra":
-                b += "<div class='geogebra-container'>" +
-                     "<iframe src='https://www.geogebra.org/material/iframe/id/" + item.geogebraId + "/width/800/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/true/asb/0/sri/true/rc/false/ld/false/sdz/true/ctl/false' width='100%' height='500' style='border:0px;'></iframe>" +
-                     "</div>";
+                htmlChunk = "<div class='geogebra-container'><iframe src='https://www.geogebra.org/material/iframe/id/" + item.geogebraId + "/width/800/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/true/asb/0/sri/true/rc/false/ld/false/sdz/true/ctl/false' width='100%' height='500' style='border:0px;'></iframe></div>";
                 break;
             
-                case "quote":
+            case "quote":
                 var author = item.author ? "<cite>— " + item.author + "</cite>" : "";
-                b += "<blockquote class='article-quote'>" +
-                "<p>«" + item["content-" + actuallang] + "»</p>" +
-                author +
-                "</blockquote>";
+                htmlChunk = "<blockquote class='article-quote'><p>«" + item["content-" + actuallang] + "»</p>" + author + "</blockquote>";
                 break;
 
             case "table":
                 var headers = item["headers-" + actuallang];
                 var rows = item["rows-" + actuallang];
-    
                 var tableHtml = "<div class='table-container'><table class='article-table'><thead><tr>";
-    
-
-                for (var h = 0; h < headers.length; h++) {
-                    tableHtml += "<th>" + headers[h] + "</th>";
-                }
+                for (var h = 0; h < headers.length; h++) { tableHtml += "<th>" + headers[h] + "</th>"; }
                 tableHtml += "</tr></thead><tbody>";
-    
-    
                 for (var r = 0; r < rows.length; r++) {
                     tableHtml += "<tr>";
-                    for (var c = 0; c < rows[r].length; c++) {
-                        tableHtml += "<td>" + rows[r][c] + "</td>";
-                    }
+                    for (var c = 0; c < rows[r].length; c++) { tableHtml += "<td>" + rows[r][c] + "</td>"; }
                     tableHtml += "</tr>";
                 }
                 tableHtml += "</tbody></table></div>";
-                b += tableHtml;
+                htmlChunk = tableHtml;
                 break;
         }
+
+        if (item.newline === true && paragraphOpen) {
+            b += "</p>";
+            paragraphOpen = false;
+        }
+
+        if (isInline) {
+            if (!paragraphOpen) {
+                b += "<p>";
+                paragraphOpen = true;
+            }
+            b += htmlChunk + " "; 
+        } else {
+            if (paragraphOpen) {
+                b += "</p>";
+                paragraphOpen = false;
+            }
+            b += htmlChunk;
+        }
+    }
+
+    if (paragraphOpen) {
+        b += "</p>";
     }
 
     document.getElementById("content").innerHTML = b;
@@ -93,7 +106,6 @@ function renderArticleContent(content, articleId) {
         MathJax.typesetPromise();
     }
 }
-
 async function abootstrap() {
     var { lang, articles } = await getAll();
     var currentArticle = articles[id];

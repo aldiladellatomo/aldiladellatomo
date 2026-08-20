@@ -2,16 +2,19 @@
     {
         "type":"text",
         "content-it":"per calcolare differenze di quadrati di numeri interi esistono diverse tecniche che oggi esamineremo.",
-        "content-en":""
+        "content-en":"",
+        "newline": true
     },
     {
         "type":"text",
-        "content-it":"iniziamo dal caso più semplice",
+        "content-it":"iniziamo dal caso più semplice i",
         "content-en":""
     },
     {
         "type":"bold",
-        "content-it":"numeri consecutivi"
+        "content-it":"numeri consecutivi",
+        "content-en":"",
+        "newline": true
     },
     {
         "type":"latex",
@@ -39,7 +42,8 @@
     },
     {
         "type":"bold",
-        "content-it":"numeri non consecutivi"
+        "content-it":"numeri non consecutivi",
+        "newline": true
     },
     {
         "type":"text",
