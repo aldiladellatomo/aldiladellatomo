@@ -454,7 +454,7 @@ a.external {
 }
 /* Data in fondo all'articolo */
 .article-date {
-  text-align: right;
+  text-align: left;
   font-size: 0.9rem;
   font-style: italic;
   opacity: 0.7;
@@ -465,9 +465,9 @@ a.external {
 /*Titolo articoli*/
 #article-title {
   position: sticky;
-  top: 0;
+  top: 60px; 
   background-color: var(--surface, #ffffff);
-  z-index: 100;
+  z-index: 90;
   padding: 15px 0;
   margin: 0 0 10px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);

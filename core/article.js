@@ -39,13 +39,14 @@ function renderArticleContent(content, articleId) {
                 break;
 
             case "latex":
+                var formulaText = item.formula || item["formula-" + actuallang] || item["content-" + actuallang] || "";
+                
                 if (item.inline) {
-                b += "<span class='latex-inline'>$" + item.formula + "$</span>";
+                    b += "<span class='latex-inline'>$" + formulaText + "$</span>";
                 } else {
-                b += "<div class='latex-block'>$$" + item.formula + "$$</div>";
+                    b += "<div class='latex-block'>$$" + formulaText + "$$</div>";
                 }
                 break;
- 
             case "geogebra":
                 b += "<div class='geogebra-container'>" +
                      "<iframe src='https://www.geogebra.org/material/iframe/id/" + item.geogebraId + "/width/800/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/true/asb/0/sri/true/rc/false/ld/false/sdz/true/ctl/false' width='100%' height='500' style='border:0px;'></iframe>" +
