@@ -1,16 +1,16 @@
-Guida alla Pubblicazione Articoli — Aldilà dell'atomo
+# Guida alla Pubblicazione Articoli — Aldilà dell'atomo
 
 Questa guida descrive i passaggi operativi per aggiungere un nuovo articolo alla piattaforma.
-1. Registro Articoli (/articles/articles.json)
 
-Apri il file /articles/articles.json:
+---
 
-Incrementa di 1 il valore all'indice 0 (contatore totale degli articoli).
+## 1. Registro Articoli (`/articles/articles.json`)
 
-Aggiungi il nuovo oggetto metadati in fondo all'array:
+Apri il file `/articles/articles.json`:
+1. Incrementa di **1** il valore all'indice `0` (contatore totale degli articoli).
+2. Aggiungi il nuovo oggetto metadati in fondo all'array:
 
-JSON
-
+```json
 [
   16,
   {
@@ -24,24 +24,23 @@ JSON
     "search": ["parola1", "parola2", "tag"]
   }
 ]
+```
 
-Mappa delle classi (class):
+**Mappa delle classi (`class`):**
+* `a1`: Fisica
+* `a2`: Matematica
+* `a3`: Chimica
+* `a4`: Biologia
 
-    a1: Fisica
+---
 
-    a2: Matematica
+## 2. Contenuto dell'Articolo (`/articles/{id}/article.json`)
 
-    a3: Chimica
-
-    a4: Biologia
-
-2. Contenuto dell'Articolo (/articles/{id}/article.json)
-
-Crea la cartella /articles/{id}/ (es. /articles/16/) e al suo interno crea il file article.json.
+Crea la cartella `/articles/{id}/` (es. `/articles/16/`) e al suo interno crea il file `article.json`.
 
 Popola il file con un array di blocchi scegliendo tra i tipi supportati:
-JSON
 
+```json
 [
   {
     "type": "text",
@@ -79,13 +78,17 @@ JSON
     "type": "table",
     "headers-it": ["Intestazione 1", "Intestazione 2"],
     "headers-en": ["Header 1", "Header 2"],
-    "rows-it": [["Valore 1", "Valore 2"]],
-    "rows-en": [["Value 1", "Value 2"]]
+    "rows-it": [
+      ["Valore 1", "Valore 2"]
+    ],
+    "rows-en": [
+      ["Value 1", "Value 2"]
+    ]
   },
   {
     "type": "link",
     "class": "external",
-    "url": "https://sitoesterno.com",
+    "url": "[https://sitoesterno.com](https://sitoesterno.com)",
     "name-it": "Link Esterno",
     "name-en": "External Link"
   },
@@ -97,28 +100,32 @@ JSON
     "name-en": "Related article"
   }
 ]
+```
 
-3. Gestione Immagini (/images/{id}/)
+---
 
-Se l'articolo contiene elementi di tipo "image":
+## 3. Gestione Immagini (`/images/{id}/`)
 
-Crea la cartella /images/{id}/ (es. /images/16/).
+Se l'articolo contiene elementi di tipo `"image"`:
+1. Crea la cartella `/images/{id}/` (es. `/images/16/`).
+2. Inserisci i file immagine con il nome corrispondente alla proprietà `"src"`.
 
-Inserisci i file immagine con il nome corrispondente alla proprietà "src".
+---
 
-4. Indicizzazione SEO (/sitemap.xml)
+## 4. Indicizzazione SEO (`/sitemap.xml`)
 
-Aggiungi le nuove URL dell'articolo nel file sitemap.xml prima del tag </urlset>:
-XML
+Aggiungi le nuove URL dell'articolo nel file `sitemap.xml` prima del tag `</urlset>`:
 
-<url>
-  <loc>https://aldiladellatomo.eu/core/article.html?id=16&amp;lang=it</loc>
-  <lastmod>2026-08-20</lastmod>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://aldiladellatomo.eu/core/article.html?id=16&amp;lang=en</loc>
-  <lastmod>2026-08-20</lastmod>
-  <priority>0.8</priority>
-</url>
+```xml
+  <url>
+    <loc>[https://aldiladellatomo.eu/core/article.html?id=16&amp;lang=it](https://aldiladellatomo.eu/core/article.html?id=16&amp;lang=it)</loc>
+    <lastmod>2026-08-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>[https://aldiladellatomo.eu/core/article.html?id=16&amp;lang=en](https://aldiladellatomo.eu/core/article.html?id=16&amp;lang=en)</loc>
+    <lastmod>2026-08-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+```
 
