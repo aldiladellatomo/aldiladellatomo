@@ -453,27 +453,27 @@ a.external {
   display: inline-block;
 }
 /* Data in fondo all'articolo */
-.article-date {
-  text-align: left;
-  font-size: 0.9rem;
-  font-style: italic;
-  opacity: 0.7;
-  margin-top: 40px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-/*Titolo articoli*/
+/* Titolo dell'articolo centrato e adattabile al tema */
 #article-title {
   position: sticky;
-  top: 60px; /* Regola in base all'altezza della barra superiore */
-  background-color: var(--surface); /* Si adatta allo sfondo del tema (chiaro/scuro) */
-  color: var(--primary-color); /* Si adatta al colore dinamico della materia */
+  top: 60px; /* Regola in base all'altezza della tua barra superiore */
+  text-align: center;
+  background-color: var(--surface);
+  color: var(--primary-color);
   z-index: 90;
   padding: 15px 0;
   margin: 0 0 10px 0;
-  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+  border-bottom: 1px solid var(--border-color);
 }
-.ba1 #article-title { color: #007acc; } /* Fisica */
-.ba2 #article-title { color: #e65100; } /* Matematica */
-.ba3 #article-title { color: #2e7d32; } /* Chimica */
-.ba4 #article-title { color: #c2185b; } /* Biologia */
+
+/* Data centrata in fondo all'articolo */
+.article-date {
+  text-align: center;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
