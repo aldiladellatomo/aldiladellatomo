@@ -44,6 +44,7 @@
     --a4-primary: #9ece93; --a4-on: #003a00; --a4-container: #245114; --a4-page-bg: #121712;
   }
 }
+
 /* =========================================
    2. ASSEGNAZIONE VARIABILI PER CLASSE PAGE
    ========================================= */
@@ -71,7 +72,6 @@ body.ba4 {
   --primary-container: var(--a4-container);
   --page-bg: var(--a4-page-bg);
 }
-/* Il tema di base (ba0) usa già le variabili di root di default */
 
 /* =========================================
    3. STILI GLOBALI CON DETTAGLI A TEMA
@@ -119,7 +119,6 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  /* Bordo sfumato e ombra nel colore della materia */
   border: 1.5px solid var(--primary-color);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 0 10px var(--primary-container);
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
@@ -209,14 +208,12 @@ button:hover, select:hover {
   border-color: var(--primary-color);
 }
 
-/* Tasto a0 e Bottoni Attivi */
 #a0, button#a0, .a0 {
   background-color: var(--primary-color) !important;
   color: var(--primary-on) !important;
   font-weight: 700;
 }
 
-/* Pulsanti specifici delle materie nei dettagli */
 .a1, button.a1, #a1 { background-color: var(--a1-container); color: var(--a1-primary); }
 .a2, button.a2, #a2 { background-color: var(--a2-container); color: var(--a2-primary); }
 .a3, button.a3, #a3 { background-color: var(--a3-container); color: var(--a3-primary); }
@@ -272,7 +269,6 @@ nav#nav button.active {
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Card individuali degli articoli */
 #div button, #results button, #recent button {
   width: 100%;
   display: flex;
@@ -299,7 +295,7 @@ nav#nav button.active {
   margin: 6px 0 0 0;
   opacity: 0.8;
 }
-/* Stile base per tutti i link interni */
+
 a.internal {
   color: var(--on-surface);
   text-decoration: underline;
@@ -309,27 +305,24 @@ a.internal {
   transition: all 0.2s ease;
 }
 
-/* Colore della sottolineatura basato sull'ID del link (c + classe) */
 #ca0 { text-decoration-color: var(--primary-color); }
 #ca1 { text-decoration-color: var(--a1-primary); }
 #ca2 { text-decoration-color: var(--a2-primary); }
 #ca3 { text-decoration-color: var(--a3-primary); }
 #ca4 { text-decoration-color: var(--a4-primary); }
 
-/* Cambio colore del testo al passaggio del mouse */
 #ca0:hover { color: var(--primary-color); }
 #ca1:hover { color: var(--a1-primary); }
 #ca2:hover { color: var(--a2-primary); }
 #ca3:hover { color: var(--a3-primary); }
 #ca4:hover { color: var(--a4-primary); }
-/* Link Esterni */
+
 a.external {
   color: var(--primary-color);
   text-decoration: underline;
   font-weight: 600;
 }
 
-/* Immagini Articolo */
 .article-image {
   margin: 16px 0;
   text-align: center;
@@ -348,7 +341,6 @@ a.external {
   margin-top: 6px;
 }
 
-/* Formule e GeoGebra */
 .math-formula {
   overflow-x: auto;
   padding: 12px 0;
@@ -362,12 +354,13 @@ a.external {
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
 #content strong {
   color: var(--primary-color);
   font-weight: 700;
   transition: color 0.3s ease;
 }
-/* Descrizione all'interno dei bottoni/card in Home */
+
 .card-desc {
   font-size: 0.85rem;
   margin: 8px 0 0 0;
@@ -377,7 +370,6 @@ a.external {
   line-height: 1.3;
 }
 
-/* Sottotitolo descrittivo nella pagina dell'articolo */
 #desc.article-subtitle {
   text-align: center;
   font-size: 1.1rem;
@@ -387,11 +379,11 @@ a.external {
   max-width: 700px;
   width: 90%;
 }
-/* Stile per le Citazioni */
+
 .article-quote {
   margin: 24px 0;
   padding: 16px 24px;
-  background-color: var(--surface); /* Usa il colore di sfondo delle tue card/superfici */
+  background-color: var(--surface);
   border-left: 4px solid var(--primary-color);
   border-radius: 0 8px 8px 0;
   font-style: italic;
@@ -410,9 +402,8 @@ a.external {
   text-align: right;
 }
 
-/* Stile per le Tabelle */
 .table-container {
-  overflow-x: auto; /* Permette lo scroll orizzontale su schermi piccoli */
+  overflow-x: auto;
   margin: 24px 0;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -426,7 +417,7 @@ a.external {
 
 .article-table th {
   background-color: var(--primary-color);
-  color: #ffffff; /* Testo bianco per contrasto sull'intestazione a tema */
+  color: #ffffff;
   padding: 12px 16px;
   font-weight: 600;
 }
@@ -439,7 +430,7 @@ a.external {
 .article-table tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.02);
 }
-/* Formule assestanti (su riga propria) */
+
 .latex-block {
   margin: 20px 0;
   text-align: center;
@@ -447,16 +438,14 @@ a.external {
   padding: 10px 0;
 }
 
-/* Formule in riga (inline) */
 .latex-inline {
   padding: 0 4px;
   display: inline-block;
 }
-/* Data in fondo all'articolo */
-/* Titolo dell'articolo centrato e adattabile al tema */
+
 #article-title {
   position: sticky;
-  top: 75px; /* Leggermente distaccato dalla barra di navigazione */
+  top: 75px;
   z-index: 90;
   text-align: center;
   color: var(--primary-color);
@@ -472,7 +461,7 @@ a.external {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 0 10px var(--primary-container);
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
-/* Data centrata in fondo all'articolo */
+
 .article-date {
   text-align: center;
   font-size: 0.9rem;
@@ -483,24 +472,22 @@ a.external {
   padding-top: 12px;
   border-top: 1px solid var(--border-color);
 }
-/* =========================================================
-   VISUALIZZAZIONE SMARTPHONE (Schermi < 768px)
-   Questo blocco non tocca la visualizzazione per Computer
-   ========================================================= */
+
+
 /* =========================================================
    VISUALIZZAZIONE SMARTPHONE FORZATA (< 768px)
    ========================================================= */
 @media (max-width: 768px) {
 
-  /* 1. TESTO GENERALE MOLTO PIÙ GRANDE */
+  /* 1. TESTO GENERALE E SPAZIATURE */
   body {
-    font-size: 20px !important; /* Testo ingrandito */
-    line-height: 1.7 !important; /* Spaziatura righe maggiorata per leggibilità */
-    padding-bottom: 120px !important; /* Spazio per la nav-bar più spessa */
-    padding-top: 80px !important; /* Spazio per non coprire il testo con la nuova testata */
+    font-size: 20px !important;
+    line-height: 1.7 !important;
+    padding-bottom: 130px !important;
+    padding-top: 80px !important;
   }
 
-  /* 2. HEADER "FANTASMA" IN ALTO (Lingua a destra) */
+  /* 2. HEADER "FANTASMA" IN ALTO (Lingua a DESTRA, Ricerca a SINISTRA) */
   header {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -510,42 +497,25 @@ a.external {
     padding: 12px 15px !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-end !important; /* Spinge forzatamente la Lingua a destra */
     gap: 10px !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     z-index: 1001 !important;
-    pointer-events: none; /* Permette di "toccare attraverso" lo spazio vuoto in mezzo */
+    pointer-events: none;
   }
 
-  /* Riattiva i tocchi solo sui bottoni effettivi */
   header > * {
     pointer-events: auto;
   }
 
-  /* Selettore Lingua (Pillola di destra) */
-  select#lang {
-    background-color: var(--bar-bg) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border: 1.5px solid var(--primary-color) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
-    border-radius: 20px !important;
-    font-size: 16px !important; 
-    padding: 0 12px !important;
-    height: 48px !important; /* Tasto più spesso */
-    margin: 0 !important;
-    flex: 0 0 auto !important;
-    cursor: pointer;
-  }
-
-  /* Barra di ricerca nella Home (Pillola di sinistra se presente) */
+  /* Ricerca a sinistra (ordine 1) */
   #searchbar {
+    order: 1 !important;
     flex: 1 !important;
     display: flex !important;
-    margin-right: auto !important; /* Mantiene la ricerca a sinistra */
+    margin: 0 !important;
   }
 
   #searchbar input#searchdiv {
@@ -553,50 +523,95 @@ a.external {
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
     border: 1.5px solid var(--primary-color) !important;
-    border-radius: 20px !important;
-    font-size: 16px !important; 
-    padding: 0 15px !important;
     height: 48px !important;
+    border-radius: 24px !important;
+    font-size: 16px !important;
+    padding: 0 15px !important;
     width: 100% !important;
+    box-sizing: border-box !important;
   }
 
-  /* 3. TITOLO ARTICOLO: PILLOLA FLUTTUANTE A SINISTRA */
-  #article-title {
-    position: fixed !important;
-    top: 12px !important;
-    left: 15px !important; /* Si posiziona perfettamente a sinistra */
-    margin: 0 !important;
-    max-width: calc(100% - 100px) !important; /* Lascia sempre spazio vitale per la Lingua a destra */
-    width: auto !important;
-    height: 48px !important; /* Altezza identica al tasto lingua per un allineamento perfetto */
-    line-height: 44px !important; /* Centra verticalmente il testo nel bottone */
-    padding: 0 20px !important;
-    font-size: 1.15rem !important;
-    
-    /* Effetto Vetro identico agli altri menù */
+  /* Selettore Lingua a destra (ordine 2) */
+  select#lang {
+    order: 2 !important;
+    flex: 0 0 auto !important;
     background-color: var(--bar-bg) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
     border: 1.5px solid var(--primary-color) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    height: 48px !important;
     border-radius: 24px !important;
+    padding: 0 16px !important;
+    font-size: 16px !important;
+    margin: 0 !important;
+    cursor: pointer;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. TITOLO DELL'ARTICOLO: IDENTICO AL TASTO LINGUA E ALLINEATO A SINISTRA */
+  #article-title {
+    position: fixed !important;
+    top: 12px !important;
+    left: 15px !important;
+    height: 48px !important;
+    border-radius: 24px !important;
+    box-sizing: border-box !important;
+    line-height: 44px !important;
+    padding: 0 20px !important;
+    margin: 0 !important;
+    font-size: 1.1rem !important;
+    max-width: calc(100% - 95px) !important;
+    
+    background-color: var(--bar-bg) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1.5px solid var(--primary-color) !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
     
     z-index: 1002 !important;
     text-align: left !important;
-    
-    /* Trucco: Taglia il testo e aggiunge "..." se il titolo è lunghissimo */
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
   }
 
-  /* Distanzia il sottotitolo corsivo */
   #desc.article-subtitle {
     margin-top: 10px !important;
     font-size: 1.2rem !important;
   }
 
-  /* 4. BARRA DELLE MATERIE IN BASSO (MOLTO PIÙ GROSSA) */
+  /* 4. CARD E SEZIONI NELLA HOME (Font più grandi e spaziature aumentate) */
+  #recent, #div, #results {
+    padding: 24px 16px !important;
+    margin: 20px auto !important;
+    gap: 16px !important;
+    border-radius: 32px !important;
+  }
+
+  #div button, #results button, #recent button {
+    padding: 20px 16px !important;
+    margin-bottom: 8px !important;
+    border-radius: 24px !important;
+  }
+
+  #div button h1, #recent button h1, #results button h1 {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+  }
+
+  #div button h2, #recent button h2, #results button h2 {
+    font-size: 0.95rem !important;
+    margin-top: 8px !important;
+    opacity: 0.85;
+  }
+
+  .card-desc {
+    font-size: 0.95rem !important;
+    margin-top: 8px !important;
+  }
+
+  /* 5. BARRA DELLE MATERIE IN BASSO (Pulsanti grossi e spessi) */
   nav#nav {
     position: fixed !important;
     bottom: 0 !important;
@@ -611,7 +626,6 @@ a.external {
     border-bottom: none !important;
     border-left: none !important;
     border-right: none !important;
-    /* Spazi molto più abbondanti per dare sostanza alla barra */
     padding: 18px 10px calc(18px + env(safe-area-inset-bottom)) !important;
     justify-content: space-evenly !important;
     z-index: 1000 !important;
@@ -619,14 +633,14 @@ a.external {
 
   nav#nav button {
     flex-grow: 1 !important;
-    padding: 18px 5px !important; /* Bottoni giganti e facili da premere */
+    padding: 18px 5px !important;
     margin: 0 5px !important;
     font-size: 16px !important;
     font-weight: 700 !important;
     border-radius: 20px !important;
   }
 
-  /* 5. FOOTER CONTATTI ALLA FINE DELLA PAGINA */
+  /* 6. FOOTER CONTATTI */
   footer#footer {
     position: static !important;
     transform: none !important;
