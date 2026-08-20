@@ -487,96 +487,89 @@ a.external {
    VISUALIZZAZIONE SMARTPHONE (Schermi < 768px)
    Questo blocco non tocca la visualizzazione per Computer
    ========================================================= */
+/* =========================================================
+   VISUALIZZAZIONE SMARTPHONE FORZATA (< 768px)
+   ========================================================= */
 @media (max-width: 768px) {
 
-  /* 1. TESTO E SPAZIATURE PIÙ LEGGIBILI */
   body {
-    font-size: 18px; 
-    line-height: 1.65;
-    padding-bottom: 110px; /* Crea spazio in fondo per non far coprire i contenuti dalla nuova barra */
-    padding-top: 15px;
+    padding-bottom: 110px !important; 
+    padding-top: 15px !important;
   }
-
-  /* 2. HEADER IN ALTO LEGGERO (Rimangono solo Ricerca e Lingua) */
-  /* Spostando il nav, l'header ospiterà naturalmente solo il select e il box di ricerca */
+   /* 1. HEADER IN ALTO FORZATO E ALLINEATO */
   header {
-    top: 0;
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0 0 20px 20px;
-    padding: 10px 15px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important; /* Spazio esatto tra ricerca e lingua */
+    top: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 0 20px 20px !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 12px 15px !important;
+    box-sizing: border-box !important;
   }
-
-  /* Font a 16px nei campi di input previene lo zoom automatico e fastidioso degli iPhone */
-  #searchbar input#searchdiv, select#lang {
-    font-size: 16px; 
-    padding: 10px 12px;
-  }
-
-  #searchbar {
-    flex: 1; /* Permette alla ricerca di occupare lo spazio disponibile */
-    margin-right: 10px;
-  }
-
-  /* 3. BARRA DELLE MATERIE FISSATA IN BASSO */
+  /* 2. BARRA MATERIE IN BASSO FORZATA */
   nav#nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--bar-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    /* env() protegge i bottoni dalla "linea nera" in basso (Home indicator) degli iPhone */
-    padding: 10px 8px calc(10px + env(safe-area-inset-bottom));
-    border-radius: 24px 24px 0 0;
-    border: 1.5px solid var(--primary-color);
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    justify-content: space-evenly;
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important; /* Annulla qualsiasi 'top' precedente */
+    left: 0 !important;
+    width: 100% !important;
+    border-radius: 24px 24px 0 0 !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 10px 8px calc(10px + env(safe-area-inset-bottom)) !important;
+    justify-content: space-evenly !important;
   }
 
-  /* Bottoni materie più grandi per facilitare il tocco con il pollice */
   nav#nav button {
-    flex-grow: 1;
-    padding: 14px 0;
-    margin: 0 4px;
-    font-size: 15px;
+    flex-grow: 1 !important;
+    padding: 14px 0 !important;
+    margin: 0 4px !important;
+    font-size: 15px !important;
   }
 
-  /* 4. CONTATTI SPOSTATI IN ALTO (Fluttuanti sotto l'header) */
+  /* 3. FOOTER CONTATTI FORZATO IN ALTO */
   footer#footer {
-    position: fixed;
-    top: 65px; /* Si aggancia elegantemente appena sotto la barra principale in alto */
-    bottom: auto;
-    width: max-content;
-    padding: 6px 12px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    position: fixed !important;
+    top: 65px !important; 
+    bottom: auto !important;
+    width: max-content !important;
   }
 
-  footer#footer button {
-    padding: 6px 12px;
-    font-size: 0.85rem;
-  }
-
-  /* 5. ADATTAMENTI PER TITOLO E FORMULE (Pagina Articolo) */
+  /* 4. ADATTAMENTI TESTO */
   #article-title {
-    top: 130px; /* Modificato per non scivolare sotto ai menu superiori incollati */
-    font-size: 1.3rem;
-    padding: 12px 15px;
-    width: 95%;
+    top: 130px !important; 
+    font-size: 1.3rem !important;
+    width: 95% !important;
+  }
+ 
+
+  /* Contenitore della ricerca fluido */
+  #searchbar {
+    flex: 1 !important; /* Prende tutto lo spazio disponibile */
+    min-width: 0 !important; /* Evita che sbordi dallo schermo */
+    margin: 0 !important;
+    display: flex !important;
   }
 
-  /* Testo della matematica leggermente più grande */
-  .latex-block, .latex-inline {
-    font-size: 1.15rem;
+  /* Altezza e padding identici per ricerca e lingua */
+  #searchbar input#searchdiv, select#lang {
+    font-size: 16px !important; 
+    padding: 0 12px !important;
+    height: 42px !important; /* Forza la stessa identica altezza */
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+
+  /* Evita che il selettore lingua si schiacci */
+  select#lang {
+    flex: 0 0 auto !important;
   }
 }
