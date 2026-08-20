@@ -531,26 +531,12 @@ a.external {
     box-sizing: border-box !important;
   }
 
-  /* Selettore Lingua a destra (ordine 2) */
-  select#lang {
-    order: 2 !important;
-    flex: 0 0 auto !important;
-    background-color: var(--bar-bg) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border: 1.5px solid var(--primary-color) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
-    height: 48px !important;
-    border-radius: 24px !important;
-    padding: 0 16px !important;
-    font-size: 16px !important;
-    margin: 0 !important;
-    cursor: pointer;
-    box-sizing: border-box !important;
-  }
-
   /* 3. TITOLO DELL'ARTICOLO: IDENTICO AL TASTO LINGUA E ALLINEATO A SINISTRA */
   #article-title {
+    order: 3 !important;
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
     position: fixed !important;
     top: 12px !important;
     left: 15px !important;
@@ -574,6 +560,24 @@ a.external {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+  }
+
+  /* Selettore Lingua a destra (ordine 2) */
+  select#lang {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    background-color: var(--bar-bg) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1.5px solid var(--primary-color) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    height: 48px !important;
+    border-radius: 24px !important;
+    padding: 0 16px !important;
+    font-size: 16px !important;
+    margin: 0 !important;
+    cursor: pointer;
+    box-sizing: border-box !important;
   }
 
   #desc.article-subtitle {
