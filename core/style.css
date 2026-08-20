@@ -480,3 +480,100 @@ a.external {
   padding-top: 12px;
   border-top: 1px solid var(--border-color);
 }
+/* =========================================================
+   VISUALIZZAZIONE SMARTPHONE (Schermi < 768px)
+   Questo blocco non tocca la visualizzazione per Computer
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* 1. TESTO E SPAZIATURE PIÙ LEGGIBILI */
+  body {
+    font-size: 18px; 
+    line-height: 1.65;
+    padding-bottom: 110px; /* Crea spazio in fondo per non far coprire i contenuti dalla nuova barra */
+    padding-top: 15px;
+  }
+
+  /* 2. HEADER IN ALTO LEGGERO (Rimangono solo Ricerca e Lingua) */
+  /* Spostando il nav, l'header ospiterà naturalmente solo il select e il box di ricerca */
+  header {
+    top: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0 0 20px 20px;
+    padding: 10px 15px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  /* Font a 16px nei campi di input previene lo zoom automatico e fastidioso degli iPhone */
+  #searchbar input#searchdiv, select#lang {
+    font-size: 16px; 
+    padding: 10px 12px;
+  }
+
+  #searchbar {
+    flex: 1; /* Permette alla ricerca di occupare lo spazio disponibile */
+    margin-right: 10px;
+  }
+
+  /* 3. BARRA DELLE MATERIE FISSATA IN BASSO */
+  nav#nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bar-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    /* env() protegge i bottoni dalla "linea nera" in basso (Home indicator) degli iPhone */
+    padding: 10px 8px calc(10px + env(safe-area-inset-bottom));
+    border-radius: 24px 24px 0 0;
+    border: 1.5px solid var(--primary-color);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    justify-content: space-evenly;
+  }
+
+  /* Bottoni materie più grandi per facilitare il tocco con il pollice */
+  nav#nav button {
+    flex-grow: 1;
+    padding: 14px 0;
+    margin: 0 4px;
+    font-size: 15px;
+  }
+
+  /* 4. CONTATTI SPOSTATI IN ALTO (Fluttuanti sotto l'header) */
+  footer#footer {
+    position: fixed;
+    top: 65px; /* Si aggancia elegantemente appena sotto la barra principale in alto */
+    bottom: auto;
+    width: max-content;
+    padding: 6px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  footer#footer button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  /* 5. ADATTAMENTI PER TITOLO E FORMULE (Pagina Articolo) */
+  #article-title {
+    top: 130px; /* Modificato per non scivolare sotto ai menu superiori incollati */
+    font-size: 1.3rem;
+    padding: 12px 15px;
+    width: 95%;
+  }
+
+  /* Testo della matematica leggermente più grande */
+  .latex-block, .latex-inline {
+    font-size: 1.15rem;
+  }
+}
