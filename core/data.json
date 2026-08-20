@@ -18,18 +18,5 @@
         "mode4"
     ],
     "mode1",
-    3,
-    {
-        "site-desc-it": "Descrizione generale per la SEO del sito Aldilà dell'atomo.",
-        "site-desc-en": "General SEO description for the Beyond Atom website.",
-        "a1-desc-it": "Esplora tutti gli articoli e le ricerche inerenti alla Fisica.",
-        "a1-desc-en": "Explore all articles and research related to Physics.",
-        "a2-desc-it": "Scopri approfondimenti e formule matematiche.",
-        "a2-desc-en": "Discover mathematical insights and formulas.",
-        "a3-desc-it": "Articoli su reazioni, composti e scoperte chimiche.",
-        "a3-desc-en": "Articles on reactions, compounds, and chemical discoveries.",
-        "a4-desc-it": "Il mondo della biologia e delle scienze naturali.",
-        "a4-desc-en": "The world of biology and natural sciences."
-    }
-
+    3
 ]

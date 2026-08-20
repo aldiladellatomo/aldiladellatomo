@@ -85,9 +85,9 @@ async function startCarousel(data) {
 async function hbootstrap() {
     
     var { lang, data, articles } = await getAll();
-    var descKey = (actualschede === "a0") ? "site-desc-" + actuallang : actualschede + "-desc-" + actuallang;
-    if (data[7] && data[7][descKey]) {
-    setMetaDescription(data[7][descKey]);
+    var descKey = (actualschede === "a0") ? "site-desc" : actualschede + "-desc";
+    if (lang[descKey]) {
+        setMetaDescription(lang[descKey]);
     }
     globalArticles = articles.slice(1);
     document.title = lang[actualschede] + " | " + lang["a0"];
