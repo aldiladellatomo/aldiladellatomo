@@ -465,10 +465,15 @@ a.external {
 /*Titolo articoli*/
 #article-title {
   position: sticky;
-  top: 60px; 
-  background-color: var(--surface, #ffffff);
+  top: 60px; /* Regola in base all'altezza della barra superiore */
+  background-color: var(--surface); /* Si adatta allo sfondo del tema (chiaro/scuro) */
+  color: var(--primary-color); /* Si adatta al colore dinamico della materia */
   z-index: 90;
   padding: 15px 0;
   margin: 0 0 10px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
 }
+.ba1 #article-title { color: #007acc; } /* Fisica */
+.ba2 #article-title { color: #e65100; } /* Matematica */
+.ba3 #article-title { color: #2e7d32; } /* Chimica */
+.ba4 #article-title { color: #c2185b; } /* Biologia */
