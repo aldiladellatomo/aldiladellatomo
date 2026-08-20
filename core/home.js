@@ -119,7 +119,7 @@ async function search() {
 
     searchTitle.style.display = "block";
     resultsDiv.style.display = "flex";
-    searchTitle.innerText = lang["c1"] + " «" + queryInput.value + "»";
+    searchTitle.innerText = lang["c1"] + " \u00AB" + queryInput.value + "\u00BB";
 
     var matchesHtml = "";
     var searchList = articles.slice(1); 
@@ -158,7 +158,7 @@ async function search() {
     }
 
     if (matchesHtml === "") {
-        resultsDiv.innerHTML = "<p>" + lang["c2"] + " «" + queryInput.value + "»</p>";
+        resultsDiv.innerHTML = "<p>" + lang["c2"] + " \u00AB" + queryInput.value + "\u00BB</p>";
     } else {
         resultsDiv.innerHTML = matchesHtml;
     }

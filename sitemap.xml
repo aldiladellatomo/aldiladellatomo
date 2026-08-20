@@ -1,19 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page Principale -->
   <url>
     <loc>https://aldiladellatomo.eu/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <priority>1.0</priority>
   </url>
-  <!-- Inserisci i link a ciascun articolo con i relativi parametri -->
+
+  <!-- Fisica (a1) -->
   <url>
-    <loc>https://aldiladellatomo.eu/core/article.html?id=1&amp;lang=it</loc>
-    <lastmod>2026-08-15</lastmod>
+    <loc>https://aldiladellatomo.eu/home.html?class=a1&amp;lang=it</loc>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aldiladellatomo.eu/core/article.html?id=1&amp;lang=en</loc>
-    <lastmod>2026-08-15</lastmod>
+    <loc>https://aldiladellatomo.eu/home.html?class=a1&amp;lang=en</loc>
+    <lastmod>2026-08-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Matematica (a2) -->
+  <url>
+    <loc>https://aldiladellatomo.eu/home.html?class=a2&amp;lang=it</loc>
+    <lastmod>2026-08-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aldiladellatomo.eu/home.html?class=a2&amp;lang=en</loc>
+    <lastmod>2026-08-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Chimica (a3) -->
+  <url>
+    <loc>https://aldiladellatomo.eu/home.html?class=a3&amp;lang=it</loc>
+    <lastmod>2026-08-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aldiladellatomo.eu/home.html?class=a3&amp;lang=en</loc>
+    <lastmod>2026-08-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Biologia (a4) -->
+  <url>
+    <loc>https://aldiladellatomo.eu/home.html?class=a4&amp;lang=it</loc>
+    <lastmod>2026-08-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aldiladellatomo.eu/home.html?class=a4&amp;lang=en</loc>
+    <lastmod>2026-08-20</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

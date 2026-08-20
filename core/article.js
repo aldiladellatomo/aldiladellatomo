@@ -47,6 +47,38 @@ function renderArticleContent(content, articleId) {
                      "<iframe src='https://www.geogebra.org/material/iframe/id/" + item.geogebraId + "/width/800/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/true/asb/0/sri/true/rc/false/ld/false/sdz/true/ctl/false' width='100%' height='500' style='border:0px;'></iframe>" +
                      "</div>";
                 break;
+            
+                case "quote":
+                var author = item.author ? "<cite>— " + item.author + "</cite>" : "";
+                b += "<blockquote class='article-quote'>" +
+                "<p>«" + item["content-" + actuallang] + "»</p>" +
+                author +
+                "</blockquote>";
+                break;
+
+            case "table":
+                var headers = item["headers-" + actuallang];
+                var rows = item["rows-" + actuallang];
+    
+                var tableHtml = "<div class='table-container'><table class='article-table'><thead><tr>";
+    
+
+                for (var h = 0; h < headers.length; h++) {
+                    tableHtml += "<th>" + headers[h] + "</th>";
+                }
+                tableHtml += "</tr></thead><tbody>";
+    
+    
+                for (var r = 0; r < rows.length; r++) {
+                    tableHtml += "<tr>";
+                    for (var c = 0; c < rows[r].length; c++) {
+                        tableHtml += "<td>" + rows[r][c] + "</td>";
+                    }
+                    tableHtml += "</tr>";
+                }
+                tableHtml += "</tbody></table></div>";
+                b += tableHtml;
+                break;
         }
     }
 

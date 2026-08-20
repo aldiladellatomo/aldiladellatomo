@@ -387,3 +387,55 @@ a.external {
   max-width: 700px;
   width: 90%;
 }
+/* Stile per le Citazioni */
+.article-quote {
+  margin: 24px 0;
+  padding: 16px 24px;
+  background-color: var(--surface); /* Usa il colore di sfondo delle tue card/superfici */
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+.article-quote p {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.article-quote cite {
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.8;
+  display: block;
+  text-align: right;
+}
+
+/* Stile per le Tabelle */
+.table-container {
+  overflow-x: auto; /* Permette lo scroll orizzontale su schermi piccoli */
+  margin: 24px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.article-table th {
+  background-color: var(--primary-color);
+  color: #ffffff; /* Testo bianco per contrasto sull'intestazione a tema */
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+.article-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.article-table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
