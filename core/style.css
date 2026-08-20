@@ -494,38 +494,69 @@ a.external {
 
   body {
     padding-bottom: 110px !important; 
-    padding-top: 15px !important;
   }
-   /* 1. HEADER IN ALTO FORZATO E ALLINEATO */
+
+  /* 1. SBLOCCO DELL'HEADER (Risolve il problema della barra intrappolata) */
   header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px 15px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 10px !important; /* Spazio esatto tra ricerca e lingua */
+    gap: 10px !important;
     top: 0 !important;
     margin: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
-    border-radius: 0 0 20px 20px !important;
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    padding: 12px 15px !important;
-    box-sizing: border-box !important;
   }
-  /* 2. BARRA MATERIE IN BASSO FORZATA */
+
+  /* Ridiamo lo stile sfocato e i bordi solo agli elementi interni (Cerca e Lingua) */
+  #searchbar input#searchdiv, select#lang {
+    background-color: var(--bar-bg) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1.5px solid var(--primary-color) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 20px !important;
+    font-size: 16px !important; 
+    padding: 0 12px !important;
+    height: 42px !important;
+    margin: 0 !important;
+  }
+
+  #searchbar {
+    flex: 1 !important;
+    margin: 0 !important;
+    display: flex !important;
+    min-width: 0 !important;
+  }
+
+  select#lang {
+    flex: 0 0 auto !important;
+  }
+
+  /* 2. BARRA MATERIE LIBERA IN BASSO */
   nav#nav {
     position: fixed !important;
     bottom: 0 !important;
-    top: auto !important; /* Annulla qualsiasi 'top' precedente */
+    top: auto !important; /* Annulla qualsiasi vincolo con la parte superiore */
     left: 0 !important;
     width: 100% !important;
+    background-color: var(--bar-bg) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     border-radius: 24px 24px 0 0 !important;
+    border: 1.5px solid var(--primary-color) !important;
     border-bottom: none !important;
     border-left: none !important;
     border-right: none !important;
     padding: 10px 8px calc(10px + env(safe-area-inset-bottom)) !important;
     justify-content: space-evenly !important;
+    z-index: 1000 !important;
   }
 
   nav#nav button {
@@ -535,41 +566,25 @@ a.external {
     font-size: 15px !important;
   }
 
-  /* 3. FOOTER CONTATTI FORZATO IN ALTO */
+  /* 3. FOOTER CONTATTI (Github/Email) */
+  /* Li posizioniamo alla fine fisica della pagina per non ostruire la lettura */
   footer#footer {
-    position: fixed !important;
-    top: 65px !important; 
-    bottom: auto !important;
+    position: static !important;
+    transform: none !important;
+    margin: 40px auto 120px auto !important; 
     width: max-content !important;
   }
 
-  /* 4. ADATTAMENTI TESTO */
+  /* 4. SPAZIATURA TITOLI */
+  /* Allontana il titolo della Home dalla barra superiore */
+  h1#h1 {
+    margin-top: 20px !important;
+  }
+
+  /* Titolo dell'articolo */
   #article-title {
-    top: 130px !important; 
+    top: 70px !important; /* Distanza standard sotto l'header snellito */
     font-size: 1.3rem !important;
     width: 95% !important;
-  }
- 
-
-  /* Contenitore della ricerca fluido */
-  #searchbar {
-    flex: 1 !important; /* Prende tutto lo spazio disponibile */
-    min-width: 0 !important; /* Evita che sbordi dallo schermo */
-    margin: 0 !important;
-    display: flex !important;
-  }
-
-  /* Altezza e padding identici per ricerca e lingua */
-  #searchbar input#searchdiv, select#lang {
-    font-size: 16px !important; 
-    padding: 0 12px !important;
-    height: 42px !important; /* Forza la stessa identica altezza */
-    box-sizing: border-box !important;
-    margin: 0 !important;
-  }
-
-  /* Evita che il selettore lingua si schiacci */
-  select#lang {
-    flex: 0 0 auto !important;
   }
 }
