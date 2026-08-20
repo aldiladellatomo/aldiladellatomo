@@ -1,20 +1,117 @@
 [
     {
         "type":"text",
-        "content-it":"text articolo 1",
-        "content-en":"text article 1"
-    },
-    {
-        "type":"link",
-        "name-it":"link articolo 2",
-        "name-en":"link article 2",
-        "class":"internal",
-        "id":"2"
+        "content-it":"per calcolare differenze di quadrati di numeri interi esistono diverse tecniche che oggi esamineremo.",
+        "content-en":""
     },
     {
         "type":"text",
-        "content-it":"text articolo 1.2",
-        "content-en":"text article 1.2"
+        "content-it":"iniziamo dal caso più semplice",
+        "content-en":""
+    },
+    {
+        "type":"bold",
+        "content-it":"numeri consecutivi"
+    },
+    {
+        "type":"latex",
+        "formula":"(n+1)^2 -(n)^2"
+    },
+    {
+        "type":"text",
+        "content-it":"espandiamo i quadrati"
+    },
+    {
+        "type":"latex",
+        "formula":"(n^2 + 2n + 1) - n^2"
+    },
+    {
+        "type":"text",
+        "content-it":"semplifichiamo"
+    },
+    {
+        "type":"latex",
+        "formula":"2n + 1"
+    },
+    {
+        "type":"text",
+        "content-it":"quindi la differenza di quadrati di due numeri consecutivi è sempre un numero dispari. ed è la somma dei due numeri. ora consideriamo i "
+    },
+    {
+        "type":"bold",
+        "content-it":"numeri non consecutivi"
+    },
+    {
+        "type":"text",
+        "content-it":"se per esempio volessimo calcolare la somma di numeri che differiscono di due avrei la segunete formula"
+    },
+    {
+        "type":"latex",
+        "formula":"(n+2)^2 -(n)^2"
+    },
+    {
+        "type":"text",
+        "content-it":"sottraiamo e aggiungiamo "
+    },
+    {
+        "type":"latex",
+        "inline": true,
+        "content-it":"(n+1)^2"
+    },
+    {
+        "type":"text",
+        "content-it":"otteniamo"
+    },
+    {
+        "type":"latex",
+        "formula":"(n+2)^2 -(n+1)^2 + (n+1)^2 -(n)^2"
+    },
+    {
+        "type":"text",
+        "content-it":"usiamo le formule appena viste per i numeri consecutivi"
+    },
+    {
+        "type":"latex",
+        "formula":"2(n+1) +1 + 2n +1"
+    },
+    {
+        "type":"text",
+        "content-it":"scomponiamo ancora sapendo che"
+    },
+    {
+        "type":"latex",
+        "inline": true,
+        "content-it":"2n+1=(n+1)+n"
+    },
+    {
+        "type":"latex",
+        "formula":"(n+2) + (n+1) + (n+1) +n"
+    },
+    {
+        "type":"text",
+        "content-it":"e sommiamo"
+    },
+    {
+        "type":"latex",
+        "formula":"(n+2) + 2(n+1) +n"
+    },
+    {
+        "type":"text",
+        "content-it":"è semplice dedurre (e anche dimostrare) che per calcolare le differenze di quadrati basta"
+    },
+    {
+        "type":"bold",
+        "content-it":"sommare i numeri compresi tra i due numeri di cui vogliamo calcolare la differenza di quadrati moltiplicare per 2 e aggiugere gli estremi"
     }
+
+
+
+
+
+
+
+    
+
+
 
 ]

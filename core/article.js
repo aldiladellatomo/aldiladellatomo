@@ -39,9 +39,13 @@ function renderArticleContent(content, articleId) {
                 break;
 
             case "latex":
-                b += "<div class='math-formula'>$$" + item.formula + "$$</div>";
+                if (item.inline) {
+                b += "<span class='latex-inline'>$" + item.formula + "$</span>";
+                } else {
+                b += "<div class='latex-block'>$$" + item.formula + "$$</div>";
+                }
                 break;
-
+ 
             case "geogebra":
                 b += "<div class='geogebra-container'>" +
                      "<iframe src='https://www.geogebra.org/material/iframe/id/" + item.geogebraId + "/width/800/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/true/asb/0/sri/true/rc/false/ld/false/sdz/true/ctl/false' width='100%' height='500' style='border:0px;'></iframe>" +
@@ -96,14 +100,14 @@ async function abootstrap() {
     
     document.body.className = "b" + currentArticle.class;
     
-    document.getElementById("h1").innerText = currentArticle["name-" + actuallang];
+    document.getElementById("article-title").innerText = currentArticle["name-" + actuallang];
     document.title = currentArticle["name-" + actuallang] + " | " + lang["a0"];
     if (articleDesc) {
         setMetaDescription(articleDesc); 
     }
     
     document.getElementById("desc").innerText = articleDesc;
-    
+    document.getElementById("article-date").innerText = currentArticle.date;
     renderArticleNav(lang, currentArticle.class);
     
     var content = await getArticle(id);

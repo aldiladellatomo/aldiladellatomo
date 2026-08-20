@@ -439,3 +439,36 @@ a.external {
 .article-table tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.02);
 }
+/* Formule assestanti (su riga propria) */
+.latex-block {
+  margin: 20px 0;
+  text-align: center;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+/* Formule in riga (inline) */
+.latex-inline {
+  padding: 0 4px;
+  display: inline-block;
+}
+/* Data in fondo all'articolo */
+.article-date {
+  text-align: right;
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.7;
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+/*Titolo articoli*/
+#article-title {
+  position: sticky;
+  top: 0;
+  background-color: var(--surface, #ffffff);
+  z-index: 100;
+  padding: 15px 0;
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}

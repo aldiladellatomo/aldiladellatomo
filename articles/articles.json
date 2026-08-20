@@ -1,52 +1,14 @@
 [
-    4,
+    1,
     {
-        "id":1,
-        "name-it":"articolo 1",
-        "name-en":"article 1",
-        "class":"a1",
-        "date":"2026-06-01",
-        "desc-it": "descrizione articolo 1",
-        "desc-en": "description article 1",
-        "search":[
-            "articolo 1",
-            "article 1",
-            "fisica"
-        ]
-
-    },
-    {
-        "id":2,
-        "name-it":"articolo 2",
-        "name-en":"article 2",
-        "class":"a2",
-        "date":"2026-06-02",
-        "search":[
-            "articolo 2",
-            "article 2"
-        ]
-
-    },
-    {
-        "id":3,
-        "name-it":"articolo 3",
-        "name-en":"article 3",
-        "class":"a2",
-        "date":"2026-06-05",
-        "search":[
-            "articolo 3",
-            "article 3"
-        ]
-    },
-    {
-        "id":4,
-        "name-it":"articolo 4",
-        "name-en":"article 4",
-        "class":"a4",
-        "date":"2026-06-03",
-        "search":[
-            "math",
-            "esempio"
-        ]
+    "id": "1",
+    "class": "a2",
+    "date": "2026-08-20",
+    "name-it": "Differenze di quadrati",
+    "name-en": "",
+    "desc-it": "Tecniche di calcolo rapido di differenze di quadrati.",
+    "desc-en": "",
+    "search": ["Calcolo", "differenze"]
     }
+    
 ]

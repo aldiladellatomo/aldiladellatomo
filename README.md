@@ -57,6 +57,11 @@ Popola il file con un array di blocchi scegliendo tra i tipi supportati:
     "formula": "E = mc^2"
   },
   {
+    "type": "latex",
+    "inline": true,
+    "formula": "F = m \\cdot a"
+  },
+  {
     "type": "geogebra",
     "geogebraId": "id_del_materiale"
   },
