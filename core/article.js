@@ -98,7 +98,7 @@ async function abootstrap() {
     var { lang, articles } = await getAll();
     var currentArticle = articles[id];
     var articleDesc = currentArticle["desc-" + actuallang] || "";
-    
+    setFavicon(currentArticle.class);
     document.body.className = "b" + currentArticle.class;
     
     document.getElementById("article-title").innerText = currentArticle["name-" + actuallang];

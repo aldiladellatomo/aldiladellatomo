@@ -68,5 +68,16 @@ async function bootstrap() {
     renderLanguageSelector(data[1]);
     renderFooterContacts(data[2]);
 }
+function setFavicon(subjectClass) {
+    var favicon = document.getElementById("favicon");
+    if (!favicon) return;
 
+    // Se c'è una materia specifica (diversa da "Tutte" o "a0"), imposta il suo colore
+    if (subjectClass && subjectClass !== "a0") {
+        favicon.href = "/images/" + subjectClass + ".svg";
+    } else {
+        // Altrimenti imposta quella multicolore
+        favicon.href = "/images/a0.svg";
+    }
+}
 bootstrap();

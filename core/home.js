@@ -97,7 +97,7 @@ async function hbootstrap() {
     
     buildSortMenu(data, lang);
     document.getElementById("h2").innerText = lang["d2"];
-
+    setFavicon(actualschede);
     renderArticles();
     startCarousel(data);
 }

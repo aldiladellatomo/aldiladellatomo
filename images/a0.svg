@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Sfondo diviso in 4 quadranti con i toni scuri/accesi -->
+  <path d="M 50 50 L 50 2 A 48 48 0 0 1 98 50 Z" fill="#93000a" /> <!-- Fisica (Rosso scuro) -->
+  <path d="M 50 50 L 98 50 A 48 48 0 0 1 50 98 Z" fill="#004299" /> <!-- Matematica (Blu profondo) -->
+  <path d="M 50 50 L 50 98 A 48 48 0 0 1 2 50 Z" fill="#7a6100" /> <!-- Chimica (Oro/Senape scuro) -->
+  <path d="M 50 50 L 2 50 A 48 48 0 0 1 50 2 Z" fill="#245114" /> <!-- Biologia (Verde bosco) -->
+
+  <!-- Nucleo dell'atomo -->
+  <circle cx="50" cy="50" r="9" fill="#ffffff" />
+  
+  <!-- Orbite atomiche -->
+  <ellipse cx="50" cy="50" rx="34" ry="13" fill="none" stroke="#ffffff" stroke-width="3.5" transform="rotate(30 50 50)" />
+  <ellipse cx="50" cy="50" rx="34" ry="13" fill="none" stroke="#ffffff" stroke-width="3.5" transform="rotate(-30 50 50)" />
+  <ellipse cx="50" cy="50" rx="34" ry="13" fill="none" stroke="#ffffff" stroke-width="3.5" transform="rotate(90 50 50)" />
+</svg>

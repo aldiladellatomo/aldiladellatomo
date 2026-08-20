@@ -456,14 +456,17 @@ a.external {
 /* Titolo dell'articolo centrato e adattabile al tema */
 #article-title {
   position: sticky;
-  top: 60px; /* Regola in base all'altezza della tua barra superiore */
-  text-align: center;
-  background-color: var(--surface);
-  color: var(--primary-color);
+  top: 60px; /* Regola in base all'altezza della tua barra di navigazione */
   z-index: 90;
-  padding: 15px 0;
-  margin: 0 0 10px 0;
-  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--primary-color);
+  background-color: var(--surface);
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 10px auto 25px auto;
+  max-width: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Data centrata in fondo all'articolo */
