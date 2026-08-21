@@ -488,6 +488,7 @@ a.external {
   }
 
   /* 2. HEADER "FANTASMA" IN ALTO */
+  /* 2. HEADER "FANTASMA" IN ALTO */
   header {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -495,6 +496,7 @@ a.external {
     border: none !important;
     box-shadow: none !important;
     padding: 14px 15px !important;
+    margin: 0 !important; /* <--- AGGIUNTO: azzera il margine globale per allinearsi al titolo */
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -506,7 +508,6 @@ a.external {
     z-index: 1001 !important;
     pointer-events: none;
   }
-
   header > * {
     pointer-events: auto;
   }
