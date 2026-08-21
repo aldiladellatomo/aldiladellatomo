@@ -688,6 +688,7 @@ select#lang option {
     z-index: 1000 !important;
   }
 
+  /* I tasti ereditano i loro colori nativi (da spente e da attive) come su PC */
   nav#nav button {
     flex-grow: 1 !important;
     padding: 18px 5px !important;
@@ -695,17 +696,6 @@ select#lang option {
     font-size: 16px !important;
     font-weight: 700 !important;
     border-radius: 16px !important;
-    border: 1.5px solid var(--primary-color) !important;
-    background-color: transparent;
-    color: var(--primary-color);
-  }
-
-  /* Stato attivo identico alla versione PC (colore pieno) */
-  nav#nav button.active {
-    background-color: var(--primary-color) !important;
-    color: var(--primary-on) !important;
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   }
 
   /* 6. FOOTER CONTATTI */
@@ -716,3 +706,4 @@ select#lang option {
     width: max-content !important;
   }
 }
+
