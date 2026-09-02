@@ -504,7 +504,7 @@ select#lang {
 }
 
 .language-picker-toggle::after {
-  content: "\\25be";
+  content: "\25BE";
   margin-left: 8px;
 }
 

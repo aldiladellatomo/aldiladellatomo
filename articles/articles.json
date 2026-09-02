@@ -1,5 +1,5 @@
 [
-    1,
+    2,
     {
     "id": "1",
     "class": "a2",
@@ -9,6 +9,15 @@
     "desc-it": "Tecniche di calcolo rapido di differenze di quadrati.",
     "desc-en": "",
     "search": ["Calcolo", "differenze"]
+    },
+    {
+    "id": "2",
+    "class": "a2",
+    "date": "2026-09-03",
+    "name-it": "Derivate analatiche: 1 La semicircoferenzs",
+    "name-en": "",
+    "desc-it": "Calcolo della derivata (coefficente della retta tangente) usando la geometria analitica.",
+    "desc-en": "",
+    "search": ["analitica", "derivate", "geometria", "semicirconferenza"]
     }
-    
 ]
