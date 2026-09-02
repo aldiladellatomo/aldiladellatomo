@@ -14,6 +14,7 @@
     },
     {
         "type": "text",
+        "newline": true,
         "content-it":"la semi circonferenza ha equazione: "
     },
     {
@@ -30,7 +31,16 @@
     },
     {
         "type": "text",
-        "content-it":"spostiamo il termine x^2 a sinistra: "
+        "content-it":"spostiamo il termine"
+    },
+    {
+        "type": "latex",
+        "inline": true,
+        "formula": "x^2"
+    },
+    {
+        "type": "text",
+        "content-it":" a sinistra: "
     },
     {
         "type": "latex",
@@ -67,12 +77,21 @@
     },
     {
         "type":"latex",
-        "formula":"x*x_0 + y*y_0 = r^2"
+        "formula":"x \\cdot x_0 + y \\cdot y_0 = r^2"
     },
     {
         "type":"text",
         "newline": true,
-        "content-it":"dove (x_0, y_0) è il punto di tangenza. da questa formula possiamo ricavare l'equazione della retta tangente:"
+        "content-it":"dove "
+    },
+    {
+        "type":"latex",
+        "inline": true,
+        "formula":"(x_0, y_0)"
+    },
+    {
+        "type":"text",
+        "content-it":" è il punto di tangenza. da questa formula possiamo ricavare l'equazione della retta tangente:"
     },
     {
         "type":"latex",
@@ -90,8 +109,26 @@
     {
         "type":"text",
         "newline": true,
-        "content-it":"sapendo che y_0 = \\sqrt{r^2 - x_0^2} (perchè y_0 è un punto sulla circonferenza) possiamo riscrivere il coefficente angolare come: "
+        "content-it":"sapendo che"
     },
+    {
+        "type":"latex",
+        "inline": true,
+        "formula":"y_0 = \\sqrt{r^2 - x_0^2}"
+    },
+    {
+        "type":"text",
+        "content-it":"(perchè "
+    },
+    {
+        "type":"latex",
+        "inline": true,
+        "formula":"y_0"
+    },
+    {
+        "type":"text",
+        "content-it":" è un punto sulla circonferenza) possiamo riscrivere il coefficente angolare come: "}
+    ,
     {
         "type":"latex",
         "formula":"m = -\\frac{x_0}{\\sqrt{r^2 - x_0^2}}"
