@@ -475,15 +475,18 @@ a.external {
 
 /* Styling Tema Selettore Lingua (PC + Mobile) */
 select#lang {
+  font-family: inherit;
   color: var(--primary-color) !important;
   border: 1.5px solid var(--primary-color) !important;
-  background-color: var(--bar-bg) !important;
+  background-color: var(--surface-color) !important;
+  box-shadow: 0 0 0 1px var(--primary-container);
 }
 
 /* Colori delle opzioni quando si apre il menu a tendina */
 select#lang option {
-  background-color: var(--bar-bg) !important;
-  color: var(--primary-color) !important;
+  font-family: inherit;
+  background-color: var(--surface-color) !important;
+  color: var(--on-surface) !important;
 }
 
 /* =========================================================

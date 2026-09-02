@@ -44,6 +44,7 @@ Popola il file con un array di blocchi scegliendo tra i tipi supportati:
 [
   {
     "type": "text",
+    "newline":true,
     "content-it": "Testo del paragrafo in italiano.",
     "content-en": "Paragraph text in English."
   },
