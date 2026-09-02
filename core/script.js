@@ -33,7 +33,7 @@ async function getAll() {
 
 async function getArticle(id) {
     if (!cachedArticleContents[id]) {
-        cachedArticleContents[id] = await fetchJson("/articles/" + id + "/article.json");
+        cachedArticleContents[id] = await fetchJson("/articles/" + id + ".json");
     }
     return cachedArticleContents[id];
 }
