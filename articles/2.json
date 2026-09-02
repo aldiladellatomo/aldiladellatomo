@@ -1,0 +1,108 @@
+[
+    {
+        "type": "text",
+        "content-it": "In questa rubrica vedremo come calcolare la derivata di una funzione usando la geometria analitica. In particolare, in questo articolo calcoleremo la derivata della semicircoferenza."
+    },
+    {
+        "type": "text",
+        "newline": true,
+        "content-it": "Innanzitutto, ricordiamo che la derivata di una funzione in un punto è il "
+    },
+    {
+        "type": "bold",
+        "content-it": "coefficiente angolare della retta tangente alla curva in quel punto."
+    },
+    {
+        "type": "text",
+        "content-it":"la semi circonferenza ha equazione: "
+    },
+    {
+        "type": "latex",
+        "formula": "y=\\sqrt{r^2 - x^2}"
+    },
+    {
+        "type": "text",
+        "content-it":"eleviamo al quadrato entrambi i membri (ottenendo l'equazione di una circonferenza): "
+    },
+    {
+        "type": "latex",
+        "formula": "y^2 = r^2 - x^2"
+    },
+    {
+        "type": "text",
+        "content-it":"spostiamo il termine x^2 a sinistra: "
+    },
+    {
+        "type": "latex",
+        "formula": "y^2 + x^2 = r^2"
+    },
+    {
+        "type":"text",
+        "content-it":"ora possiamo calcolare la tangente a questa curva usando la geometria analitica. in tre modi:"
+    },
+    {
+        "type":"text",
+        "newline": true,
+        "content-it":"1. facendo un sistema di equazioni tra la retta passante per un punto e la circonferenza, imponiamo un unica solizione (il punto di tangenza) e ricaviamo il coefficente angolare della retta tangente."
+    },
+    {
+        "type":"text",
+        "newline": true,
+        "content-it":"2. calcolando il coefficiente angolare della retta passante per il centro della circonferenza e il punto di tangenza. la retta passante per il centro e il punto di tangenza è perpendicolare alla retta tangente, quindi il coefficente angolare della retta tangente è l'opposto del reciproco del coefficente angolare della retta passante per il centro e il punto di tangenza."
+    },
+    {
+        "type":"text",
+        "newline": true,
+        "content-it":"3. usando la formula di sdoppiamento della circoferenza"
+    },
+    {
+        "type":"text",
+        "newline": true,
+        "content-it":"in questo articolo useremo quest'ultima che non è altro che lo sviluppo del primo metodo."
+    },
+    {
+        "type":"text",
+        "newline": true,
+        "content-it":"la formula di sdoppiamento è la seguente:"
+    },
+    {
+        "type":"latex",
+        "formula":"x*x_0 + y*y_0 = r^2"
+    },
+    {
+        "type":"text",
+        "newline": true,
+        "content-it":"dove (x_0, y_0) è il punto di tangenza. da questa formula possiamo ricavare l'equazione della retta tangente:"
+    },
+    {
+        "type":"latex",
+        "formula":"y = -\\frac{x_0}{y_0}x + \\frac{r^2}{y_0}"
+    },
+    {
+        "type":"text",
+        "newline": true,
+        "content-it":"il coefficente angolare della retta tangente è quindi:"
+    },
+    {
+        "type":"latex",
+        "formula":"m = -\\frac{x_0}{y_0}"
+    },
+    {
+        "type":"text",
+        "newline": true,
+        "content-it":"sapendo che y_0 = \\sqrt{r^2 - x_0^2} (perchè y_0 è un punto sulla circonferenza) possiamo riscrivere il coefficente angolare come: "
+    },
+    {
+        "type":"latex",
+        "formula":"m = -\\frac{x_0}{\\sqrt{r^2 - x_0^2}}"
+    },
+    {
+        "type":"text",
+        "newline": true,
+        "content-it":"ma la derivata non è altro che la funzione che associa un'ascissa al coefficente angolare della tangente allora possiamo scrivere la derivata come."
+    },
+    {
+        "type":"latex",
+        "formula":"f'(x) = -\\frac{x}{\\sqrt{r^2 - x^2}}"
+    }
+]
