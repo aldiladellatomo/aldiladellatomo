@@ -482,11 +482,78 @@ select#lang {
   box-shadow: 0 0 0 1px var(--primary-container);
 }
 
+.language-picker {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.language-picker select#lang {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.language-picker-toggle {
+  min-width: 58px;
+  background-color: var(--surface-color);
+  color: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-container);
+}
+
+.language-picker-toggle::after {
+  content: "\\25be";
+  margin-left: 8px;
+}
+
+.language-picker.is-open .language-picker-toggle {
+  background-color: var(--primary-container);
+  color: var(--primary-color);
+}
+
+.language-picker-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1100;
+  display: none;
+  min-width: 100%;
+  padding: 6px;
+  background-color: var(--card-bg);
+  border: 1.5px solid var(--primary-color);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 0 10px var(--primary-container);
+}
+
+.language-picker.is-open .language-picker-menu {
+  display: grid;
+  gap: 4px;
+}
+
+.language-picker-option {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: transparent;
+  color: var(--on-surface);
+  border-radius: 10px;
+  text-align: left;
+}
+
+.language-picker-option:hover,
+.language-picker-option.is-selected {
+  background-color: var(--primary-container);
+  color: var(--primary-color);
+  border-color: transparent;
+  transform: none;
+}
+
 /* Colori delle opzioni quando si apre il menu a tendina */
 select#lang option {
   font-family: inherit;
-  background-color: var(--surface-color) !important;
-  color: var(--on-surface) !important;
+  background-color: var(--primary-container) !important;
+  color: var(--primary-color) !important;
 }
 
 /* =========================================================
@@ -556,6 +623,19 @@ select#lang option {
   }
 
   /* Selettore Lingua su Mobile */
+  .language-picker {
+    order: 2 !important;
+    margin-left: auto !important;
+  }
+
+  .language-picker-toggle {
+    height: 48px !important;
+    border-radius: 16px !important;
+    padding: 0 16px !important;
+    font-size: 16px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  }
+
   select#lang {
     order: 2 !important;
     margin-left: auto !important;

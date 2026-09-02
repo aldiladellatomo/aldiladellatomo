@@ -45,12 +45,72 @@ function link(url) {
 function renderLanguageSelector(langList) {
     var langSelect = document.getElementById("lang");
     if (!langSelect) return;
-    var a = "";
-    for (var i = 0; i < langList.length; i++) {
-        a += "<option class='select' value=" + langList[i] + ">" + langList[i] + "</option>";
+
+    var picker = langSelect.parentElement.querySelector(".language-picker");
+    if (!picker) {
+        picker = document.createElement("div");
+        picker.className = "language-picker";
+        langSelect.parentElement.insertBefore(picker, langSelect);
+        picker.appendChild(langSelect);
     }
-    langSelect.innerHTML = a;
+
+    var toggle = picker.querySelector(".language-picker-toggle");
+    if (!toggle) {
+        toggle = document.createElement("button");
+        toggle.className = "language-picker-toggle";
+        toggle.type = "button";
+        toggle.setAttribute("aria-haspopup", "listbox");
+        toggle.setAttribute("aria-expanded", "false");
+        picker.insertBefore(toggle, langSelect);
+    }
+
+    var menu = picker.querySelector(".language-picker-menu");
+    if (!menu) {
+        menu = document.createElement("div");
+        menu.className = "language-picker-menu";
+        menu.setAttribute("role", "listbox");
+        picker.appendChild(menu);
+    }
+
+    menu.innerHTML = "";
+    langSelect.innerHTML = "";
+    for (var i = 0; i < langList.length; i++) {
+        var option = document.createElement("option");
+        option.value = langList[i];
+        option.textContent = langList[i];
+        langSelect.appendChild(option);
+
+        var menuOption = document.createElement("button");
+        menuOption.className = "language-picker-option";
+        menuOption.type = "button";
+        menuOption.textContent = langList[i];
+        menuOption.dataset.value = langList[i];
+        menuOption.setAttribute("role", "option");
+        menuOption.addEventListener("click", function() {
+            langSelect.value = this.dataset.value;
+            langSelect.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+        menu.appendChild(menuOption);
+    }
     langSelect.value = actuallang;
+    toggle.textContent = actuallang;
+
+    function updateSelectedOption() {
+        var options = menu.querySelectorAll(".language-picker-option");
+        for (var i = 0; i < options.length; i++) {
+            var selected = options[i].dataset.value === langSelect.value;
+            options[i].classList.toggle("is-selected", selected);
+            options[i].setAttribute("aria-selected", selected ? "true" : "false");
+        }
+        toggle.textContent = langSelect.value;
+    }
+
+    toggle.onclick = function() {
+        var isOpen = picker.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    };
+    langSelect.addEventListener("change", updateSelectedOption);
+    updateSelectedOption();
 }
 
 function renderFooterContacts(contactList) {
