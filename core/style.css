@@ -630,25 +630,18 @@ select#lang option {
   }
 
   .language-picker-toggle,
-   .language-picker-menu {
+  .language-picker-menu {
     display: none !important;
   }
 
   .language-picker select#lang {
     position: static !important;
+    display: block !important;
     width: auto !important;
     height: 48px !important;
     opacity: 1 !important;
     pointer-events: auto !important;
-    display: block !important;
-    border-radius: 16px !important;
-    padding: 0 16px !important;
-    font-size: 16px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
-  }
-
-  select#lang {
-    order: 2 !important;
+    order: initial !important;
     margin-left: auto !important;
     flex: 0 0 auto !important;
     background-color: var(--bar-bg) !important;
@@ -667,6 +660,7 @@ select#lang option {
 
   /* 3. TITOLO DELL'ARTICOLO */
   #article-title {
+    order: 1 !important;
     position: fixed !important;
     top: 14px !important;
     left: 15px !important;
