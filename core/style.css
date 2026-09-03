@@ -473,106 +473,33 @@ a.external {
   border-top: 1px solid var(--border-color);
 }
 
-/* Styling Tema Selettore Lingua (PC + Mobile) */
+/* Selettore lingua tematico, condiviso da home e articoli */
 select#lang {
+  position: fixed;
+  top: 14px;
+  right: 15px;
+  z-index: 1100;
+  min-width: 72px;
+  height: 48px;
+  padding: 0 14px;
   font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--primary-color) !important;
   border: 1.5px solid var(--primary-color) !important;
   background-color: var(--surface-color) !important;
-  box-shadow: 0 0 0 1px var(--primary-container);
-}
-
-.language-picker {
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.language-picker select#lang {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.language-picker-toggle {
-  min-width: 58px;
-  background-color: var(--surface-color);
-  color: var(--primary-color);
-  border: 1.5px solid var(--primary-color);
-  box-shadow: 0 0 0 1px var(--primary-container);
-}
-
-.language-picker-toggle::after {
-  content: "\25BE";
-  margin-left: 8px;
-}
-
-.language-picker.is-open .language-picker-toggle {
-  background-color: var(--primary-container);
-  color: var(--primary-color);
-}
-
-.language-picker-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  z-index: 1100;
-  display: none;
-  min-width: 100%;
-  padding: 6px;
-  background-color: var(--card-bg);
-  border: 1.5px solid var(--primary-color);
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 0 10px var(--primary-container);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--primary-container);
+  appearance: auto;
+  -webkit-appearance: menulist;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.language-picker.is-open .language-picker-menu {
-  display: grid;
-  gap: 4px;
-}
-
-.language-picker-option {
-  width: 100%;
-  padding: 8px 12px;
-  background-color: transparent;
-  color: var(--on-surface);
-  border-radius: 10px;
-  text-align: left;
-}
-
-.language-picker-option:hover,
-.language-picker-option.is-selected {
-  background-color: var(--primary-container);
-  color: var(--primary-color);
-  border-color: transparent;
-  transform: none;
-}
-
-/* Colori delle opzioni quando si apre il menu a tendina */
 select#lang option {
   font-family: inherit;
   background-color: var(--primary-container) !important;
   color: var(--primary-color) !important;
-}
-
-/* Sui dispositivi touch mantieni sempre il selettore nativo, anche in modalita desktop */
-html.is-mobile-device .language-picker {
-  position: static;
-}
-
-html.is-mobile-device .language-picker-toggle,
-html.is-mobile-device .language-picker-menu {
-  display: none;
-}
-
-html.is-mobile-device .language-picker select#lang {
-  position: static;
-  display: block;
-  width: auto;
-  height: 48px;
-  opacity: 1;
-  pointer-events: auto;
 }
 
 /* =========================================================
@@ -638,42 +565,6 @@ html.is-mobile-device .language-picker select#lang {
     font-size: 16px !important;
     padding: 0 15px !important;
     width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Selettore Lingua su Mobile */
-  html.is-mobile-device .language-picker {
-    order: 2 !important;
-    margin-left: auto !important;
-    position: static !important;
-  }
-
-  html.is-mobile-device .language-picker-toggle,
-  html.is-mobile-device .language-picker-menu {
-    display: none !important;
-  }
-
-  html.is-mobile-device .language-picker select#lang {
-    position: static !important;
-    display: block !important;
-    width: auto !important;
-    height: 48px !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    order: initial !important;
-    margin-left: auto !important;
-    flex: 0 0 auto !important;
-    background-color: var(--bar-bg) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border: 1.5px solid var(--primary-color) !important;
-    color: var(--primary-color) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
-    height: 48px !important;
-    border-radius: 16px !important;
-    padding: 0 16px !important;
-    font-size: 16px !important;
-    cursor: pointer;
     box-sizing: border-box !important;
   }
 

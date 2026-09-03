@@ -46,84 +46,20 @@ function renderLanguageSelector(langList) {
     var langSelect = document.getElementById("lang");
     if (!langSelect) return;
 
-    var isMobile = navigator.maxTouchPoints > 0 || "ontouchstart" in window;
-    document.documentElement.classList.toggle("is-mobile-device", isMobile);
-    var currentParent = langSelect.parentElement;
-    if (isMobile && currentParent.classList.contains("language-picker")) {
-        var originalParent = currentParent.parentElement;
-        originalParent.insertBefore(langSelect, currentParent);
-        currentParent.remove();
+    var oldPicker = langSelect.closest(".language-picker");
+    if (oldPicker) {
+        oldPicker.parentElement.insertBefore(langSelect, oldPicker);
+        oldPicker.remove();
     }
 
     langSelect.innerHTML = "";
     for (var i = 0; i < langList.length; i++) {
-        var nativeOption = document.createElement("option");
-        nativeOption.value = langList[i];
-        nativeOption.textContent = langList[i];
-        langSelect.appendChild(nativeOption);
+        var option = document.createElement("option");
+        option.value = langList[i];
+        option.textContent = langList[i];
+        langSelect.appendChild(option);
     }
     langSelect.value = actuallang;
-
-    if (isMobile) return;
-
-    var picker = langSelect.parentElement.querySelector(".language-picker");
-    if (!picker) {
-        picker = document.createElement("div");
-        picker.className = "language-picker";
-        langSelect.parentElement.insertBefore(picker, langSelect);
-        picker.appendChild(langSelect);
-    }
-
-    var toggle = picker.querySelector(".language-picker-toggle");
-    if (!toggle) {
-        toggle = document.createElement("button");
-        toggle.className = "language-picker-toggle";
-        toggle.type = "button";
-        toggle.setAttribute("aria-haspopup", "listbox");
-        toggle.setAttribute("aria-expanded", "false");
-        picker.insertBefore(toggle, langSelect);
-    }
-
-    var menu = picker.querySelector(".language-picker-menu");
-    if (!menu) {
-        menu = document.createElement("div");
-        menu.className = "language-picker-menu";
-        menu.setAttribute("role", "listbox");
-        picker.appendChild(menu);
-    }
-
-    menu.innerHTML = "";
-    for (var i = 0; i < langList.length; i++) {
-        var menuOption = document.createElement("button");
-        menuOption.className = "language-picker-option";
-        menuOption.type = "button";
-        menuOption.textContent = langList[i];
-        menuOption.dataset.value = langList[i];
-        menuOption.setAttribute("role", "option");
-        menuOption.addEventListener("click", function() {
-            langSelect.value = this.dataset.value;
-            langSelect.dispatchEvent(new Event("change", { bubbles: true }));
-        });
-        menu.appendChild(menuOption);
-    }
-    toggle.textContent = actuallang;
-
-    function updateSelectedOption() {
-        var options = menu.querySelectorAll(".language-picker-option");
-        for (var i = 0; i < options.length; i++) {
-            var selected = options[i].dataset.value === langSelect.value;
-            options[i].classList.toggle("is-selected", selected);
-            options[i].setAttribute("aria-selected", selected ? "true" : "false");
-        }
-        toggle.textContent = langSelect.value;
-    }
-
-    toggle.onclick = function() {
-        var isOpen = picker.classList.toggle("is-open");
-        toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    };
-    langSelect.addEventListener("change", updateSelectedOption);
-    updateSelectedOption();
 }
 
 function renderFooterContacts(contactList) {
