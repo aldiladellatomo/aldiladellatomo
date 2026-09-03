@@ -626,10 +626,21 @@ select#lang option {
   .language-picker {
     order: 2 !important;
     margin-left: auto !important;
+    position: static !important;
   }
 
-  .language-picker-toggle {
+  .language-picker-toggle,
+   .language-picker-menu {
+    display: none !important;
+  }
+
+  .language-picker select#lang {
+    position: static !important;
+    width: auto !important;
     height: 48px !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: block !important;
     border-radius: 16px !important;
     padding: 0 16px !important;
     font-size: 16px !important;
