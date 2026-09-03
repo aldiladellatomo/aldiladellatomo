@@ -46,7 +46,8 @@ function renderLanguageSelector(langList) {
     var langSelect = document.getElementById("lang");
     if (!langSelect) return;
 
-    var isMobile = window.matchMedia("(max-width: 768px)").matches;
+    var isMobile = navigator.maxTouchPoints > 0 || "ontouchstart" in window;
+    document.documentElement.classList.toggle("is-mobile-device", isMobile);
     var currentParent = langSelect.parentElement;
     if (isMobile && currentParent.classList.contains("language-picker")) {
         var originalParent = currentParent.parentElement;

@@ -556,6 +556,25 @@ select#lang option {
   color: var(--primary-color) !important;
 }
 
+/* Sui dispositivi touch mantieni sempre il selettore nativo, anche in modalita desktop */
+html.is-mobile-device .language-picker {
+  position: static;
+}
+
+html.is-mobile-device .language-picker-toggle,
+html.is-mobile-device .language-picker-menu {
+  display: none;
+}
+
+html.is-mobile-device .language-picker select#lang {
+  position: static;
+  display: block;
+  width: auto;
+  height: 48px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* =========================================================
    VISUALIZZAZIONE SMARTPHONE FORZATA (< 768px)
    ========================================================= */
@@ -623,18 +642,18 @@ select#lang option {
   }
 
   /* Selettore Lingua su Mobile */
-  .language-picker {
+  html.is-mobile-device .language-picker {
     order: 2 !important;
     margin-left: auto !important;
     position: static !important;
   }
 
-  .language-picker-toggle,
-  .language-picker-menu {
+  html.is-mobile-device .language-picker-toggle,
+  html.is-mobile-device .language-picker-menu {
     display: none !important;
   }
 
-  .language-picker select#lang {
+  html.is-mobile-device .language-picker select#lang {
     position: static !important;
     display: block !important;
     width: auto !important;
