@@ -475,10 +475,9 @@ a.external {
 
 /* Selettore lingua tematico, condiviso da home e articoli */
 select#lang {
-  position: fixed;
-  top: 14px;
-  right: 15px;
-  z-index: 1100;
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
   min-width: 72px;
   height: 48px;
   padding: 0 14px;
@@ -488,12 +487,23 @@ select#lang {
   color: var(--primary-color) !important;
   border: 1.5px solid var(--primary-color) !important;
   background-color: var(--surface-color) !important;
+  accent-color: var(--primary-color);
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--primary-container);
   appearance: auto;
   -webkit-appearance: menulist;
   cursor: pointer;
   transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+select#lang:hover,
+select#lang:focus,
+select#lang:active {
+  transform: none;
+  background-color: var(--primary-container) !important;
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  outline: none;
 }
 
 select#lang option {
