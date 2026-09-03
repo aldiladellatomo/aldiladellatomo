@@ -512,6 +512,88 @@ select#lang option {
   color: var(--primary-color) !important;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .language-picker {
+    position: relative;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
+  .language-picker select#lang {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .language-picker-toggle {
+    min-width: 72px;
+    height: 40px;
+    padding: 8px 14px;
+    border: 1.5px solid var(--primary-color);
+    border-radius: 20px;
+    background-color: var(--surface-color);
+    color: var(--primary-color);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px var(--primary-container);
+  }
+
+  .language-picker-toggle::after {
+    content: "\25BE";
+    margin-left: 8px;
+  }
+
+  .language-picker.is-open .language-picker-toggle,
+  .language-picker-toggle:hover {
+    transform: none;
+    background-color: var(--primary-container);
+    color: var(--primary-color);
+  }
+
+  .language-picker-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 1100;
+    display: none;
+    min-width: 100%;
+    padding: 6px;
+    border: 1.5px solid var(--primary-color);
+    border-radius: 16px;
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 0 10px var(--primary-container);
+  }
+
+  .language-picker.is-open .language-picker-menu {
+    display: grid;
+    gap: 4px;
+  }
+
+  .language-picker-option {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--on-surface);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .language-picker-option:hover,
+  .language-picker-option.is-selected {
+    transform: none;
+    border-color: transparent;
+    background-color: var(--primary-container);
+    color: var(--primary-color);
+  }
+}
+
 /* =========================================================
    VISUALIZZAZIONE SMARTPHONE FORZATA (< 768px)
    ========================================================= */
