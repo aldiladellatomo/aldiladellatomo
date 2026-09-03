@@ -46,6 +46,25 @@ function renderLanguageSelector(langList) {
     var langSelect = document.getElementById("lang");
     if (!langSelect) return;
 
+    var isMobile = window.matchMedia("(max-width: 768px)").matches;
+    var currentParent = langSelect.parentElement;
+    if (isMobile && currentParent.classList.contains("language-picker")) {
+        var originalParent = currentParent.parentElement;
+        originalParent.insertBefore(langSelect, currentParent);
+        currentParent.remove();
+    }
+
+    langSelect.innerHTML = "";
+    for (var i = 0; i < langList.length; i++) {
+        var nativeOption = document.createElement("option");
+        nativeOption.value = langList[i];
+        nativeOption.textContent = langList[i];
+        langSelect.appendChild(nativeOption);
+    }
+    langSelect.value = actuallang;
+
+    if (isMobile) return;
+
     var picker = langSelect.parentElement.querySelector(".language-picker");
     if (!picker) {
         picker = document.createElement("div");
@@ -73,13 +92,7 @@ function renderLanguageSelector(langList) {
     }
 
     menu.innerHTML = "";
-    langSelect.innerHTML = "";
     for (var i = 0; i < langList.length; i++) {
-        var option = document.createElement("option");
-        option.value = langList[i];
-        option.textContent = langList[i];
-        langSelect.appendChild(option);
-
         var menuOption = document.createElement("button");
         menuOption.className = "language-picker-option";
         menuOption.type = "button";
@@ -92,7 +105,6 @@ function renderLanguageSelector(langList) {
         });
         menu.appendChild(menuOption);
     }
-    langSelect.value = actuallang;
     toggle.textContent = actuallang;
 
     function updateSelectedOption() {
