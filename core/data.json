@@ -35,29 +35,5 @@
   },
   "features": {
     "enableSearch": true
-  },
-  "theme": {
-    "colors": {
-      "a0": {
-        "light": { "primary": "#006a6a", "on": "#ffffff", "container": "#6ff7f6", "pageBg": "#fcfbfe" },
-        "dark":  { "primary": "#4cdada", "on": "#003737", "container": "#004f4f", "pageBg": "#141216" }
-      },
-      "a1": {
-        "light": { "primary": "#98000a", "on": "#ffffff", "container": "#ffdad6", "pageBg": "#fffbfb" },
-        "dark":  { "primary": "#ffb4ab", "on": "#690005", "container": "#93000a", "pageBg": "#171213" }
-      },
-      "a2": {
-        "light": { "primary": "#1b5bb4", "on": "#ffffff", "container": "#d8e2ff", "pageBg": "#f9fafe" },
-        "dark":  { "primary": "#adc6ff", "on": "#002e69", "container": "#004299", "pageBg": "#12141a" }
-      },
-      "a3": {
-        "light": { "primary": "#6d5d00", "on": "#ffffff", "container": "#ffe082", "pageBg": "#fffdf9" },
-        "dark":  { "primary": "#ffe082", "on": "#3a3000", "container": "#7a6100", "pageBg": "#171611" }
-      },
-      "a4": {
-        "light": { "primary": "#2d6a22", "on": "#ffffff", "container": "#b9eaad", "pageBg": "#f8fcf7" },
-        "dark":  { "primary": "#9ece93", "on": "#003a00", "container": "#245114", "pageBg": "#121712" }
-      }
-    }
   }
 }

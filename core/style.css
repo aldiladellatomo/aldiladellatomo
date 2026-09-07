@@ -1,4 +1,58 @@
 /* =========================================
+   0. COLORI MATERIAL YOU (Sfondi Ultraleggeri)
+   ========================================= */
+:root {
+  /* TEMA HOME (a0) - Light */
+  --a0-primary: #006a6a;
+  --a0-on: #ffffff;
+  --a0-container: #6ff7f6;
+  --a0-page-bg: #fcfbfe;
+
+  --primary-color: var(--a0-primary);
+  --primary-on: var(--a0-on);
+  --primary-container: var(--a0-container);
+  
+  /* Sfondi e superfici */
+  --page-bg: var(--a0-page-bg);
+  --card-bg: #ffffff;
+  --surface-color: #f3f0f7;
+  --on-surface: #1c1b1f;
+  --bar-bg: rgba(252, 251, 254, 0.85);
+
+  /* MATERIE */
+  --a1-primary: #98000a; --a1-on: #ffffff; --a1-container: #ffdad6; --a1-page-bg: #fffbfb; /* Fisica */
+  --a2-primary: #1b5bb4; --a2-on: #ffffff; --a2-container: #d8e2ff; --a2-page-bg: #f9fafe; /* Matematica */
+  --a3-primary: #6d5d00; --a3-on: #ffffff; --a3-container: #ffe082; --a3-page-bg: #fffdf9; /* Chimica */
+  --a4-primary: #2d6a22; --a4-on: #ffffff; --a4-container: #b9eaad; --a4-page-bg: #f8fcf7; /* Biologia */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* TEMA HOME DARK (a0) */
+    --a0-primary: #4cdada;
+    --a0-on: #003737;
+    --a0-container: #004f4f;
+    --a0-page-bg: #141216;
+
+    --primary-color: var(--a0-primary);
+    --primary-on: var(--a0-on);
+    --primary-container: var(--a0-container);
+    
+    /* Sfondi scuri */
+    --page-bg: var(--a0-page-bg);
+    --card-bg: #1d1b20;
+    --surface-color: #26242a;
+    --on-surface: #e6e1e5;
+    --bar-bg: rgba(20, 18, 22, 0.85);
+
+    /* MATERIE DARK */
+    --a1-primary: #ffb4ab; --a1-on: #690005; --a1-container: #93000a; --a1-page-bg: #171213;
+    --a2-primary: #adc6ff; --a2-on: #002e69; --a2-container: #004299; --a2-page-bg: #12141a;
+    --a3-primary: #ffe082; --a3-on: #3a3000; --a3-container: #7a6100; --a3-page-bg: #171611;
+    --a4-primary: #9ece93; --a4-on: #003a00; --a4-container: #245114; --a4-page-bg: #121712;
+  }
+}
+/* =========================================
    1. ASSEGNAZIONE VARIABILI PER CLASSE PAGE
    ========================================= */
 body.ba0 {
@@ -426,6 +480,9 @@ a.external {
 /* =========================================================
    6. SELETTORE LINGUA UNIFORME SU TUTTI I DISPOSITIVI
    ========================================================= */
+select#lang {
+  display: none !important;
+}
 
 .language-picker {
   position: relative;

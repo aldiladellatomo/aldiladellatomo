@@ -4,27 +4,6 @@ var cachedData = null;
 var cachedArticles = null;
 var cachedArticleContents = {};
 
-function injectThemeColors(colors) {
-    if (!colors) return;
-    var style = document.createElement('style');
-    var cssLight = ":root {\n";
-    var cssDark = "@media (prefers-color-scheme: dark) {\n  :root {\n";
-    for (var cls in colors) {
-        var light = colors[cls].light;
-        if (light) {
-            cssLight += "--" + cls + "-primary: " + light.primary + "; --" + cls + "-on: " + light.on + "; --" + cls + "-container: " + light.container + "; --" + cls + "-page-bg: " + light.pageBg + ";\n";
-        }
-        var dark = colors[cls].dark;
-        if (dark) {
-            cssDark += "--" + cls + "-primary: " + dark.primary + "; --" + cls + "-on: " + dark.on + "; --" + cls + "-container: " + dark.container + "; --" + cls + "-page-bg: " + dark.pageBg + ";\n";
-        }
-    }
-    
-    cssLight += "}\n";
-    cssDark += "  }\n}\n";
-    style.innerHTML = cssLight + cssDark;
-    document.head.appendChild(style);
-}
 
 async function getAll() {
     if (!cachedData) {
@@ -163,7 +142,6 @@ function renderFooterContacts(contactList) {
 
 async function bootstrap() {
     var { lang, data } = await getAll();
-    injectThemeColors(data.theme?.colors);
     renderLanguageSelector(data.languages);
     renderFooterContacts(data.contacts);
 }
