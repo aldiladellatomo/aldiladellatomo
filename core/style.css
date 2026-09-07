@@ -2,14 +2,18 @@
    1. COLORI MATERIAL YOU (Sfondi Ultraleggeri)
    ========================================= */
 :root {
-  /* TEMA HOME (a0) - Ottanio soft su fondo bianco-grigio etereo */
-  --primary-color: #006a6a;
-  --primary-on: #ffffff;
-  --primary-container: #6ff7f6;
-  --on-primary-container: #002020;
+  /* TEMA HOME (a0) - Light */
+  --a0-primary: #006a6a;
+  --a0-on: #ffffff;
+  --a0-container: #6ff7f6;
+  --a0-page-bg: #fcfbfe;
+
+  --primary-color: var(--a0-primary);
+  --primary-on: var(--a0-on);
+  --primary-container: var(--a0-container);
   
-  /* Sfondi quasi impercettibili */
-  --page-bg: #fcfbfe;
+  /* Sfondi e superfici */
+  --page-bg: var(--a0-page-bg);
   --card-bg: #ffffff;
   --surface-color: #f3f0f7;
   --on-surface: #1c1b1f;
@@ -25,13 +29,17 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* TEMA HOME DARK (a0) */
-    --primary-color: #4cdada;
-    --primary-on: #003737;
-    --primary-container: #004f4f;
-    --on-primary-container: #6ff7f6;
+    --a0-primary: #4cdada;
+    --a0-on: #003737;
+    --a0-container: #004f4f;
+    --a0-page-bg: #141216;
+
+    --primary-color: var(--a0-primary);
+    --primary-on: var(--a0-on);
+    --primary-container: var(--a0-container);
     
-    /* Sfondi scuri a basso stacco */
-    --page-bg: #141216;
+    /* Sfondi scuri */
+    --page-bg: var(--a0-page-bg);
     --card-bg: #1d1b20;
     --surface-color: #26242a;
     --on-surface: #e6e1e5;
@@ -49,10 +57,10 @@
    2. ASSEGNAZIONE VARIABILI PER CLASSE PAGE
    ========================================= */
 body.ba0 {
-  --primary-color: #006a6a;
-  --primary-on: #ffffff;
-  --primary-container: #6ff7f6;
-  --page-bg: #fcfbfe;
+  --primary-color: var(--a0-primary);
+  --primary-on: var(--a0-on);
+  --primary-container: var(--a0-container);
+  --page-bg: var(--a0-page-bg);
 }
 body.ba1 {
   --primary-color: var(--a1-primary);
@@ -153,10 +161,12 @@ nav#nav::-webkit-scrollbar {
 
 #searchbar input#searchdiv {
   width: 100%;
-  padding: 8px 14px;
+  height: 40px; 
+  box-sizing: border-box;
+  padding: 0 14px;
   font-size: 0.85rem;
   border-radius: 20px;
-  border: 1px solid var(--primary-color);
+  border: 1.5px solid var(--primary-color);
   background-color: var(--card-bg);
   color: var(--on-surface);
   transition: all 0.3s ease;
@@ -613,7 +623,7 @@ select#lang {
     border: 1.5px solid var(--primary-color) !important;
     color: var(--primary-color) !important;
     height: 48px !important;
-    border-radius: 12px !important; /* Rettangolo stondato */
+    border-radius: 12px !important;
     font-size: 16px !important;
     padding: 0 15px !important;
     width: 100% !important;
@@ -628,12 +638,12 @@ select#lang {
 
   .language-picker-toggle {
     height: 48px !important;
-    border-radius: 12px !important; /* Rettangolo stondato */
+    border-radius: 12px !important;
     padding: 0 14px !important;
   }
 
   .language-picker-menu {
-    border-radius: 12px !important; /* Rettangolo stondato */
+    border-radius: 12px !important;
   }
 
   .language-picker-option {
@@ -646,10 +656,10 @@ select#lang {
     position: fixed !important;
     top: 14px !important;
     left: 15px !important;
-    right: 97px !important; /* Lascia spazio al selettore lingua a destra */
+    right: 97px !important;
     width: auto !important;
     height: 48px !important;
-    border-radius: 12px !important; /* Rettangolo stondato */
+    border-radius: 12px !important;
     box-sizing: border-box !important;
     line-height: 44px !important;
     padding: 0 16px !important;
@@ -679,12 +689,10 @@ select#lang {
     margin: 20px 0 !important;
   }
 
-  /* Tutti i pulsanti generici su smartphone */
   button, select {
     border-radius: 12px !important;
   }
 
-  /* Ordinamento e titoli sezione */
   .section-title-wrapper {
     flex-direction: column !important;
     gap: 12px !important;
@@ -703,7 +711,7 @@ select#lang {
     background-color: var(--bar-bg) !important;
     border: 1.5px solid var(--primary-color) !important;
     color: var(--primary-color) !important;
-    border-radius: 12px !important; /* Rettangolo stondato */
+    border-radius: 12px !important;
     padding: 12px 16px !important;
     font-size: 16px !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
@@ -711,18 +719,17 @@ select#lang {
     text-align-last: center !important;
   }
 
-  /* Card e Sezioni Contenitore */
   #recent, #div, #results, #content {
     padding: 24px 16px !important;
     margin: 20px auto !important;
     gap: 16px !important;
-    border-radius: 16px !important; /* Rettangolo stondato */
+    border-radius: 16px !important;
   }
 
   #div button, #results button, #recent button {
     padding: 20px 16px !important;
     margin-bottom: 8px !important;
-    border-radius: 12px !important; /* Rettangolo stondato */
+    border-radius: 12px !important;
     white-space: normal !important;
   }
 
@@ -744,7 +751,6 @@ select#lang {
     line-height: 1.4 !important;
   }
 
-  /* Barra Navigazione Bottom */
   nav#nav {
     position: fixed !important;
     bottom: 0 !important;
@@ -754,7 +760,7 @@ select#lang {
     background-color: var(--bar-bg) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
-    border-radius: 16px 16px 0 0 !important; /* Rettangolo stondato in alto */
+    border-radius: 16px 16px 0 0 !important;
     border: 1.5px solid var(--primary-color) !important;
     border-bottom: none !important;
     border-left: none !important;
@@ -770,19 +776,18 @@ select#lang {
     margin: 0 5px !important;
     font-size: 16px !important;
     font-weight: 700 !important;
-    border-radius: 12px !important; /* Rettangolo stondato */
+    border-radius: 12px !important;
   }
 
-  /* Footer Contatti */
   footer#footer {
     position: static !important;
     transform: none !important;
     margin: 40px auto 140px auto !important; 
     width: max-content !important;
-    border-radius: 16px !important; /* Rettangolo stondato */
+    border-radius: 16px !important;
   }
 
   footer#footer .contact {
-    border-radius: 12px !important; /* Rettangolo stondato */
+    border-radius: 12px !important;
   }
 }
