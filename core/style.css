@@ -15,7 +15,7 @@
   --on-surface: #1c1b1f;
   --bar-bg: rgba(252, 251, 254, 0.85);
 
-  /* MATERIE: Sfondi pagina velati al minimo (99% bianchi con 1% tinta) */
+  /* MATERIE */
   --a1-primary: #98000a; --a1-on: #ffffff; --a1-container: #ffdad6; --a1-page-bg: #fffbfb; /* Fisica */
   --a2-primary: #1b5bb4; --a2-on: #ffffff; --a2-container: #d8e2ff; --a2-page-bg: #f9fafe; /* Matematica */
   --a3-primary: #6d5d00; --a3-on: #ffffff; --a3-container: #ffe082; --a3-page-bg: #fffdf9; /* Chimica */
@@ -37,7 +37,7 @@
     --on-surface: #e6e1e5;
     --bar-bg: rgba(20, 18, 22, 0.85);
 
-    /* MATERIE DARK: Velatura scura profonda e morbida */
+    /* MATERIE DARK */
     --a1-primary: #ffb4ab; --a1-on: #690005; --a1-container: #93000a; --a1-page-bg: #171213;
     --a2-primary: #adc6ff; --a2-on: #002e69; --a2-container: #004299; --a2-page-bg: #12141a;
     --a3-primary: #ffe082; --a3-on: #3a3000; --a3-container: #7a6100; --a3-page-bg: #171611;
@@ -48,6 +48,12 @@
 /* =========================================
    2. ASSEGNAZIONE VARIABILI PER CLASSE PAGE
    ========================================= */
+body.ba0 {
+  --primary-color: #006a6a;
+  --primary-on: #ffffff;
+  --primary-container: #6ff7f6;
+  --page-bg: #fcfbfe;
+}
 body.ba1 {
   --primary-color: var(--a1-primary);
   --primary-on: var(--a1-on);
@@ -91,7 +97,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Titoli colorati in base al tema */
 h1#h1, h2#h2, h1#search {
   color: var(--primary-color);
   transition: color 0.3s ease;
@@ -100,7 +105,7 @@ h1#h1, h2#h2, h1#search {
 }
 
 /* =========================================
-   4. BARRA SUPERIORE ED INFERIORE (Fluttuanti)
+   4. BARRA SUPERIORE ED INFERIORE (PC: PILLOLE)
    ========================================= */
 header {
   position: sticky;
@@ -141,7 +146,6 @@ nav#nav::-webkit-scrollbar {
   display: none;
 }
 
-/* Barra di Ricerca */
 #searchbar {
   flex: 0 1 140px;
   min-width: 90px;
@@ -163,7 +167,6 @@ nav#nav::-webkit-scrollbar {
   box-shadow: 0 0 0 3px var(--primary-container);
 }
 
-/* Footer Fluttuante a Tema */
 footer#footer {
   position: fixed;
   bottom: 12px;
@@ -186,7 +189,7 @@ footer#footer {
 }
 
 /* =========================================
-   5. PULSANTI E DETTAGLI UI
+   5. PULSANTI E SELETTORI (PC: PILLOLE)
    ========================================= */
 button, select {
   border: 1px solid transparent;
@@ -223,9 +226,6 @@ nav#nav button.active {
   box-shadow: 0 0 0 2px var(--primary-color);
 }
 
-/* =========================================
-   6. TITOLO SEZIONE "TUTTI GLI ARTICOLI"
-   ========================================= */
 .section-title-wrapper {
   display: flex;
   align-items: center;
@@ -243,13 +243,14 @@ nav#nav button.active {
 .section-title-wrapper select#sort {
   padding: 6px 14px;
   font-size: 0.85rem;
-  border-radius: 16px;
+  border-radius: 20px;
   border: 1px solid var(--primary-color);
   background-color: var(--card-bg);
+  color: var(--on-surface);
 }
 
 /* =========================================
-   7. SEZIONI E CARD ARTICOLI
+   6. CARD ED ELEMENTI CONTENUTO
    ========================================= */
 #results:empty, #search:empty {
   display: none !important;
@@ -341,12 +342,6 @@ a.external {
   margin-top: 6px;
 }
 
-.math-formula {
-  overflow-x: auto;
-  padding: 12px 0;
-  text-align: center;
-}
-
 .geogebra-container {
   width: 100%;
   margin: 20px 0;
@@ -383,7 +378,7 @@ a.external {
 .article-quote {
   margin: 24px 0;
   padding: 16px 24px;
-  background-color: var(--surface);
+  background-color: var(--surface-color);
   border-left: 4px solid var(--primary-color);
   border-radius: 0 8px 8px 0;
   font-style: italic;
@@ -405,7 +400,7 @@ a.external {
 .table-container {
   overflow-x: auto;
   margin: 24px 0;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -466,140 +461,105 @@ a.external {
   text-align: center;
   font-size: 0.9rem;
   font-style: italic;
-  color: var(--text-color);
+  color: var(--on-surface);
   opacity: 0.7;
   margin-top: 40px;
   padding-top: 12px;
-  border-top: 1px solid var(--border-color);
-}
-
-/* Selettore lingua tematico, condiviso da home e articoli */
-select#lang {
-  position: relative;
-  z-index: 2;
-  margin-left: auto;
-  min-width: 72px;
-  height: 48px;
-  padding: 0 14px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--primary-color) !important;
-  border: 1.5px solid var(--primary-color) !important;
-  background-color: var(--surface-color) !important;
-  accent-color: var(--primary-color);
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--primary-container);
-  appearance: auto;
-  -webkit-appearance: menulist;
-  cursor: pointer;
-  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-select#lang:hover,
-select#lang:focus,
-select#lang:active {
-  transform: none;
-  background-color: var(--primary-container) !important;
-  color: var(--primary-color) !important;
-  border-color: var(--primary-color) !important;
-  outline: none;
-}
-
-select#lang option {
-  font-family: inherit;
-  background-color: var(--primary-container) !important;
-  color: var(--primary-color) !important;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .language-picker {
-    position: relative;
-    flex: 0 0 auto;
-    margin-left: auto;
-  }
-
-  .language-picker select#lang {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .language-picker-toggle {
-    min-width: 72px;
-    height: 40px;
-    padding: 8px 14px;
-    border: 1.5px solid var(--primary-color);
-    border-radius: 20px;
-    background-color: var(--surface-color);
-    color: var(--primary-color);
-    font: inherit;
-    font-size: 0.88rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 0 0 1px var(--primary-container);
-  }
-
-  .language-picker-toggle::after {
-    content: "\25BE";
-    margin-left: 8px;
-  }
-
-  .language-picker.is-open .language-picker-toggle,
-  .language-picker-toggle:hover {
-    transform: none;
-    background-color: var(--primary-container);
-    color: var(--primary-color);
-  }
-
-  .language-picker-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    z-index: 1100;
-    display: none;
-    min-width: 100%;
-    padding: 6px;
-    border: 1.5px solid var(--primary-color);
-    border-radius: 16px;
-    background-color: var(--card-bg);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 0 10px var(--primary-container);
-  }
-
-  .language-picker.is-open .language-picker-menu {
-    display: grid;
-    gap: 4px;
-  }
-
-  .language-picker-option {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    background-color: transparent;
-    color: var(--on-surface);
-    font: inherit;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .language-picker-option:hover,
-  .language-picker-option.is-selected {
-    transform: none;
-    border-color: transparent;
-    background-color: var(--primary-container);
-    color: var(--primary-color);
-  }
+  border-top: 1px solid var(--primary-container);
 }
 
 /* =========================================================
-   VISUALIZZAZIONE SMARTPHONE FORZATA (< 768px)
+   7. SELETTORE LINGUA UNIFORME SU TUTTI I DISPOSITIVI
+   ========================================================= */
+select#lang {
+  display: none !important;
+}
+
+.language-picker {
+  position: relative;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.language-picker-toggle {
+  min-width: 72px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 20px;
+  background-color: var(--surface-color);
+  color: var(--primary-color);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.language-picker-toggle::after {
+  content: "\25BE";
+  margin-left: 6px;
+}
+
+.language-picker.is-open .language-picker-toggle,
+.language-picker-toggle:hover {
+  transform: none;
+  background-color: var(--primary-container);
+  color: var(--primary-color);
+}
+
+.language-picker-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1100;
+  display: none;
+  min-width: 100%;
+  padding: 6px;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 16px;
+  background-color: var(--card-bg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 0 10px var(--primary-container);
+}
+
+.language-picker.is-open .language-picker-menu {
+  display: grid;
+  gap: 4px;
+}
+
+.language-picker-option {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--on-surface);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.language-picker-option:hover,
+.language-picker-option.is-selected {
+  transform: none;
+  border-color: transparent;
+  background-color: var(--primary-container);
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* =========================================================
+   8. VISUALIZZAZIONE SMARTPHONE FORZATA (< 768px): RECTANGLES
    ========================================================= */
 @media (max-width: 768px) {
 
-  /* 1. TESTO GENERALE E SPAZIATURE */
   body {
     font-size: 20px !important;
     line-height: 1.5 !important;
@@ -607,13 +567,12 @@ select#lang option {
     padding-top: 85px !important;
   }
 
-  /* Riduzione spaziatura tra i paragrafi dell'articolo */
   #content p {
     margin: 4px 0 !important; 
     line-height: 1.4 !important;
   }
 
-  /* 2. HEADER "FANTASMA" IN ALTO */
+  /* HEADER TOP FIXED BAR */
   header {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -630,6 +589,7 @@ select#lang option {
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
+    height: 76px !important;
     z-index: 1001 !important;
     pointer-events: none;
   }
@@ -638,7 +598,7 @@ select#lang option {
     pointer-events: auto;
   }
 
-  /* Campo Cerca */
+  /* Campo Cerca (Sempre a sinistra nella Home) */
   #searchbar {
     order: 1 !important;
     flex: 1 !important;
@@ -653,23 +613,43 @@ select#lang option {
     border: 1.5px solid var(--primary-color) !important;
     color: var(--primary-color) !important;
     height: 48px !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important; /* Rettangolo stondato */
     font-size: 16px !important;
     padding: 0 15px !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
 
-  /* 3. TITOLO DELL'ARTICOLO */
+  /* Selettore Lingua (Sempre a destra sia in Home che negli Articoli) */
+  .language-picker {
+    order: 2 !important;
+    margin-left: auto !important;
+  }
+
+  .language-picker-toggle {
+    height: 48px !important;
+    border-radius: 12px !important; /* Rettangolo stondato */
+    padding: 0 14px !important;
+  }
+
+  .language-picker-menu {
+    border-radius: 12px !important; /* Rettangolo stondato */
+  }
+
+  .language-picker-option {
+    border-radius: 8px !important;
+  }
+
+  /* Titolo dell'Articolo (Fisso a sinistra del selettore lingua) */
   #article-title {
     order: 1 !important;
     position: fixed !important;
     top: 14px !important;
     left: 15px !important;
-    right: 90px !important;
+    right: 97px !important; /* Lascia spazio al selettore lingua a destra */
     width: auto !important;
     height: 48px !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important; /* Rettangolo stondato */
     box-sizing: border-box !important;
     line-height: 44px !important;
     padding: 0 16px !important;
@@ -686,6 +666,7 @@ select#lang option {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+    pointer-events: auto !important;
   }
 
   #desc.article-subtitle {
@@ -698,7 +679,12 @@ select#lang option {
     margin: 20px 0 !important;
   }
 
-  /* SEZIONE TITOLO "TUTTI GLI ARTICOLI" E TASTO ORDINAMENTO */
+  /* Tutti i pulsanti generici su smartphone */
+  button, select {
+    border-radius: 12px !important;
+  }
+
+  /* Ordinamento e titoli sezione */
   .section-title-wrapper {
     flex-direction: column !important;
     gap: 12px !important;
@@ -717,7 +703,7 @@ select#lang option {
     background-color: var(--bar-bg) !important;
     border: 1.5px solid var(--primary-color) !important;
     color: var(--primary-color) !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important; /* Rettangolo stondato */
     padding: 12px 16px !important;
     font-size: 16px !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
@@ -725,18 +711,18 @@ select#lang option {
     text-align-last: center !important;
   }
 
-  /* 4. CARD E SEZIONI NELLA HOME */
-  #recent, #div, #results {
+  /* Card e Sezioni Contenitore */
+  #recent, #div, #results, #content {
     padding: 24px 16px !important;
     margin: 20px auto !important;
     gap: 16px !important;
-    border-radius: 32px !important;
+    border-radius: 16px !important; /* Rettangolo stondato */
   }
 
   #div button, #results button, #recent button {
     padding: 20px 16px !important;
     margin-bottom: 8px !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important; /* Rettangolo stondato */
     white-space: normal !important;
   }
 
@@ -758,7 +744,7 @@ select#lang option {
     line-height: 1.4 !important;
   }
 
-  /* 5. BARRA DELLE MATERIE IN BASSO */
+  /* Barra Navigazione Bottom */
   nav#nav {
     position: fixed !important;
     bottom: 0 !important;
@@ -768,7 +754,7 @@ select#lang option {
     background-color: var(--bar-bg) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
-    border-radius: 28px 28px 0 0 !important;
+    border-radius: 16px 16px 0 0 !important; /* Rettangolo stondato in alto */
     border: 1.5px solid var(--primary-color) !important;
     border-bottom: none !important;
     border-left: none !important;
@@ -778,22 +764,25 @@ select#lang option {
     z-index: 1000 !important;
   }
 
-  /* I tasti ereditano i loro colori nativi (da spente e da attive) come su PC */
   nav#nav button {
     flex-grow: 1 !important;
     padding: 18px 5px !important;
     margin: 0 5px !important;
     font-size: 16px !important;
     font-weight: 700 !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important; /* Rettangolo stondato */
   }
 
-  /* 6. FOOTER CONTATTI */
+  /* Footer Contatti */
   footer#footer {
     position: static !important;
     transform: none !important;
     margin: 40px auto 140px auto !important; 
     width: max-content !important;
+    border-radius: 16px !important; /* Rettangolo stondato */
+  }
+
+  footer#footer .contact {
+    border-radius: 12px !important; /* Rettangolo stondato */
   }
 }
-

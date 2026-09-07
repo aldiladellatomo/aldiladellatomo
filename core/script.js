@@ -61,9 +61,6 @@ function renderLanguageSelector(langList) {
     }
     langSelect.value = actuallang;
 
-    var isTouchDevice = navigator.maxTouchPoints > 0 || "ontouchstart" in window;
-    if (isTouchDevice) return;
-
     var picker = document.createElement("div");
     picker.className = "language-picker";
     langSelect.parentElement.insertBefore(picker, langSelect);
@@ -88,9 +85,12 @@ function renderLanguageSelector(langList) {
         menuOption.textContent = langList[j];
         menuOption.dataset.value = langList[j];
         menuOption.setAttribute("role", "option");
-        menuOption.addEventListener("click", function() {
+        menuOption.addEventListener("click", function(e) {
+            e.stopPropagation();
             langSelect.value = this.dataset.value;
             langSelect.dispatchEvent(new Event("change", { bubbles: true }));
+            picker.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
         });
         menu.appendChild(menuOption);
     }
@@ -103,13 +103,26 @@ function renderLanguageSelector(langList) {
         }
     }
 
-    toggle.addEventListener("click", function() {
+    toggle.addEventListener("click", function(e) {
+        e.stopPropagation();
         var isOpen = picker.classList.toggle("is-open");
         toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
+
     langSelect.addEventListener("change", updatePicker);
     updatePicker();
 }
+
+document.addEventListener("click", function(e) {
+    var pickers = document.querySelectorAll(".language-picker");
+    for (var i = 0; i < pickers.length; i++) {
+        if (!pickers[i].contains(e.target)) {
+            pickers[i].classList.remove("is-open");
+            var toggle = pickers[i].querySelector(".language-picker-toggle");
+            if (toggle) toggle.setAttribute("aria-expanded", "false");
+        }
+    }
+});
 
 function renderFooterContacts(contactList) {
     var footer = document.getElementById("footer");
@@ -130,11 +143,9 @@ function setFavicon(subjectClass) {
     var favicon = document.getElementById("favicon");
     if (!favicon) return;
 
-    // Se c'è una materia specifica (diversa da "Tutte" o "a0"), imposta il suo colore
     if (subjectClass && subjectClass !== "a0") {
         favicon.href = "/images/" + subjectClass + ".svg";
     } else {
-        // Altrimenti imposta quella multicolore
         favicon.href = "/images/a0.svg";
     }
 }
