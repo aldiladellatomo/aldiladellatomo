@@ -1,9 +1,49 @@
-var actuallang = new URLSearchParams(window.location.search).get('lang') || navigator.language.substring(0, 2) || "en";
+var actuallang = new URLSearchParams(window.location.search).get('lang');
 var cachedLangData = null;
 var cachedData = null;
 var cachedArticles = null;
 var cachedArticleContents = {};
 
+function injectThemeColors(colors) {
+    if (!colors) return;
+    var style = document.createElement('style');
+    var cssLight = ":root {\n";
+    var cssDark = "@media (prefers-color-scheme: dark) {\n  :root {\n";
+    for (var cls in colors) {
+        var light = colors[cls].light;
+        if (light) {
+            cssLight += "--" + cls + "-primary: " + light.primary + "; --" + cls + "-on: " + light.on + "; --" + cls + "-container: " + light.container + "; --" + cls + "-page-bg: " + light.pageBg + ";\n";
+        }
+        var dark = colors[cls].dark;
+        if (dark) {
+            cssDark += "--" + cls + "-primary: " + dark.primary + "; --" + cls + "-on: " + dark.on + "; --" + cls + "-container: " + dark.container + "; --" + cls + "-page-bg: " + dark.pageBg + ";\n";
+        }
+    }
+    
+    cssLight += "}\n";
+    cssDark += "  }\n}\n";
+    style.innerHTML = cssLight + cssDark;
+    document.head.appendChild(style);
+}
+
+async function getAll() {
+    if (!cachedData) {
+        cachedData = await fetchJson("/core/data.json");
+    }
+    if (!actuallang) {
+        var browserLang = navigator.language.substring(0, 2);
+        var supported = cachedData.languages;
+        var defaultLang = cachedData.site.defaultLang || "en";
+        actuallang = supported.includes(browserLang) ? browserLang : defaultLang;
+    }
+    if (!cachedLangData) {
+        cachedLangData = await fetchJson("/lang/" + actuallang + ".json");
+    }
+    if (!cachedArticles) {
+        cachedArticles = await fetchJson("/articles/articles.json");
+    }
+    return { lang: cachedLangData, data: cachedData, articles: cachedArticles };
+}
 function setMetaDescription(text) {
     var meta = document.querySelector('meta[name="description"]');
     if (!meta) {
@@ -16,19 +56,6 @@ function setMetaDescription(text) {
 async function fetchJson(url) {
     var json = await fetch(url);
     return json.json();
-}
-
-async function getAll() {
-    if (!cachedLangData) {
-        cachedLangData = await fetchJson("/lang/" + actuallang + ".json");
-    }
-    if (!cachedData) {
-        cachedData = await fetchJson("/core/data.json");
-    }
-    if (!cachedArticles) {
-        cachedArticles = await fetchJson("/articles/articles.json");
-    }
-    return { lang: cachedLangData, data: cachedData, articles: cachedArticles };
 }
 
 async function getArticle(id) {
@@ -128,16 +155,17 @@ function renderFooterContacts(contactList) {
     var footer = document.getElementById("footer");
     if (!footer) return;
     var b = "";
-    for (var i = 0; i < contactList.length / 2; i++) {
-        b += "<button class='contact' onclick=link('" + contactList[i * 2 + 1] + "')>" + contactList[i * 2] + "</button>";
+    for (var i = 0; i < contactList.length; i++) {
+        b += "<button class='contact' onclick=\"link('" + contactList[i].url + "')\">" + contactList[i].label + "</button>";
     }
     footer.innerHTML = b;
 }
 
 async function bootstrap() {
     var { lang, data } = await getAll();
-    renderLanguageSelector(data[1]);
-    renderFooterContacts(data[2]);
+    injectThemeColors(data.theme?.colors);
+    renderLanguageSelector(data.languages);
+    renderFooterContacts(data.contacts);
 }
 function setFavicon(subjectClass) {
     var favicon = document.getElementById("favicon");

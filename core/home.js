@@ -1,5 +1,4 @@
-var actualschede = new URLSearchParams(window.location.search).get('class') || "a0";
-document.body.className = "b" + actualschede;
+var actualschede = new URLSearchParams(window.location.search).get('class');
 var state = false;
 var globalArticles = [];
 
@@ -36,7 +35,7 @@ function renderArticles() {
 
 function buildNav(data, lang) {
     var a = "";
-    for (var i = 0; i <= data[0]; i++) {
+    for (var i = 0; i <= data.site.maxCategories; i++) {
         a += "<button id=a" + i + " ";
         if (actualschede == "a" + i) a += "class=active ";
         a += "onclick='show(\"a" + i + "\")'>" + lang["a" + i] + "</button>";
@@ -45,22 +44,33 @@ function buildNav(data, lang) {
 }
 
 function buildSortMenu(data, lang) {
-    var f = "";
-    for (var i = 0; i < data[4].length; i++) {
-        f += "<option class='select' value=" + data[4][i] + ">" + lang[data[4][i]] + "</option>";
-    }
     var sortSelect = document.getElementById("sort");
+    if (!data.sorting.enabled) {
+        if(sortSelect) sortSelect.style.display = "none";
+        return;
+    }
+    
+    var f = "";
+    for (var i = 0; i < data.sorting.availableModes.length; i++) {
+        f += "<option class='select' value=" + data.sorting.availableModes[i] + ">" + lang[data.sorting.availableModes[i]] + "</option>";
+    }
     sortSelect.innerHTML = f;
-    sortSelect.value = data[5];
+    sortSelect.value = data.sorting.defaultMode;
     sortSelect.onchange = renderArticles;
 }
 
 async function startCarousel(data) {
+    var recentContainer = document.getElementById("recent");
+    if (!data.carousel.enabled) {
+        if(recentContainer) recentContainer.style.display = "none";
+        return;
+    }
+
     var recentArticles = sortArticles([...globalArticles], "mode1");
     var display = [];
     var order = 0;
 
-    for (var i = 0; i < recentArticles.length && order < data[3]; i++) {
+    for (var i = 0; i < recentArticles.length && order < data.carousel.maxItems; i++) {
         if (recentArticles[i].class == actualschede || actualschede == "a0") {
             display.push(recentArticles[i]);
             order++;
@@ -75,25 +85,38 @@ async function startCarousel(data) {
                     "<h2>" + display[idx].date + "</h2>" +
                     "<p class='card-desc'>" + (display[idx]["desc-" + actuallang] || "") + "</p>" +
                     "</button>";
-            document.getElementById("recent").innerHTML = d;
+            recentContainer.innerHTML = d;
             idx = (idx + 1) % display.length;
-            await new Promise(resolve => setTimeout(resolve, 1000 * data[6]));
+            await new Promise(resolve => setTimeout(resolve, 1000 * data.carousel.intervalSeconds));
         } while (true);
     }
 }
-
-async function hbootstrap() {
     
+async function hbootstrap() {
     var { lang, data, articles } = await getAll();
+    
+    if (!actualschede) {
+        actualschede = data.site.defaultClass;
+    }
+    document.body.className = "b" + actualschede;
+
     var descKey = (actualschede === "a0") ? "site-desc" : actualschede + "-desc";
     if (lang[descKey]) {
         setMetaDescription(lang[descKey]);
     }
+    
     globalArticles = articles.slice(1);
     document.title = lang[actualschede] + " | " + lang["a0"];
+    
     buildNav(data, lang);
     document.getElementById("h1").innerText = lang[actualschede];
-    document.getElementById("searchbar").innerHTML = "<input id='searchdiv' type='text' placeholder='" + lang["b2"] + "' onkeyup=search()>";
+
+    var searchbarDiv = document.getElementById("searchbar");
+    if (data.features.enableSearch && searchbarDiv) {
+        searchbarDiv.innerHTML = "<input id='searchdiv' type='text' placeholder='" + lang["b2"] + "' onkeyup=search()>";
+    } else if (searchbarDiv) {
+        searchbarDiv.style.display = "none";
+    }
     
     buildSortMenu(data, lang);
     document.getElementById("h2").innerText = lang["d2"];
@@ -101,7 +124,6 @@ async function hbootstrap() {
     renderArticles();
     startCarousel(data);
 }
-
 async function search() {
     var { lang, articles } = await getAll();
     var queryInput = document.getElementById("searchdiv");
