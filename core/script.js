@@ -4,6 +4,13 @@ var cachedData = null;
 var cachedArticles = null;
 var cachedArticleContents = {};
 
+async function fetchJson(url) {
+    var response = await fetch(url);
+    if (!response.ok) {
+        throw new Error("Errore HTTP " + response.status + " durante il caricamento di: " + url);
+    }
+    return response.json();
+}
 
 async function getAll() {
     if (!cachedData) {
@@ -11,8 +18,8 @@ async function getAll() {
     }
     if (!actuallang) {
         var browserLang = navigator.language.substring(0, 2);
-        var supported = cachedData.languages;
-        var defaultLang = cachedData.site.defaultLang || "en";
+        var supported = (cachedData && cachedData.languages) ? cachedData.languages : ["it", "en"];
+        var defaultLang = (cachedData && cachedData.site && cachedData.site.defaultLang) ? cachedData.site.defaultLang : "en";
         actuallang = supported.includes(browserLang) ? browserLang : defaultLang;
     }
     if (!cachedLangData) {
@@ -23,6 +30,7 @@ async function getAll() {
     }
     return { lang: cachedLangData, data: cachedData, articles: cachedArticles };
 }
+
 function setMetaDescription(text) {
     var meta = document.querySelector('meta[name="description"]');
     if (!meta) {
@@ -31,10 +39,6 @@ function setMetaDescription(text) {
         document.head.appendChild(meta);
     }
     meta.content = text;
-}
-async function fetchJson(url) {
-    var json = await fetch(url);
-    return json.json();
 }
 
 async function getArticle(id) {
@@ -50,7 +54,15 @@ function link(url) {
 
 function renderLanguageSelector(langList) {
     var langSelect = document.getElementById("lang");
-    if (!langSelect) return;
+    if (!langSelect || !langList) return;
+
+    // Normalizza langList in un Array
+    var list = [];
+    if (Array.isArray(langList)) {
+        list = langList;
+    } else if (typeof langList === "object" && langList !== null) {
+        list = Object.keys(langList);
+    }
 
     var oldPicker = langSelect.closest(".language-picker");
     if (oldPicker) {
@@ -59,10 +71,10 @@ function renderLanguageSelector(langList) {
     }
 
     langSelect.innerHTML = "";
-    for (var i = 0; i < langList.length; i++) {
+    for (var i = 0; i < list.length; i++) {
         var option = document.createElement("option");
-        option.value = langList[i];
-        option.textContent = langList[i];
+        option.value = list[i];
+        option.textContent = list[i];
         langSelect.appendChild(option);
     }
     langSelect.value = actuallang;
@@ -84,12 +96,12 @@ function renderLanguageSelector(langList) {
     menu.setAttribute("role", "listbox");
     picker.appendChild(menu);
 
-    for (var j = 0; j < langList.length; j++) {
+    for (var j = 0; j < list.length; j++) {
         var menuOption = document.createElement("button");
         menuOption.type = "button";
         menuOption.className = "language-picker-option";
-        menuOption.textContent = langList[j];
-        menuOption.dataset.value = langList[j];
+        menuOption.textContent = list[j];
+        menuOption.dataset.value = list[j];
         menuOption.setAttribute("role", "option");
         menuOption.addEventListener("click", function(e) {
             e.stopPropagation();
@@ -132,19 +144,39 @@ document.addEventListener("click", function(e) {
 
 function renderFooterContacts(contactList) {
     var footer = document.getElementById("footer");
-    if (!footer) return;
+    if (!footer || !contactList) return;
     var b = "";
-    for (var i = 0; i < contactList.length; i++) {
-        b += "<button class='contact' onclick=\"link('" + contactList[i].url + "')\">" + contactList[i].label + "</button>";
+
+    if (Array.isArray(contactList)) {
+        for (var i = 0; i < contactList.length; i++) {
+            var item = contactList[i];
+            if (typeof item === "object" && item !== null) {
+                b += "<button class='contact' onclick=\"link('" + item.url + "')\">" + (item.label || item.url) + "</button>";
+            } else if (typeof item === "string") {
+                b += "<button class='contact' onclick=\"link('" + item + "')\">" + item + "</button>";
+            }
+        }
+    } else if (typeof contactList === "object") {
+        for (var key in contactList) {
+            if (contactList.hasOwnProperty(key)) {
+                b += "<button class='contact' onclick=\"link('" + contactList[key] + "')\">" + key + "</button>";
+            }
+        }
     }
+
     footer.innerHTML = b;
 }
 
 async function bootstrap() {
-    var { lang, data } = await getAll();
-    renderLanguageSelector(data.languages);
-    renderFooterContacts(data.contacts);
+    try {
+        var { lang, data } = await getAll();
+        if (data && data.languages) renderLanguageSelector(data.languages);
+        if (data && data.contacts) renderFooterContacts(data.contacts);
+    } catch (e) {
+        console.error("Errore durante il bootstrap in script.js:", e);
+    }
 }
+
 function setFavicon(subjectClass) {
     var favicon = document.getElementById("favicon");
     if (!favicon) return;
@@ -155,4 +187,5 @@ function setFavicon(subjectClass) {
         favicon.href = "/images/a0.svg";
     }
 }
+
 bootstrap();
