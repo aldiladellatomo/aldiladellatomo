@@ -480,9 +480,6 @@ a.external {
 /* =========================================================
    6. SELETTORE LINGUA UNIFORME SU TUTTI I DISPOSITIVI
    ========================================================= */
-select#lang {
-  display: none !important;
-}
 
 .language-picker {
   position: relative;
