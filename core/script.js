@@ -46,11 +46,12 @@ function renderLanguageSelector(langList) {
     var langSelect = document.getElementById("lang");
     if (!langSelect) return;
 
-    var oldPicker = langSelect.closest(".language-picker");
-    if (oldPicker) {
-        oldPicker.parentElement.insertBefore(langSelect, oldPicker);
-        oldPicker.remove();
+    var header = langSelect.closest("header") || langSelect.parentElement;
+    var oldPickers = header.querySelectorAll(".language-picker");
+    for (var p = 0; p < oldPickers.length; p++) {
+        oldPickers[p].remove();
     }
+    header.appendChild(langSelect);
 
     langSelect.innerHTML = "";
     for (var i = 0; i < langList.length; i++) {
@@ -124,23 +125,9 @@ document.addEventListener("click", function(e) {
     }
 });
 
-function renderFooterContacts(contactList) {
-    var footer = document.getElementById("footer");
-    if (!footer) return;
-    var b = "";
-    for (var i = 0; i < contactList.length; i++) {
-        b += "<button class='contact' onclick=\"link('" + contactList[i].url + "')\">" + contactList[i].label + "</button>";
-    }
-    footer.innerHTML = b;
-}
-
 async function bootstrap() {
     await getAll();
     renderLanguageSelector(["it", "en"]);
-    renderFooterContacts([
-        { label: "Github", url: "https://github.com/aldiladellatomo" },
-        { label: "Email", url: "mailto:aldiladellatomo@gmail.com" }
-    ]);
 }
 function setFavicon(subjectClass) {
     var favicon = document.getElementById("favicon");
