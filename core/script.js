@@ -46,12 +46,11 @@ function renderLanguageSelector(langList) {
     var langSelect = document.getElementById("lang");
     if (!langSelect) return;
 
-    var header = langSelect.closest("header") || langSelect.parentElement;
-    var oldPickers = document.querySelectorAll(".language-picker");
-    for (var p = 0; p < oldPickers.length; p++) {
-        oldPickers[p].remove();
+    var oldPicker = langSelect.closest(".language-picker");
+    if (oldPicker) {
+        oldPicker.parentElement.insertBefore(langSelect, oldPicker);
+        oldPicker.remove();
     }
-    header.appendChild(langSelect);
 
     langSelect.innerHTML = "";
     for (var i = 0; i < langList.length; i++) {
@@ -65,6 +64,7 @@ function renderLanguageSelector(langList) {
     var picker = document.createElement("div");
     picker.className = "language-picker";
     langSelect.parentElement.insertBefore(picker, langSelect);
+    picker.appendChild(langSelect);
 
     var toggle = document.createElement("button");
     toggle.type = "button";
