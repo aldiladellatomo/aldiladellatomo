@@ -33,9 +33,9 @@ function renderArticles() {
     document.getElementById("div").innerHTML = b;
 }
 
-function buildNav(data, lang) {
+function buildNav(lang) {
     var a = "";
-    for (var i = 0; i <= data.site.maxCategories; i++) {
+    for (var i = 0; i <= 4; i++) {
         a += "<button id=a" + i + " ";
         if (actualschede == "a" + i) a += "class=active ";
         a += "onclick='show(\"a" + i + "\")'>" + lang["a" + i] + "</button>";
@@ -43,34 +43,24 @@ function buildNav(data, lang) {
     document.getElementById("nav").innerHTML = a;
 }
 
-function buildSortMenu(data, lang) {
+function buildSortMenu(lang) {
     var sortSelect = document.getElementById("sort");
-    if (!data.sorting.enabled) {
-        if(sortSelect) sortSelect.style.display = "none";
-        return;
-    }
-    
     var f = "";
-    for (var i = 0; i < data.sorting.availableModes.length; i++) {
-        f += "<option class='select' value=" + data.sorting.availableModes[i] + ">" + lang[data.sorting.availableModes[i]] + "</option>";
+    for (var i = 1; i <= 4; i++) {
+        f += "<option class='select' value=mode" + i + ">" + lang["mode" + i] + "</option>";
     }
     sortSelect.innerHTML = f;
-    sortSelect.value = data.sorting.defaultMode;
+    sortSelect.value = "mode1";
     sortSelect.onchange = renderArticles;
 }
 
-async function startCarousel(data) {
+async function startCarousel() {
     var recentContainer = document.getElementById("recent");
-    if (!data.carousel.enabled) {
-        if(recentContainer) recentContainer.style.display = "none";
-        return;
-    }
-
     var recentArticles = sortArticles([...globalArticles], "mode1");
     var display = [];
     var order = 0;
 
-    for (var i = 0; i < recentArticles.length && order < data.carousel.maxItems; i++) {
+    for (var i = 0; i < recentArticles.length && order < 3; i++) {
         if (recentArticles[i].class == actualschede || actualschede == "a0") {
             display.push(recentArticles[i]);
             order++;
@@ -87,16 +77,16 @@ async function startCarousel(data) {
                     "</button>";
             recentContainer.innerHTML = d;
             idx = (idx + 1) % display.length;
-            await new Promise(resolve => setTimeout(resolve, 1000 * data.carousel.intervalSeconds));
+            await new Promise(resolve => setTimeout(resolve, 3000));
         } while (true);
     }
 }
     
 async function hbootstrap() {
-    var { lang, data, articles } = await getAll();
+    var { lang, articles } = await getAll();
     
     if (!actualschede) {
-        actualschede = data.site.defaultClass;
+        actualschede = "a0";
     }
     document.body.className = "b" + actualschede;
 
@@ -108,21 +98,21 @@ async function hbootstrap() {
     globalArticles = articles.slice(1);
     document.title = lang[actualschede] + " | " + lang["a0"];
     
-    buildNav(data, lang);
+    buildNav(lang);
     document.getElementById("h1").innerText = lang[actualschede];
 
     var searchbarDiv = document.getElementById("searchbar");
-    if (data.features.enableSearch && searchbarDiv) {
+    if (searchbarDiv) {
         searchbarDiv.innerHTML = "<input id='searchdiv' type='text' placeholder='" + lang["b2"] + "' onkeyup=search()>";
     } else if (searchbarDiv) {
         searchbarDiv.style.display = "none";
     }
     
-    buildSortMenu(data, lang);
+    buildSortMenu(lang);
     document.getElementById("h2").innerText = lang["d2"];
     setFavicon(actualschede);
     renderArticles();
-    startCarousel(data);
+    startCarousel();
 }
 async function search() {
     var { lang, articles } = await getAll();

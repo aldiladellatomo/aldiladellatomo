@@ -480,6 +480,9 @@ a.external {
 /* =========================================================
    6. SELETTORE LINGUA UNIFORME SU TUTTI I DISPOSITIVI
    ========================================================= */
+select#lang {
+  display: none !important;
+}
 
 .language-picker {
   position: relative;
@@ -785,35 +788,5 @@ a.external {
 
   footer#footer .contact {
     border-radius: 12px !important;
-  }
-
-  /* =========================================================
-     SELETTORE LINGUA MOBILE (Select Nativo Android/iOS)
-     ========================================================= */
-  .language-picker {
-    order: 2 !important;
-    margin-left: auto !important;
-    display: flex !important;
-  }
-
-  /* Nascondiamo la grafica del selettore custom per PC */
-  .language-picker-toggle,
-  .language-picker-menu {
-    display: none !important;
-  }
-
-  /* Mostriamo e formattiamo il <select> nativo per il menu di sistema */
-  select#lang {
-    display: block !important;
-    height: 48px !important;
-    padding: 0 12px !important;
-    border-radius: 12px !important;
-    border: 1.5px solid var(--primary-color) !important;
-    background-color: var(--bar-bg) !important;
-    color: var(--primary-color) !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    outline: none !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
   }
 }
