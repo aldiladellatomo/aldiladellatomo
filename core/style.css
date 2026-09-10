@@ -482,6 +482,11 @@ a.external {
    ========================================================= */
 select#lang {
   display: none !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .language-picker {
