@@ -19,7 +19,7 @@
 },
 {
 "type": "latex",
-"formula": "\begin{cases} a_0 = 0 \\ a_1 = 1 \\ a_{n+1} = a_n + a_{n-1} \end{cases}"
+"formula": "\\begin{cases} a_0 = 0 \\\\ a_1 = 1 \\\\ a_{n+1} = a_n + a_{n-1} \\end{cases}"
 },
 {
 "type": "text",
@@ -86,7 +86,7 @@
 {
 "type": "latex",
 "inline": true,
-"formula": "a \cdot b^n"
+"formula": "a \\cdot b^n"
 },
 {
 "type": "text",
@@ -95,7 +95,7 @@
 },
 {
 "type": "latex",
-"formula": "a \cdot b^{n+1} = a \cdot b^{n-1} + a \cdot b^n"
+"formula": "a \\cdot b^{n+1} = a \\cdot b^{n-1} + a \\cdot b^n"
 },
 {
 "type": "text",
@@ -116,7 +116,7 @@
 {
 "type": "latex",
 "inline": true,
-"formula": "a \neq 0"
+"formula": "a \\neq 0"
 },
 {
 "type": "text",
@@ -135,7 +135,7 @@
 },
 {
 "type": "latex",
-"formula": "b \cdot b^n = \frac{b^n}{b} + b^n"
+"formula": "b \\cdot b^n = \\frac{b^n}{b} + b^n"
 },
 {
 "type": "text",
@@ -155,7 +155,7 @@
 },
 {
 "type": "latex",
-"formula": "b = \frac{1}{b} + 1"
+"formula": "b = \\frac{1}{b} + 1"
 },
 {
 "type": "text",
@@ -176,7 +176,7 @@
 {
 "type": "latex",
 "inline": true,
-"formula": "b \neq 0"
+"formula": "b \\neq 0"
 },
 {
 "type": "text",
@@ -205,7 +205,7 @@
 },
 {
 "type": "latex",
-"formula": "b_{1,2} = \frac{1 \pm \sqrt{1 - 4(1)(-1)}}{2} = \frac{1 \pm \sqrt{5}}{2}"
+"formula": "b_{1,2} = \\frac{1 \\pm \\sqrt{1 - 4(1)(-1)}}{2} = \\frac{1 \\pm \\sqrt{5}}{2}"
 },
 {
 "type": "text",
@@ -215,7 +215,7 @@
 },
 {
 "type": "latex",
-"formula": "f(n) = a \left(\frac{1+\sqrt{5}}{2}\right)^n + b \left(\frac{1-\sqrt{5}}{2}\right)^n"
+"formula": "f(n) = a \\left(\\frac{1+\\sqrt{5}}{2}\\right)^n + b \\left(\\frac{1-\\sqrt{5}}{2}\\right)^n"
 },
 {
 "type": "text",
@@ -337,7 +337,7 @@
 },
 {
 "type": "latex",
-"formula": "f(n) = a \left[ \left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n \right]"
+"formula": "f(n) = a \\left[ \\left(\\frac{1+\\sqrt{5}}{2}\\right)^n - \\left(\\frac{1-\\sqrt{5}}{2}\\right)^n \\right]"
 },
 {
 "type": "text",
@@ -367,7 +367,7 @@
 },
 {
 "type": "latex",
-"formula": "a \left( \frac{1+\sqrt{5}}{2} - \frac{1-\sqrt{5}}{2} \right) = 1"
+"formula": "a \\left( \\frac{1+\\sqrt{5}}{2} - \\frac{1-\\sqrt{5}}{2} \\right) = 1"
 },
 {
 "type": "text",
@@ -398,7 +398,7 @@
 {
 "type": "latex",
 "inline": true,
-"formula": "\sqrt{5}"
+"formula": "\\sqrt{5}"
 },
 {
 "type": "text",
@@ -407,11 +407,11 @@
 },
 {
 "type": "latex",
-"formula": "a\sqrt{5} = 1"
+"formula": "a\\sqrt{5} = 1"
 },
 {
 "type": "latex",
-"formula": "a = \frac{1}{\sqrt{5}}"
+"formula": "a = \\frac{1}{\\sqrt{5}}"
 },
 {
 "type": "text",
@@ -421,7 +421,7 @@
 },
 {
 "type": "latex",
-"formula": "f(n) = \frac{\left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n}{\sqrt{5}}"
+"formula": "f(n) = \\frac{\\left(\\frac{1+\\sqrt{5}}{2}\\right)^n - \\left(\\frac{1-\\sqrt{5}}{2}\\right)^n}{\\sqrt{5}}"
 },
 {
 "type": "text",
@@ -438,7 +438,7 @@
 {
 "type": "latex",
 "inline": true,
-"formula": "n \to +\infty"
+"formula": "n \\to +\\infty"
 },
 {
 "type": "text",
@@ -458,7 +458,7 @@
 {
 "type": "latex",
 "inline": true,
-"formula": "\varphi = \frac{1+\sqrt{5}}{2}"
+"formula": "\\varphi = \\frac{1+\\sqrt{5}}{2}"
 },
 {
 "type": "text",
@@ -468,7 +468,7 @@
 {
 "type": "latex",
 "inline": true,
-"formula": "\varphi"
+"formula": "\\varphi"
 },
 {
 "type": "text",
