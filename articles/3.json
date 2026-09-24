@@ -1,0 +1,478 @@
+[
+{
+"type": "text",
+"newline": true,
+"content-it": "La sequenza di Fibonacci è molto usata in matematica. Per ottenere il numero successivo di questa sequenza, si devono sommare i due precedenti. I primi due numeri sono 0 e 1, quindi la sequenza ottenuta è la seguente:",
+"content-en": "The Fibonacci sequence is widely used in mathematics. To obtain the next number in this sequence, the two previous ones must be added together. The first two numbers are 0 and 1, so the resulting sequence is the following:"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144",
+"content-en": "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Volendola definire per ricorrenza, il risultato è:",
+"content-en": "To define it by recurrence, the result is:"
+},
+{
+"type": "latex",
+"formula": "\begin{cases} a_0 = 0 \\ a_1 = 1 \\ a_{n+1} = a_n + a_{n-1} \end{cases}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Dai primi termini, assomiglia ad una crescita esponenziale, tanto che proveremo a trovare una curva di questo tipo che includa i punti della sequenza di Fibonacci: se",
+"content-en": "From the first terms, it resembles exponential growth, so we will try to find a curve of this type that includes the points of the Fibonacci sequence: if"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "f"
+},
+{
+"type": "text",
+"content-it": "è la nostra funzione, sappiamo che intercetta",
+"content-en": "is our function, we know that it intercepts"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "f(0) = 0"
+},
+{
+"type": "text",
+"content-it": "e",
+"content-en": "and"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "f(1) = 1"
+},
+{
+"type": "text",
+"content-it": ", cioè passa per i punti",
+"content-en": ", meaning it passes through points"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "O(0,0)"
+},
+{
+"type": "text",
+"content-it": "e",
+"content-en": "and"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "A(1,1)"
+},
+{
+"type": "text",
+"content-it": ".",
+"content-en": "."
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "L'esponenziale è della forma",
+"content-en": "The exponential is of the form"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "a \cdot b^n"
+},
+{
+"type": "text",
+"content-it": ", ne segue che possiamo riscrivere l'equazione della successione come:",
+"content-en": ", it follows that we can rewrite the sequence equation as:"
+},
+{
+"type": "latex",
+"formula": "a \cdot b^{n+1} = a \cdot b^{n-1} + a \cdot b^n"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Dividendo tutto per",
+"content-en": "Dividing everything by"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "a"
+},
+{
+"type": "text",
+"content-it": "(sapendo che",
+"content-en": "(knowing that"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "a \neq 0"
+},
+{
+"type": "text",
+"content-it": "):",
+"content-en": "):"
+},
+{
+"type": "latex",
+"formula": "b^{n+1} = b^{n-1} + b^n"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Applicando le proprietà delle potenze:",
+"content-en": "Applying the properties of exponents:"
+},
+{
+"type": "latex",
+"formula": "b \cdot b^n = \frac{b^n}{b} + b^n"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "E dividendo per",
+"content-en": "And dividing by"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "b^n"
+},
+{
+"type": "text",
+"content-it": ":",
+"content-en": ":"
+},
+{
+"type": "latex",
+"formula": "b = \frac{1}{b} + 1"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Moltiplicando entrambi i membri per",
+"content-en": "Multiplying both sides by"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "b"
+},
+{
+"type": "text",
+"content-it": "(sapendo che",
+"content-en": "(knowing that"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "b \neq 0"
+},
+{
+"type": "text",
+"content-it": "):",
+"content-en": "):"
+},
+{
+"type": "latex",
+"formula": "b^2 = 1 + b"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Ordinando i membri per grado discendente:",
+"content-en": "Ordering the terms by descending degree:"
+},
+{
+"type": "latex",
+"formula": "b^2 - b - 1 = 0"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "E risolvendo l'equazione quadratica con la formula:",
+"content-en": "And solving the quadratic equation with the formula:"
+},
+{
+"type": "latex",
+"formula": "b_{1,2} = \frac{1 \pm \sqrt{1 - 4(1)(-1)}}{2} = \frac{1 \pm \sqrt{5}}{2}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Quindi la nostra funzione esponenziale avrà la forma:",
+"content-en": "So our exponential function will have the form:"
+},
+{
+"type": "latex",
+"formula": "f(n) = a \left(\frac{1+\sqrt{5}}{2}\right)^n + b \left(\frac{1-\sqrt{5}}{2}\right)^n"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Ora troviamo",
+"content-en": "Now we find"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "a"
+},
+{
+"type": "text",
+"content-it": "e",
+"content-en": "and"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "b"
+},
+{
+"type": "text",
+"content-it": "in modo che",
+"content-en": "so that"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "f(0) = 0"
+},
+{
+"type": "text",
+"content-it": "e",
+"content-en": "and"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "f(1) = 1"
+},
+{
+"type": "text",
+"content-it": ".",
+"content-en": "."
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Se",
+"content-en": "If"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "n=0"
+},
+{
+"type": "text",
+"content-it": "l'esponenziale è uguale a",
+"content-en": "the exponential equals"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "1"
+},
+{
+"type": "text",
+"content-it": ", quindi",
+"content-en": ", thus"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "a+b=0"
+},
+{
+"type": "text",
+"content-it": "da cui",
+"content-en": "hence"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "b=-a"
+},
+{
+"type": "text",
+"content-it": ".",
+"content-en": "."
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Riscriviamo la nostra funzione; sostituendo",
+"content-en": "We rewrite our function; substituting"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "b"
+},
+{
+"type": "text",
+"content-it": "e raccogliendo",
+"content-en": "and factoring out"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "a"
+},
+{
+"type": "text",
+"content-it": "diventa:",
+"content-en": "it becomes:"
+},
+{
+"type": "latex",
+"formula": "f(n) = a \left[ \left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n \right]"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Sostituiamo",
+"content-en": "We substitute"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "n=1"
+},
+{
+"type": "text",
+"content-it": ", e il risultato deve essere",
+"content-en": ", and the result must be"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "1"
+},
+{
+"type": "text",
+"content-it": ":",
+"content-en": ":"
+},
+{
+"type": "latex",
+"formula": "a \left( \frac{1+\sqrt{5}}{2} - \frac{1-\sqrt{5}}{2} \right) = 1"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Elidendo",
+"content-en": "Canceling out"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "1/2"
+},
+{
+"type": "text",
+"content-it": "e",
+"content-en": "and"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "-1/2"
+},
+{
+"type": "text",
+"content-it": "e sommando i termini con",
+"content-en": "and adding the terms with"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\sqrt{5}"
+},
+{
+"type": "text",
+"content-it": ":",
+"content-en": ":"
+},
+{
+"type": "latex",
+"formula": "a\sqrt{5} = 1"
+},
+{
+"type": "latex",
+"formula": "a = \frac{1}{\sqrt{5}}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Troviamo così la Formula di Binet:",
+"content-en": "We thus find Binet's Formula:"
+},
+{
+"type": "latex",
+"formula": "f(n) = \frac{\left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n}{\sqrt{5}}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "(La formula trovata, però, è definita nel campo reale, mentre la sequenza originaria è nel campo dei numeri naturali).",
+"content-en": "(The formula found, however, is defined in the real field, while the original sequence is in the natural numbers field)."
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Dalla formula si può capire che se",
+"content-en": "From the formula it can be understood that if"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "n \to +\infty"
+},
+{
+"type": "text",
+"content-it": ", il termine con il segno meno tende a",
+"content-en": ", the part with the minus approaches"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "0"
+},
+{
+"type": "text",
+"content-it": "e la sequenza approssima un'esponenziale con base",
+"content-en": "and the sequence approximates an exponential with base"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\varphi = \frac{1+\sqrt{5}}{2}"
+},
+{
+"type": "text",
+"content-it": ". Quindi, per n molto grande, il termine successivo può essere stimato moltiplicando il precedente per",
+"content-en": ". Therefore, for very large n, the next term can be estimated by multiplying the previous one by"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\varphi"
+},
+{
+"type": "text",
+"content-it": ", noto come il Rapporto Aureo.",
+"content-en": ", known as the Golden Ratio."
+}
+]

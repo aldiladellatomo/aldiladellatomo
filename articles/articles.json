@@ -19,5 +19,15 @@
     "desc-it": "Calcolo della derivata (coefficente della retta tangente) usando la geometria analitica.",
     "desc-en": "",
     "search": ["analitica", "derivate", "geometria", "semicirconferenza"]
+    },
+    {
+    "id": "3",
+    "class": "a2",
+    "date": "2026-09-24",
+    "name-it": "La formula per la successione di Fibonacci",
+    "name-en": "The formula for the Fibonacci sequence",
+    "desc-it": "È possibile trovare una funzione che, dato un numero intero n, restituisca l'n-esimo numero della sequenza?",
+    "desc-en": "Is it possible to find a function that, given an integer n, returns the n-th number in the sequence?",
+    "search": ["fibonacci","successione","matematica","esponenziale","binet","aureo"]
     }
 ]
