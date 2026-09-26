@@ -1,0 +1,238 @@
+[
+{
+"type": "text",
+"newline": true,
+"content-it": "Vogliamo svolgere l'integrale definito della curva avente equazione",
+"content-en": "We want to evaluate the definite integral of the curve with equation"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "y = \\sqrt{r^2 - x^2}"
+},
+{
+"type": "text",
+"content-it": ", ossia:",
+"content-en": ", that is:"
+},
+{
+"type": "latex",
+"formula": "\\int_{0}^{a} \\sqrt{r^2 - x^2} \\, dx"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "senza ricorrere al metodo di sostituzione.",
+"content-en": "without resorting to the substitution method."
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "L'idea di base è quella di trovare",
+"content-en": "The basic idea is to find"
+},
+{
+"type": "bold",
+"content-it": "l'area sottesa alla funzione da 0 a un punto a",
+"content-en": "the area under the function from 0 to a point a"
+},
+{
+"type": "text",
+"content-it": ":",
+"content-en": ":"
+},
+{
+"type": "geogebra",
+"geogebraId": "gcfzv5dq"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Allora possiamo affermare che l'area richiesta è la somma tra quella del triangolo AOK e del settore circolare definito dall'angolo",
+"content-en": "Then we can state that the required area is the sum of the area of triangle AOK and the circular sector defined by the angle"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\\alpha"
+},
+{
+"type": "text",
+"content-it": ", che è uguale a:",
+"content-en": ", which is equal to:"
+},
+{
+"type": "latex",
+"formula": "A = A_{AOK} + A_{\\alpha}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Se l'angolo è espresso in radianti, la formula diventa:",
+"content-en": "If the angle is expressed in radians, it becomes:"
+},
+{
+"type": "latex",
+"formula": "\\frac{\\overline{AK} \\cdot \\overline{OK}}{2} + r^2 \\cdot \\frac{\\alpha}{2}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Ma",
+"content-en": "But"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\\overline{AK} = f(a)"
+},
+{
+"type": "text",
+"content-it": "e",
+"content-en": "and"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\\overline{OK} = a"
+},
+{
+"type": "text",
+"content-it": ". Raccogliendo",
+"content-en": ". Factoring out"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\\frac{1}{2}"
+},
+{
+"type": "text",
+"content-it": ", ne segue:",
+"content-en": ", it follows:"
+},
+{
+"type": "latex",
+"formula": "\\frac{f(a) \\cdot a + r^2 \\cdot \\alpha}{2}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Nel triangolo AOK, l'angolo",
+"content-en": "In triangle AOK, the angle"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\\alpha"
+},
+{
+"type": "text",
+"content-it": "è l'angolo opposto al lato",
+"content-en": "is the angle opposite to side"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\\overline{OK}"
+},
+{
+"type": "text",
+"content-it": ", che per definizione di seno è:",
+"content-en": ", which by definition of sine is:"
+},
+{
+"type": "latex",
+"formula": "\\sin(\\alpha) \\triangleq \\frac{\\overline{OK}}{r}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Poiché",
+"content-en": "Since"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\\overline{OK} = a"
+},
+{
+"type": "text",
+"content-it": ":",
+"content-en": ":"
+},
+{
+"type": "latex",
+"formula": "\\sin(\\alpha) = \\frac{a}{r}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "L'angolo",
+"content-en": "The angle"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "\\alpha"
+},
+{
+"type": "text",
+"content-it": "può essere quindi calcolato con la funzione inversa del seno, ossia l'arcoseno:",
+"content-en": "can therefore be calculated using the inverse sine function, i.e., arcsine:"
+},
+{
+"type": "latex",
+"formula": "\\alpha = \\arcsin\\left(\\frac{a}{r}\\right)"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Sostituiamo tutto nella formula dell'area, che diventa:",
+"content-en": "We substitute everything into the area formula, which becomes:"
+},
+{
+"type": "latex",
+"formula": "\\frac{f(a) \\cdot a + r^2 \\cdot \\arcsin\\left(\\frac{a}{r}\\right)}{2}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "Ma",
+"content-en": "But"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "f(a)"
+},
+{
+"type": "text",
+"content-it": "è l'equazione della semicirconferenza calcolata in",
+"content-en": "is the equation of the semicircle evaluated at"
+},
+{
+"type": "latex",
+"inline": true,
+"formula": "a"
+},
+{
+"type": "text",
+"content-it": ":",
+"content-en": ":"
+},
+{
+"type": "latex",
+"formula": "\\frac{\\sqrt{r^2 - a^2} \\cdot a + r^2 \\cdot \\arcsin\\left(\\frac{a}{r}\\right)}{2}"
+},
+{
+"type": "text",
+"newline": true,
+"content-it": "In conclusione, l'integrale diventa:",
+"content-en": "In conclusion, the integral becomes:"
+},
+{
+"type": "latex",
+"formula": "\\int_{0}^{a} \\sqrt{r^2 - x^2} \\, dx = \\frac{a \\sqrt{r^2 - a^2} + r^2 \\arcsin\\left(\\frac{a}{r}\\right)}{2}"
+}
+]

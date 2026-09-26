@@ -1,5 +1,5 @@
 [
-    2,
+    4,
     {
     "id": "1",
     "class": "a2",
@@ -29,5 +29,21 @@
     "desc-it": "È possibile trovare una funzione che, dato un numero intero n, restituisca l'n-esimo numero della sequenza?",
     "desc-en": "Is it possible to find a function that, given an integer n, returns the n-th number in the sequence?",
     "search": ["fibonacci","successione","matematica","esponenziale","binet","aureo"]
+    },
+    {
+    "id": "4",
+    "class": "a2",
+    "date": "2026-09-26",
+    "name-it": "Integrali geometrici: la semicirconferenza",
+    "name-en": "Geometric integrals: the semicircle",
+    "desc-it": "Calcolo dell'integrale definito usando la geometria analitica.",
+    "desc-en": "Calculation of the definite integral using analytic geometry.",
+    "search": [
+    "integrali",
+    "geometria",
+    "semicirconferenza",
+    "area",
+    "settore circolare"
+    ]
     }
 ]
