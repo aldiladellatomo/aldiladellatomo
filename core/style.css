@@ -307,7 +307,7 @@ nav#nav button.active {
 }
 
 a.internal {
-  color: var(--on-surface);
+  color: var(--primary-color);
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
