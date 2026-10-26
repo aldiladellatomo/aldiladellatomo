@@ -79,7 +79,7 @@
     <priority>0.8</priority>
   </url>
   <!-- Articolo 3 -->
-  </url>
+  <url>
     <url>
     <loc>[https://aldiladellatomo.eu/core/article.html?id=3&amp;lang=it](https://aldiladellatomo.eu/core/article.html?id=3&amp;lang=it)</loc>
     <lastmod>2026-08-20</lastmod>
@@ -91,7 +91,7 @@
     <priority>0.8</priority>
   </url>
   <!-- Articolo 4 -->
-  </url>
+  <url>
     <url>
     <loc>[https://aldiladellatomo.eu/core/article.html?id=4&amp;lang=it](https://aldiladellatomo.eu/core/article.html?id=4&amp;lang=it)</loc>
     <lastmod>2026-09-26</lastmod>
