@@ -1,0 +1,243 @@
+[
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Dall'articolo sull'",
+    "content-en": "From the article on "
+  },
+  {
+    "type": "link",
+    "class": "internal",
+    "id": "4",
+    "name-it": "integrale della semicirconferenza",
+    "name-en": "semicircle integral"
+  },
+  {
+    "type": "text",
+    "newline": false,
+    "content-it": ", eravamo arrivati a trovare una formula per l'integrale definito della semicirconferenza:",
+    "content-en": ", we arrived at a formula for the definite integral of the semicircle:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\int_{0}^{x} \\sqrt{r^2 - t^2} \\, dt = \\frac{x \\sqrt{r^2 - x^2} + r^2 \\arcsin \\left( \\frac{x}{r}\\right)}{2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Da qui possiamo proseguire sapendo che, per il teorema fondamentale del calcolo integrale:",
+    "content-en": "From here we can proceed knowing that, by the fundamental theorem of calculus:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\int_{0}^{x} \\sqrt{r^2 - t^2} \\, dt = F(x) - F(0)"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Uguagliando le equazioni:",
+    "content-en": "Equating the equations:"
+  },
+  {
+    "type": "latex",
+    "formula": "F(x) - F(0) = \\frac{x \\sqrt{r^2 - x^2} + r^2 \\arcsin \\left( \\frac{x}{r}\\right)}{2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Aggiungo un generico valore C a entrambi i membri e porto F(0) a destra:",
+    "content-en": "Adding an arbitrary constant C to both sides and moving F(0) to the right:"
+  },
+  {
+    "type": "latex",
+    "formula": "F(x) + C = \\frac{x \\sqrt{r^2 - x^2} + r^2 \\arcsin \\left( \\frac{x}{r}\\right)}{2} + F(0) + C"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "che equivale a:",
+    "content-en": "which is equivalent to:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\int \\sqrt{r^2 - x^2} \\, dx = \\frac{x \\sqrt{r^2 - x^2} + r^2 \\arcsin \\left( \\frac{x}{r}\\right)}{2} + F(0) + C"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Pongo r = 1:",
+    "content-en": "Setting r = 1:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\int \\sqrt{1 - x^2} \\, dx = \\frac{x \\sqrt{1 - x^2} + \\arcsin(x)}{2} + F(0) + C"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Derivo entrambi i membri rispetto a x:",
+    "content-en": "Differentiating both sides with respect to x:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\frac{d \\int \\sqrt{1 - x^2} \\, dx}{dx} = \\frac{d \\left( \\frac{x \\sqrt{1 - x^2} + \\arcsin(x)}{2} + F(0) + C \\right)}{dx}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "L'integrale e la derivata sono operazioni inverse, da cui:",
+    "content-en": "Integration and differentiation are inverse operations, thus:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\sqrt{1 - x^2} = \\frac{d \\left( \\frac{x \\sqrt{1 - x^2} + \\arcsin(x)}{2} + F(0) + C \\right)}{dx}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "La derivata è lineare, quindi:",
+    "content-en": "Differentiation is linear, so:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\sqrt{1 - x^2} = \\frac{d \\left( \\frac{x\\sqrt{1-x^2}}{2} \\right)}{dx} + \\frac{d \\left( \\frac{\\arcsin(x)}{2} \\right)}{dx} + \\frac{d F(0)}{dx} + \\frac{d C}{dx}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "ma F(0) e C non dipendono da x, quindi la loro derivata è 0:",
+    "content-en": "but F(0) and C do not depend on x, so their derivative is 0:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\sqrt{1 - x^2} = \\frac{d \\left( \\frac{x\\sqrt{1-x^2}}{2} \\right)}{dx} + \\frac{d \\left( \\frac{\\arcsin(x)}{2} \\right)}{dx}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Le costanti passano fuori dalla derivata:",
+    "content-en": "Constants can be factored out of the derivative:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\sqrt{1 - x^2} = \\frac{1}{2} \\frac{d(x\\sqrt{1-x^2})}{dx} + \\frac{1}{2} \\frac{d(\\arcsin(x))}{dx}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Moltiplico entrambi i membri per 2:",
+    "content-en": "Multiplying both sides by 2:"
+  },
+  {
+    "type": "latex",
+    "formula": "2 \\cdot \\sqrt{1 - x^2} = \\frac{d(x\\sqrt{1-x^2})}{dx} + \\frac{d(\\arcsin(x))}{dx}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Applico la regola del prodotto alla prima derivata:",
+    "content-en": "Applying the product rule to the first derivative:"
+  },
+  {
+    "type": "latex",
+    "formula": "2 \\cdot \\sqrt{1 - x^2} = \\frac{dx}{dx} \\cdot \\sqrt{1-x^2} + x \\cdot \\frac{d(\\sqrt{1-x^2})}{dx} + \\frac{d(\\arcsin(x))}{dx}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "La derivata di x è 1, e dall'articolo sulla ",
+    "content-en": "The derivative of x is 1, and from the article on the "
+  },
+  {
+    "type": "link",
+    "class": "internal",
+    "id": "2",
+    "name-it": "derivata della semicirconferenza",
+    "name-en": "semicircle derivative"
+  },
+  {
+    "type": "text",
+    "newline": false,
+    "content-it": " sappiamo che:",
+    "content-en": " we know that:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\frac{d(\\sqrt{1-x^2})}{dx} = -\\frac{x}{\\sqrt{1 - x^2}}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Quindi la formula diventa:",
+    "content-en": "Therefore the formula becomes:"
+  },
+  {
+    "type": "latex",
+    "formula": "2 \\cdot \\sqrt{1 - x^2} = \\sqrt{1-x^2} - x \\cdot \\frac{x}{\\sqrt{1- x^2}} + \\frac{d(\\arcsin(x))}{dx}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Isolo la derivata dell'arcseno a sinistra e sposto il resto a destra:",
+    "content-en": "Isolating the derivative of arcsine on the left:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\frac{d(\\arcsin(x))}{dx} = \\frac{x^2}{\\sqrt{1 - x^2}} + 2\\cdot\\sqrt{1 - x^2} - \\sqrt{1-x^2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Sommo i termini simili:",
+    "content-en": "Combining like terms:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\frac{d(\\arcsin(x))}{dx} = \\frac{x^2}{\\sqrt{1 - x^2}} + \\sqrt{1 - x^2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Moltiplico e divido il secondo termine per ",
+    "content-en": "Multiplying and dividing the second term by "
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "\\sqrt{1 - x^2}"
+  },
+  {
+    "type": "text",
+    "newline": false,
+    "content-it": ":",
+    "content-en": ":"
+  },
+  {
+    "type": "latex",
+    "formula": "\\frac{d(\\arcsin(x))}{dx} = \\frac{x^2}{\\sqrt{1 - x^2}} + \\sqrt{1 - x^2} \\cdot \\frac{\\sqrt{1 - x^2}}{\\sqrt{1 - x^2}}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Sommo le frazioni al denominatore comune:",
+    "content-en": "Combining over a common denominator:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\frac{d(\\arcsin(x))}{dx} = \\frac{x^2 + (\\sqrt{1 - x^2})^2}{\\sqrt{1 - x^2}}"
+  },
+  {
+    "type": "latex",
+    "formula": "\\frac{d(\\arcsin(x))}{dx} = \\frac{x^2 + 1 - x^2}{\\sqrt{1 - x^2}}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "La formula finale è:",
+    "content-en": "The final formula is:"
+  },
+  {
+    "type": "latex",
+    "formula": "\\frac{d(\\arcsin(x))}{dx} = \\frac{1}{\\sqrt{1 - x^2}}"
+  }
+]

@@ -1,5 +1,5 @@
 [
-    4,
+    5,
     {
     "id": "1",
     "class": "a2",
@@ -38,12 +38,16 @@
     "name-en": "Geometric integrals: the semicircle",
     "desc-it": "Calcolo dell'integrale definito usando la geometria analitica.",
     "desc-en": "Calculation of the definite integral using analytic geometry.",
-    "search": [
-    "integrali",
-    "geometria",
-    "semicirconferenza",
-    "area",
-    "settore circolare"
-    ]
-    }
+    "search": ["integrali","geometria","semicirconferenza","area","settore circolare"]
+    },
+    {
+    "id": "5",
+    "class": "a2",
+    "date": "2026-10-26",
+    "name-it": "Derivata di arcsin",
+    "name-en": "Derivative of arcsin",
+    "desc-it": "Calcolo della derivata dell'arcoseno usando integrali e derivate della semicirconferenza.",
+    "desc-en": "Calculation of the derivative of arcsine using integrals and derivatives of the semicircle.",
+    "search": ["derivata", "arcsin", "arcoseno", "integrale", "semicirconferenza"]
+    } 
 ]
