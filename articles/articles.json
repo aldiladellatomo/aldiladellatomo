@@ -1,26 +1,34 @@
 [
-    5,
-    {
+  6,
+  {
     "id": "1",
     "class": "a2",
     "date": "2026-08-20",
     "name-it": "Differenze di quadrati",
-    "name-en": "",
+    "name-en": "Differences of squares",
     "desc-it": "Tecniche di calcolo rapido di differenze di quadrati.",
-    "desc-en": "",
-    "search": ["Calcolo", "differenze"]
-    },
-    {
+    "desc-en": "Techniques for rapid calculation of differences of squares.",
+    "search": [
+      "Calcolo",
+      "differenze"
+    ]
+  },
+  {
     "id": "2",
     "class": "a2",
     "date": "2026-09-03",
     "name-it": "Derivate analatiche: 1 La semicircoferenza",
-    "name-en": "",
+    "name-en": "Analytic derivatives: 1 The semicircle",
     "desc-it": "Calcolo della derivata (coefficente della retta tangente) usando la geometria analitica.",
-    "desc-en": "",
-    "search": ["analitica", "derivate", "geometria", "semicirconferenza"]
-    },
-    {
+    "desc-en": "Calculation of the derivative (coefficient of the tangent line) using analytic geometry.",
+    "search": [
+      "analitica",
+      "derivate",
+      "geometria",
+      "semicirconferenza"
+    ]
+  },
+  {
     "id": "3",
     "class": "a2",
     "date": "2026-09-24",
@@ -28,9 +36,16 @@
     "name-en": "The formula for the Fibonacci sequence",
     "desc-it": "È possibile trovare una funzione che, dato un numero intero n, restituisca l'n-esimo numero della sequenza?",
     "desc-en": "Is it possible to find a function that, given an integer n, returns the n-th number in the sequence?",
-    "search": ["fibonacci","successione","matematica","esponenziale","binet","aureo"]
-    },
-    {
+    "search": [
+      "fibonacci",
+      "successione",
+      "matematica",
+      "esponenziale",
+      "binet",
+      "aureo"
+    ]
+  },
+  {
     "id": "4",
     "class": "a2",
     "date": "2026-09-26",
@@ -38,9 +53,15 @@
     "name-en": "Geometric integrals: the semicircle",
     "desc-it": "Calcolo dell'integrale definito usando la geometria analitica.",
     "desc-en": "Calculation of the definite integral using analytic geometry.",
-    "search": ["integrali","geometria","semicirconferenza","area","settore circolare"]
-    },
-    {
+    "search": [
+      "integrali",
+      "geometria",
+      "semicirconferenza",
+      "area",
+      "settore circolare"
+    ]
+  },
+  {
     "id": "5",
     "class": "a2",
     "date": "2026-10-26",
@@ -48,6 +69,22 @@
     "name-en": "Derivative of arcsin",
     "desc-it": "Calcolo della derivata dell'arcoseno usando integrali e derivate della semicirconferenza.",
     "desc-en": "Calculation of the derivative of arcsine using integrals and derivatives of the semicircle.",
-    "search": ["derivata", "arcsin", "arcoseno", "integrale", "semicirconferenza"]
-    } 
+    "search": [
+      "derivata",
+      "arcsin",
+      "arcoseno",
+      "integrale",
+      "semicirconferenza"
+    ]
+  },
+  {
+    "id": "6",
+    "class": "a2",
+    "date": "2026-11-15",
+    "name-it": "Teorema di Stewart per la lunghezza della ceviana",
+    "name-en": "Stewart's theorem for the length of the cevian",
+    "desc-it": "Alla ricerca della lunghezza di mediane e bisettrici",
+    "desc-en": "In search of the length of medians and angle bisectors",
+    "search": ["geometria", "teorema", "stewart", "lunghezza", "ceviana"]
+  }
 ]

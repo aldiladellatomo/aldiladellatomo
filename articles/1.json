@@ -2,18 +2,18 @@
     {
         "type":"text",
         "content-it":"per calcolare differenze di quadrati di numeri interi esistono diverse tecniche che oggi esamineremo.",
-        "content-en":""
+        "content-en":"to calculate differences of squares of integers there are several techniques that we will examine today."
     },
     {
         "type":"text",
         "content-it":"iniziamo dal caso più semplice i",
-        "content-en":"",
+        "content-en":"let's start with the simplest case:",
         "newline": true
     },
     {
         "type":"bold",
         "content-it":"numeri consecutivi",
-        "content-en":""
+        "content-en":"consecutive numbers"
     },
     {
         "type":"latex",
@@ -21,7 +21,8 @@
     },
     {
         "type":"text",
-        "content-it":"espandiamo i quadrati"
+        "content-it":"espandiamo i quadrati",
+        "content-en":"we expand the squares"
     },
     {
         "type":"latex",
@@ -29,7 +30,8 @@
     },
     {
         "type":"text",
-        "content-it":"semplifichiamo"
+        "content-it":"semplifichiamo",
+        "content-en":"we simplify"
     },
     {
         "type":"latex",
@@ -37,15 +39,18 @@
     },
     {
         "type":"text",
-        "content-it":"quindi la differenza di quadrati di due numeri consecutivi è sempre un numero dispari. ed è la somma dei due numeri. ora consideriamo i "
+        "content-it":"quindi la differenza di quadrati di due numeri consecutivi è sempre un numero dispari. ed è la somma dei due numeri. ora consideriamo i ",
+        "content-en":"therefore the difference of squares of two consecutive numbers is always an odd number and is the sum of the two numbers. now let's consider the "
     },
     {
         "type":"bold",
-        "content-it":"numeri non consecutivi"
+        "content-it":"numeri non consecutivi",
+        "content-en":"non-consecutive numbers"
     },
     {
         "type":"text",
         "content-it":"se per esempio volessimo calcolare la somma di numeri che differiscono di due avrei la seguente formula",
+        "content-en":"if for example we wanted to calculate the difference of numbers that differ by two we would have the following formula",
         "newline": true
     },
     {
@@ -54,7 +59,8 @@
     },
     {
         "type":"text",
-        "content-it":"sottraiamo e aggiungiamo "
+        "content-it":"sottraiamo e aggiungiamo ",
+        "content-en":"we subtract and add "
     },
     {
         "type":"latex",
@@ -63,7 +69,8 @@
     },
     {
         "type":"text",
-        "content-it":"otteniamo"
+        "content-it":"otteniamo",
+        "content-en":"we obtain"
     },
     {
         "type":"latex",
@@ -71,7 +78,8 @@
     },
     {
         "type":"text",
-        "content-it":"usiamo le formule appena viste per i numeri consecutivi"
+        "content-it":"usiamo le formule appena viste per i numeri consecutivi",
+        "content-en":"we use the formulas just seen for consecutive numbers"
     },
     {
         "type":"latex",
@@ -79,7 +87,8 @@
     },
     {
         "type":"text",
-        "content-it":"scomponiamo ancora sapendo che"
+        "content-it":"scomponiamo ancora sapendo che",
+        "content-en":"we factor further knowing that"
     },
     {
         "type":"latex",
@@ -92,7 +101,8 @@
     },
     {
         "type":"text",
-        "content-it":"e sommiamo"
+        "content-it":"e sommiamo",
+        "content-en":"and we add"
     },
     {
         "type":"latex",
@@ -100,21 +110,12 @@
     },
     {
         "type":"text",
-        "content-it":"è semplice dedurre (e anche dimostrare) che per calcolare le differenze di quadrati basta"
+        "content-it":"è semplice dedurre (e anche dimostrare) che per calcolare le differenze di quadrati basta",
+        "content-en":"it is simple to deduce (and also prove) that to calculate differences of squares it is enough to"
     },
     {
         "type":"bold",
-        "content-it":"sommare i numeri compresi tra i due numeri di cui vogliamo calcolare la differenza di quadrati moltiplicare per 2 e aggiugere gli estremi"
+        "content-it":"sommare i numeri compresi tra i due numeri di cui vogliamo calcolare la differenza di quadrati moltiplicare per 2 e aggiugere gli estremi",
+        "content-en":"sum the numbers between the two numbers of which we want to calculate the difference of squares, multiply by 2, and add the endpoints"
     }
-
-
-
-
-
-
-
-    
-
-
-
 ]

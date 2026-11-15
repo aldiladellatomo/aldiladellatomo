@@ -1,21 +1,25 @@
 [
     {
         "type": "text",
-        "content-it": "In questa rubrica vedremo come calcolare la derivata di una funzione usando la geometria analitica. In particolare, in questo articolo calcoleremo la derivata della semicircoferenza."
+        "content-it": "In questa rubrica vedremo come calcolare la derivata di una funzione usando la geometria analitica. In particolare, in questo articolo calcoleremo la derivata della semicircoferenza.",
+        "content-en": "In this column we will see how to calculate the derivative of a function using analytic geometry. In particular, in this article we will calculate the derivative of the semicircle."
     },
     {
         "type": "text",
         "newline": true,
-        "content-it": "Innanzitutto, ricordiamo che la derivata di una funzione in un punto è il "
+        "content-it": "Innanzitutto, ricordiamo che la derivata di una funzione in un punto è il ",
+        "content-en": "First of all, let's recall that the derivative of a function at a point is the "
     },
     {
         "type": "bold",
-        "content-it": "coefficiente angolare della retta tangente alla curva in quel punto."
+        "content-it": "coefficiente angolare della retta tangente alla curva in quel punto.",
+        "content-en": "angular coefficient of the tangent line to the curve at that point."
     },
     {
         "type": "text",
         "newline": true,
-        "content-it":"la semi circonferenza ha equazione: "
+        "content-it":"la semi circonferenza ha equazione: ",
+        "content-en": "the semicircle has equation: "
     },
     {
         "type": "latex",
@@ -23,7 +27,8 @@
     },
     {
         "type": "text",
-        "content-it":"eleviamo al quadrato entrambi i membri (ottenendo l'equazione di una circonferenza): "
+        "content-it":"eleviamo al quadrato entrambi i membri (ottenendo l'equazione di una circonferenza): ",
+        "content-en": "we square both members (obtaining the equation of a circumference): "
     },
     {
         "type": "latex",
@@ -31,16 +36,19 @@
     },
     {
         "type": "text",
-        "content-it":"spostiamo il termine"
+        "content-it":"spostiamo il termine",
+        "content-en": "we move the term"
     },
     {
         "type": "latex",
         "inline": true,
-        "formula": "x^2"
+        "content-it": "x^2",
+        "content-en": "x^2"
     },
     {
         "type": "text",
-        "content-it":" a sinistra: "
+        "content-it":" a sinistra: ",
+        "content-en": " to the left: "
     },
     {
         "type": "latex",
@@ -48,32 +56,38 @@
     },
     {
         "type":"text",
-        "content-it":"ora possiamo calcolare la tangente a questa curva usando la geometria analitica. in tre modi:"
+        "content-it":"ora possiamo calcolare la tangente a questa curva usando la geometria analitica. in tre modi:",
+        "content-en": "now we can calculate the tangent to this curve using analytic geometry in three ways:"
     },
     {
         "type":"text",
         "newline": true,
-        "content-it":"1. facendo un sistema di equazioni tra la retta passante per un punto e la circonferenza, imponiamo un unica solizione (il punto di tangenza) e ricaviamo il coefficente angolare della retta tangente."
+        "content-it":"1. facendo un sistema di equazioni tra la retta passante per un punto e la circonferenza, imponiamo un unica solizione (il punto di tangenza) e ricaviamo il coefficente angolare della retta tangente.",
+        "content-en": "1. by setting up a system of equations between the line passing through a point and the circumference, imposing a single solution (the point of tangency) and deriving the angular coefficient of the tangent line."
     },
     {
         "type":"text",
         "newline": true,
-        "content-it":"2. calcolando il coefficiente angolare della retta passante per il centro della circonferenza e il punto di tangenza. la retta passante per il centro e il punto di tangenza è perpendicolare alla retta tangente, quindi il coefficente angolare della retta tangente è l'opposto del reciproco del coefficente angolare della retta passante per il centro e il punto di tangenza."
+        "content-it":"2. calcolando il coefficiente angolare della retta passante per il centro della circonferenza e il punto di tangenza. la retta passante per il centro e il punto di tangenza è perpendicolare alla retta tangente, quindi il coefficente angolare della retta tangente è l'opposto del reciproco del coefficente angolare della retta passante per il centro e il punto di tangenza.",
+        "content-en": "2. by calculating the angular coefficient of the line passing through the center of the circumference and the point of tangency. The line passing through the center and the point of tangency is perpendicular to the tangent line, so the angular coefficient of the tangent line is the opposite of the reciprocal of the angular coefficient of the line passing through the center and the point of tangency."
     },
     {
         "type":"text",
         "newline": true,
-        "content-it":"3. usando la formula di sdoppiamento della circoferenza"
+        "content-it":"3. usando la formula di sdoppiamento della circoferenza",
+        "content-en": "3. using the splitting formula of the circumference"
     },
     {
         "type":"text",
         "newline": true,
-        "content-it":"in questo articolo useremo quest'ultima che non è altro che lo sviluppo del primo metodo."
+        "content-it":"in questo articolo useremo quest'ultima che non è altro che lo sviluppo del primo metodo.",
+        "content-en": "in this article we will use the latter, which is nothing more than the development of the first method."
     },
     {
         "type":"text",
         "newline": true,
-        "content-it":"la formula di sdoppiamento è la seguente:"
+        "content-it":"la formula di sdoppiamento è la seguente:",
+        "content-en": "the splitting formula is as follows:"
     },
     {
         "type":"latex",
@@ -82,16 +96,19 @@
     {
         "type":"text",
         "newline": true,
-        "content-it":"dove "
+        "content-it":"dove ",
+        "content-en": "where "
     },
     {
         "type":"latex",
         "inline": true,
-        "formula":"(x_0, y_0)"
+        "content-it":"(x_0, y_0)",
+        "content-en":"(x_0, y_0)"
     },
     {
         "type":"text",
-        "content-it":" è il punto di tangenza. da questa formula possiamo ricavare l'equazione della retta tangente:"
+        "content-it":" è il punto di tangenza. da questa formula possiamo ricavare l'equazione della retta tangente:",
+        "content-en": " is the point of tangency. From this formula we can derive the equation of the tangent line:"
     },
     {
         "type":"latex",
@@ -100,7 +117,8 @@
     {
         "type":"text",
         "newline": true,
-        "content-it":"il coefficente angolare della retta tangente è quindi:"
+        "content-it":"il coefficente angolare della retta tangente è quindi:",
+        "content-en": "the angular coefficient of the tangent line is therefore:"
     },
     {
         "type":"latex",
@@ -109,26 +127,31 @@
     {
         "type":"text",
         "newline": true,
-        "content-it":"sapendo che"
+        "content-it":"sapendo che",
+        "content-en": "knowing that"
     },
     {
         "type":"latex",
         "inline": true,
-        "formula":"y_0 = \\sqrt{r^2 - x_0^2}"
+        "content-it":"y_0 = \\sqrt{r^2 - x_0^2}",
+        "content-en":"y_0 = \\sqrt{r^2 - x_0^2}"
     },
     {
         "type":"text",
-        "content-it":"(perchè "
+        "content-it":"(perchè ",
+        "content-en": "(because "
     },
     {
         "type":"latex",
         "inline": true,
-        "formula":"y_0"
+        "content-it":"y_0",
+        "content-en":"y_0"
     },
     {
         "type":"text",
-        "content-it":" è un punto sulla circonferenza) possiamo riscrivere il coefficente angolare come: "}
-    ,
+        "content-it":" è un punto sulla circonferenza) possiamo riscrivere il coefficente angolare come: ",
+        "content-en": " is a point on the circumference) we can rewrite the angular coefficient as: "
+    },
     {
         "type":"latex",
         "formula":"m = -\\frac{x_0}{\\sqrt{r^2 - x_0^2}}"
@@ -136,7 +159,8 @@
     {
         "type":"text",
         "newline": true,
-        "content-it":"ma la derivata non è altro che la funzione che associa un'ascissa al coefficente angolare della tangente allora possiamo scrivere la derivata come."
+        "content-it":"ma la derivata non è altro che la funzione che associa un'ascissa al coefficente angolare della tangente allora possiamo scrivere la derivata come.",
+        "content-en": "but the derivative is nothing more than the function that associates an abscissa with the angular coefficient of the tangent, so we can write the derivative as."
     },
     {
         "type":"latex",

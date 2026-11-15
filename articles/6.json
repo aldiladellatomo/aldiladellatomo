@@ -1,0 +1,599 @@
+[
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "Iniziamo dalla definizione di ceviana",
+    "content-en": "Let's start from the definition of cevian"
+  },
+  {
+    "type": "quote",
+    "content-it": "la ceviana è il segmento che congiunge un vertice del triangolo al suo lato opposto o al suo prolungamento",
+    "content-en": "the cevian is the segment connecting a vertex of the triangle to its opposite side or its extension",
+    "author": "Ceviana"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "da hier possiamo facilemente intuire che nel triangolo esistono diverse ceviane notevoli: ",
+    "content-en": "from here we can easily deduce that in the triangle there are several notable cevians: "
+  },
+  {
+    "type": "bold",
+    "content-it": "Altezze, Mediane e Bisettrici",
+    "content-en": "Altitudes, Medians and Angle Bisectors"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "per trovare la lunghezza dell'altezza basta semplicemente scrivere la formula dell'area relativa all'altezza di cui si vuole calcolare la lunghezza ed equagliarla all'area sapendo i tre lati (formula di Erone)\nquindi andiamo calcolare l'altezza relativa ad a sapendo che i lati misurano a,b,c",
+    "content-en": "to find the length of the altitude, simply write the area formula relative to the altitude whose length we want to calculate and equate it to the area knowing the three sides (Heron's formula)\ntherefore let's calculate the altitude relative to a knowing that the sides measure a,b,c"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\frac{a \\cdot h}{2}=\\frac{\\sqrt{(a+b+c)\\cdot(-a+b+c)\\cdot(a-b+c)\\cdot(a+b-c)}}{4}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "da hier",
+    "content-en": "from here"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "h=\\frac{\\sqrt{(a+b+c)\\cdot(-a+b+c)\\cdot(a-b+c)\\cdot(a+b-c)}}{2\\cdot a}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "dove il lato al denominatore rappresenta il lato relativo all'altezza che vogliamo calcolare",
+    "content-en": "where the side in the denominator represents the side relative to the altitude we want to calculate"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "per calcolare la lunghezza di mediane e bisettrici di dobbiamo servire del teorema di  Stewart che trova la lunghezza di una qualsiasi ceviana sapendo la lunghezza delle parti in qui quest'ultima divide la base",
+    "content-en": "to calculate the length of medians and angle bisectors we must use Stewart's theorem which finds the length of any cevian knowing the length of the parts into which the latter divides the base"
+  },
+  {
+    "type": "geogebra",
+    "geogebraId": "jdxbxhrc"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "chiamiamo\na, b,c  : lati del triangolo\nd: ceviana da calcolare\nh: l'altezza relativa alla stessa base della ceviana\nm,n: le parti di a divise dalla ceviana\nil lato a è diviso quindi in 3 parti \nm: tra lato e ceviana\nk: tra ceviana e altezza\ng: tra altezza e altro lato\nda hier (relazioni 1,2)",
+    "content-en": "let's call\na, b, c: sides of the triangle\nd: cevian to be calculated\nh: the altitude relative to the same base as the cevian\nm, n: parts of a divided by the cevian\nside a is therefore divided into 3 parts\nm: between side and cevian\nk: between cevian and altitude\ng: between altitude and other side\nfrom here (relations 1,2)"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "a=m+k+g"
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "n=k+g"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "applichiamo pitagora all'altezza h prima sulla ceviana come ipotenusa (relazione 3)",
+    "content-en": "we apply Pythagorean theorem to the altitude h first on the cevian as hypotenuse (relation 3)"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "h^{2}+k^{2}=d^{2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "poi con b come ipotenusa (relazione 4)",
+    "content-en": "then with b as hypotenuse (relation 4)"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "h^{2}+(m+k)^{2}=b^{2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "e c come ipotenusa (relazione 5)",
+    "content-en": "and c as hypotenuse (relation 5)"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "h^{2}+g^{2}=c^{2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "riassumiamo le equazioni in un sistema (ossia un insieme di equazioni) e risolviamo tenendo presente che dobbiamo scrivere d = a qualcosa in funzione di a,b,c,m,n",
+    "content-en": "we summarize the equations in a system (i.e. a set of equations) and solve keeping in mind that we must write d = something in terms of a, b, c, m, n"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}   n=k+g \\\\   h^{2}+k^{2}=d^{2} \\\\   h^{2}+(m+k)^{2}=b^{2} \\\\   h^{2}+g^{2}=c^{2} \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "nella prima equazione porto k a sinistra",
+    "content-en": "in the first equation I bring k to the left"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}   n-k=g \\\\   h^{2}+k^{2}=d^{2} \\\\   h^{2}+(m+k)^{2}=b^{2} \\\\   h^{2}+g^{2}=c^{2} \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "sostituisco g nella 4 equazione (e la tolgo perchè non servirà più)",
+    "content-en": "I substitute g in the 4th equation (and remove it because it will no longer be needed)"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}   h^{2}+k^{2}=d^{2} \\\\   h^{2}+(m+k)^{2}=b^{2} \\\\   h^{2}+(n-k)^{2}=c^{2} \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "espando i quadratti delle equazioni 2 e 3 ",
+    "content-en": "we expand the squares of equations 2 and 3"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}   h^{2}+k^{2}=d^{2} \\\\   h^{2}+m^{2}+2mk+k^{2}=b^{2} \\\\   h^{2}+n^{2}-2nk+ k^{2}=c^{2} \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "riordino i fattori delle equazioni 2 e 3",
+    "content-en": "we reorder the factors of equations 2 and 3"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases} h^{2}+k^{2}=d^{2} \\\\   h^{2}+k^{2}+m^{2}+2mk=b^{2} \\\\   h^{2}+ k^{2}+n^{2}-2nk=c^{2} \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "nella seconda e terza equazione compaiono i termini ",
+    "content-en": "in the second and third equations the terms appear "
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "h^{2}+k^{2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "che sono uguali alla ceviana al quadrato (prima equazione) quindi li sostituisco e la prima equazione è stata utilizzata e non serve più",
+    "content-en": "which are equal to the squared cevian (first equation) so I substitute them and the first equation has been used and is no longer needed"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}  d^{2}+m^{2}+2mk=b^{2} \\\\   d^{2}+n^{2}-2nk=c^{2} \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "resta da eliminare k quindi bisogna isolarlo in entrambe le equazioni (portandolo a destra)",
+    "content-en": "k remains to be eliminated so we must isolate it in both equations (bringing it to the right)"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "porto n ed m ai denominatori ",
+    "content-en": "I bring n and m to the denominators"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}  \\frac{d^{2}+m^{2}-b^{2}}{m}=-2k \\\\   \\frac{d^{2}+n^{2}-c^{2}}{n}=2k \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "2k compare in entrambe le equazioni quindi è logico eguagliarle (poichè entrambe hanno lo stesso risultato) ricordando i segni",
+    "content-en": "2k appears in both equations so it is logical to equate them (since both have the same result) remembering the signs"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\frac{d^{2}+m^{2}-b^{2}}{m}=-\\frac{d^{2}+n^{2}-c^{2}}{n}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "porto tutto al primo membro",
+    "content-en": "I bring everything to the left-hand side"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\frac{d^{2}+m^{2}-b^{2}}{m}+\\frac{d^{2}+n^{2}-c^{2}}{n}=0"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "faccio il minimo comune multiplo ed elimino i denominatori",
+    "content-en": "I find the least common multiple and eliminate the denominators"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\frac{(d^{2}+m^{2}-b^{2})\\cdot n +(d^{2}+n^{2}-c^{2})\\cdot m }{m\\cdot n}=0"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "moltiplico nelle parentesi",
+    "content-en": "I multiply inside the parentheses"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d^{2}\\cdot n+m^{2}\\cdot n-b^{2}\\cdot n +d^{2}\\cdot m +n^{2}\\cdot m -c^{2}\\cdot m =0"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "porto i temini con il - a destra e riscrivo i termini in m ed n in un altro modo",
+    "content-en": "I bring the terms with - to the right and rewrite the terms in m and n in another way"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d^{2}\\cdot n +d^{2}\\cdot m +n\\cdot (n\\cdot m)+m\\cdot (m\\cdot n) =b^{2}\\cdot n + c^{2}\\cdot m"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "e raccolgo la ceviana al quadrato ed",
+    "content-en": "and we factor out the squared cevian and"
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "m \\cdot n"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d^{2}\\cdot (n+ m) +(n\\cdot m)(n+m) =b^{2}\\cdot n + c^{2}\\cdot m"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "raccolgo",
+    "content-en": "we factor out"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "(d^{2} +n\\cdot m)(n+m) =b^{2}\\cdot n + c^{2}\\cdot m"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "divido per n+m",
+    "content-en": "we divide by n+m"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d^{2} +n\\cdot m= \\frac{b^{2}\\cdot n + c^{2}\\cdot m}{n+m}"
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "n+m =a "
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "dalla relazioni 1 e 2 , porto il termine misto a destra e applico la radice",
+    "content-en": "from relations 1 and 2, I bring the mixed term to the right and apply the square root"
+  },
+  {
+    "type": "bold",
+    "content-it": "ecco la formula della lunghezza della ceviana sulla base a e di proiezioni m ed n",
+    "content-en": "here is the formula for the length of the cevian on base a with projections m and n"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d =\\sqrt{\\frac{b^{2}\\cdot n + c^{2}\\cdot m}{a}-n\\cdot m}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "ora possiamo cercare la lunghezza della mediana sapendo che",
+    "content-en": "now we can find the length of the median knowing that"
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "m=n=\\frac{a}{2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "la formula diventa",
+    "content-en": "the formula becomes"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d =\\sqrt{\\frac{b^{2}\\cdot a/2+ c^{2}\\cdot a/2}{a}-a/2\\cdot a/2}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "raccolgo a/2",
+    "content-en": "we factor out a/2"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d =\\sqrt{\\frac{a}{2}\\cdot\\frac{b^{2}+ c^{2}}{a}-\\frac{a^{2}}{4}}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "porto fuori 1/4, semplifico e",
+    "content-en": "we factor out 1/4, simplify and"
+  },
+  {
+    "type": "bold",
+    "content-it": "abbiamo la lunghezza della mediana realtiva ad a",
+    "content-en": "we have the length of the median relative to a"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d =\\frac{1}{2}\\cdot\\sqrt{2\\cdot(b^{2}+ c^{2})-a^{2}}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "facciamo ora la bisettrice",
+    "content-en": "let's now do the angle bisector"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "dal teorema della bisettrice abbiamo",
+    "content-en": "from the angle bisector theorem we have"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\frac{m}{n}=\\frac{b}{c}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "ma abbiamo che",
+    "content-en": "but we have that"
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "n=a-m"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "che applicato per m e n viene",
+    "content-en": "which applied for m and n becomes"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}  \\frac{m}{a-m}=\\frac{b}{c}\\\\   \\frac{a-n}{n}=\\frac{b}{c}  \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "moltiplico in croce per togliere i denominatori",
+    "content-en": "we cross-multiply to remove denominators"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}  m\\cdot c=b\\cdot( a-m)\\\\   (a-n)\\cdot c=b\\cdot n  \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "moltiplico e porto i membri con m ed n dalla stessa parte",
+    "content-en": "we multiply and bring the terms with m and n to the same side"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}  m\\cdot c+b\\cdot m=b\\cdot a\\\\   a\\cdot c=b\\cdot n + n\\cdot c \\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "raccolgo m ed n ",
+    "content-en": "we factor out m and n"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}  m\\cdot (c+b)=b\\cdot a\\\\   a\\cdot c=(b+c)\\cdot n\\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "divido per ottenere m ed n ",
+    "content-en": "we divide to obtain m and n"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "\\begin{cases}  m =\\frac{b\\cdot a}{c+b}\\\\   n=\\frac{a\\cdot c}{b+c}\\end{cases}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "sostituisco nella formula della ceviana",
+    "content-en": "we substitute into the cevian formula"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d =\\sqrt{\\frac{b^{2}\\cdot \\frac{a\\cdot c}{b+c} + c^{2}\\cdot \\frac{b\\cdot a}{c+b}}{a}-\\frac{a\\cdot c}{b+c}\\cdot \\frac{b\\cdot a}{c+b}}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "raccolgo dal denominatore della prima frazione ",
+    "content-en": "we factor out from the denominator of the first fraction"
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "\\frac{a}{b+c}"
+  },
+  {
+    "type": "text",
+    "newline": false,
+    "content-it": "e dalla seconda parte ",
+    "content-en": "and from the second part"
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "\\frac{a^{2}}{(b+c)^{2}}"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d =\\sqrt{\\frac{1}{a}\\cdot\\frac{a}{b+c}\\cdot(b^{2}\\cdot c + c^{2}\\cdot b)-\\frac{a^{2}}{(b+c)^{2}}  \\cdot c\\cdot b}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "raccolgo b+c",
+    "content-en": "we factor out b+c"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d =\\sqrt{\\frac{1}{a}\\cdot\\frac{a}{b+c}\\cdot( c + b)\\cdot b \\cdot c-\\frac{a^{2}}{(b+c)^{2}}  \\cdot c\\cdot b}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "semplifico",
+    "content-en": "we simplify"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d =\\sqrt{b \\cdot c-\\frac{a^{2}}{(b+c)^{2}}  \\cdot c\\cdot b}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "raccolgo",
+    "content-en": "we factor out"
+  },
+  {
+    "type": "latex",
+    "inline": true,
+    "formula": "b \\cdot c"
+  },
+  {
+    "type": "bold",
+    "content-it": "ed abbiamo la lunghezza della bisettrice relativa ad a",
+    "content-en": "and we have the length of the angle bisector relative to a"
+  },
+  {
+    "type": "latex",
+    "inline": false,
+    "formula": "d =\\sqrt{b \\cdot c\\cdot[1-\\frac{a^{2}}{(b+c)^{2}}]}"
+  },
+  {
+    "type": "text",
+    "newline": true,
+    "content-it": "ora facciamo una tabella riassuntiva",
+    "content-en": "now let's make a summary table"
+  },
+  {
+    "type": "bold",
+    "content-it": "siano a,b,c i lati di un triangolo abbiamo",
+    "content-en": "let a, b, c be the sides of a triangle, we have"
+  },
+  {
+    "type": "table",
+    "headers-it": [
+      "Relativa a",
+      "a",
+      "b",
+      "c"
+    ],
+    "headers-en": [
+      "Relative to",
+      "a",
+      "b",
+      "c"
+    ],
+    "rows-it": [
+      [
+        "Mediana",
+        "$\\frac{1}{2}\\cdot\\sqrt{2\\cdot(b^{2}+ c^{2})-a^{2}}$",
+        "$\\frac{1}{2}\\cdot\\sqrt{2\\cdot(a^{2}+ c^{2})-b^{2}}$",
+        "$\\frac{1}{2}\\cdot\\sqrt{2\\cdot(b^{2}+ a^{2})-ac^{2}}$"
+      ],
+      [
+        "Altezza",
+        "$h=\\frac{\\sqrt{(a+b+c)\\cdot(-a+b+c)\\cdot(a-b+c)\\cdot(a+b-c)}}{2\\cdot a}$",
+        "$h=\\frac{\\sqrt{(a+b+c)\\cdot(-a+b+c)\\cdot(a-b+c)\\cdot(a+b-c)}}{2\\cdot b}$",
+        "$h=\\frac{\\sqrt{(a+b+c)\\cdot(-a+b+c)\\cdot(a-b+c)\\cdot(a+b-c)}}{2\\cdot c}$"
+      ],
+      [
+        "Bisettrice",
+        "$\\sqrt{b \\cdot c\\cdot[1-\\frac{a^{2}}{(b+c)^{2}}]}$",
+        "$\\sqrt{a \\cdot c\\cdot[1-\\frac{b^{2}}{(a+c)^{2}}]}$",
+        "$\\sqrt{b \\cdot a\\cdot[1-\\frac{c^{2}}{(b+a)^{2}}]}$"
+      ]
+    ],
+    "rows-en": [
+      [
+        "Median",
+        "$\\frac{1}{2}\\cdot\\sqrt{2\\cdot(b^{2}+ c^{2})-a^{2}}$",
+        "$\\frac{1}{2}\\cdot\\sqrt{2\\cdot(a^{2}+ c^{2})-b^{2}}$",
+        "$\\frac{1}{2}\\cdot\\sqrt{2\\cdot(a^{2}+ b^{2})-c^{2}}$"
+      ],
+      [
+        "Altitude",
+        "$h=\\frac{\\sqrt{(a+b+c)\\cdot(-a+b+c)\\cdot(a-b+c)\\cdot(a+b-c)}}{2\\cdot a}$",
+        "$h=\\frac{\\sqrt{(a+b+c)\\cdot(-a+b+c)\\cdot(a-b+c)\\cdot(a+b-c)}}{2\\cdot b}$",
+        "$h=\\frac{\\sqrt{(a+b+c)\\cdot(-a+b+c)\\cdot(a-b+c)\\cdot(a+b-c)}}{2\\cdot c}$"
+      ],
+      [
+        "Angle Bisector",
+        "$\\sqrt{b \\cdot c\\cdot[1-\\frac{a^{2}}{(b+c)^{2}}]}$",
+        "$\\sqrt{a \\cdot c\\cdot[1-\\frac{b^{2}}{(a+c)^{2}}]}$",
+        "$\\sqrt{b \\cdot a\\cdot[1-\\frac{c^{2}}{(b+a)^{2}}]}$"
+      ]
+    ]
+  }
+]
