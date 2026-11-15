@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifica Articolo — Article Maker</title>
+  <link rel="stylesheet" href="/core/style.css">
+  <link id="favicon" rel="icon" type="image/svg+xml" href="/images/a0.svg">
+  <!-- Configurazione e Script MathJax 3 identici a article.html -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="ba0">
+
+  <header>
+    <div class="editor-brand" onclick="window.location.href='index.html'">⚛️ Article Maker</div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button onclick="window.location.href='index.html'">← Home Editor</button>
+      <button onclick="togglePreview()" id="btn-preview">👁️ Preview</button>
+      <button class="a0" onclick="downloadAllFiles()">⬇️ Download</button>
+    </div>
+  </header>
+
+  <!-- ==================== VISTA EDITOR ==================== -->
+  <main id="view-editor" class="editor-container">
+    <div class="editor-card">
+      <div class="editor-top-bar">
+        <h2 id="editor-heading">Modifica Articolo</h2>
+      </div>
+
+      <div class="editor-grid-3">
+        <div class="editor-field">
+          <label>ID Articolo</label>
+          <input type="text" id="meta-id" oninput="syncMeta()">
+        </div>
+        <div class="editor-field">
+          <label>Materia (class)</label>
+          <select id="meta-class" onchange="syncMeta(); updateThemeClass();">
+            <option value="a1">a1 — Fisica</option>
+            <option value="a2">a2 — Matematica</option>
+            <option value="a3">a3 — Chimica</option>
+            <option value="a4">a4 — Biologia</option>
+          </select>
+        </div>
+        <div class="editor-field">
+          <label>Data (YYYY-MM-DD)</label>
+          <input type="date" id="meta-date" oninput="syncMeta()">
+        </div>
+      </div>
+
+      <div class="editor-grid-2">
+        <div class="editor-field">
+          <label>Titolo Italiano (name-it)</label>
+          <input type="text" id="meta-name-it" placeholder="Titolo dell'articolo" oninput="syncMeta()">
+        </div>
+        <div class="editor-field">
+          <label>Titolo Inglese (name-en)</label>
+          <input type="text" id="meta-name-en" placeholder="Article Title" oninput="syncMeta()">
+        </div>
+      </div>
+
+      <div class="editor-grid-2">
+        <div class="editor-field">
+          <label>Descrizione SEO Italiano (desc-it)</label>
+          <textarea id="meta-desc-it" placeholder="Descrizione sintetica..." oninput="syncMeta()"></textarea>
+        </div>
+        <div class="editor-field">
+          <label>Descrizione SEO Inglese (desc-en)</label>
+          <textarea id="meta-desc-en" placeholder="Short article description..." oninput="syncMeta()"></textarea>
+        </div>
+      </div>
+
+      <div class="editor-field">
+        <label>Tag di ricerca (separati da virgola — search)</label>
+        <input type="text" id="meta-search" placeholder="quantistica, atomo, fisica" oninput="syncMeta()">
+      </div>
+    </div>
+
+    <div id="blocks-container"></div>
+
+    <div class="block-toolbar">
+      <button onclick="addBlock('text')">+ Testo</button>
+      <button onclick="addBlock('bold')">+ Grassetto</button>
+      <button onclick="addBlock('latex')">+ Formula LaTeX</button>
+      <button onclick="addBlock('geogebra')">+ GeoGebra</button>
+      <button onclick="addBlock('image')">+ Immagine</button>
+      <button onclick="addBlock('quote')">+ Citazione</button>
+      <button onclick="addBlock('table')">+ Tabella</button>
+      <button onclick="addBlock('link')">+ Link</button>
+    </div>
+  </main>
+
+  <!-- ==================== VISTA PREVIEW (Usa lo stesso layout di article.html) ==================== -->
+  <section id="view-preview" class="editor-container editor-hidden">
+    <div class="editor-card" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+      <div style="display:flex; gap:8px; align-items:center;">
+        <span style="font-weight:700;">Lingua Anteprima:</span>
+        <button id="prev-lang-it" class="a0" onclick="setPreviewLang('it')">IT</button>
+        <button id="prev-lang-en" onclick="setPreviewLang('en')">EN</button>
+      </div>
+      <button class="a0" onclick="downloadAllFiles()">⬇️ Download</button>
+    </div>
+
+    <!-- Struttura identica a article.html per sfruttare core/article.js -->
+    <h1 id="article-title"></h1>
+    <p id="desc" class="article-subtitle"></p>
+    <div id="content"></div>
+    <p id="article-date" class="article-date"></p>
+  </section>
+
+  <!-- Script di supporto generali e motore di interpretazione ufficiale -->
+  <script src="/core/script.js"></script>
+  <script src="/core/article.js"></script>
+  <script src="edit.js"></script>
+</body>
+</html>
